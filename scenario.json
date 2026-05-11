@@ -29,6 +29,11 @@
   
   { "frame": 1400, "x": 60,  "type": "stationary", "hp": 4, "bulletType": "aim", "stopY": 80, "waitTime": 150 },
   { "frame": 1400, "x": 260, "type": "stationary", "hp": 4, "bulletType": "aim", "stopY": 80, "waitTime": 150 },
+
+  { "frame": 1600, "x": 20, "type": "straight", "hp": 1, "bulletType": "straight" },
+  { "frame": 1620, "x": 300, "type": "straight", "hp": 1, "bulletType": "straight" },
+  { "frame": 1640, "x": 40, "type": "straight", "hp": 1, "bulletType": "straight" },
+  { "frame": 1660, "x": 280, "type": "straight", "hp": 1, "bulletType": "straight" },
   
   { "frame": 1900, "x": 160, "type": "stationary", "hp": 5, "bulletType": "eight-way", "stopY": 150, "waitTime": 300 },
   
@@ -57,6 +62,9 @@
   { "frame": 4400, "x": 80,  "type": "stationary", "hp": 6, "bulletType": "aim", "stopY": 100, "waitTime": 400 },
   { "frame": 4400, "x": 240, "type": "stationary", "hp": 6, "bulletType": "aim", "stopY": 100, "waitTime": 400 },
   
+  { "frame": 4800, "x": 20, "type": "straight", "hp": 2, "bulletType": "triple" },
+  { "frame": 4830, "x": 300, "type": "straight", "hp": 2, "bulletType": "triple" },
+
   { "frame": 5100, "x": 160, "type": "stationary", "hp": 10, "bulletType": "eight-way", "stopY": 90, "waitTime": 600 },
   
   { "frame": 5200, "x": 40,  "type": "stationary", "hp": 5, "bulletType": "aim", "stopY": 60, "waitTime": 500 },
@@ -64,11 +72,10 @@
   
   { "frame": 5500, "x": 160, "type": "sine", "hp": 6, "phase": 0, "amplitude": 120, "bulletType": "eight-way" },
   
-  { "frame": 6000, "x": 160, "type": "stationary", "hp": 10, "bulletType": "eight-way", "stopY": 150, "waitTime": 500 },
-  
-  { "frame": 6800, "x": 160, "type": "stationary", "hp": 12, "bulletType": "eight-way", "stopY": 80, "waitTime": 800 },
-  { "frame": 7200, "x": 160, "type": "stationary", "hp": 15, "bulletType": "eight-way", "stopY": 120, "waitTime": 1000 },
-  { "frame": 7800, "x": 160, "type": "stationary", "hp": 20, "bulletType": "eight-way", "stopY": 70, "waitTime": 1200 },
-  
-  { "frame": 8500, "x": 160, "type": "straight", "hp": 1, "bulletType": "straight" }
+  { "frame": 5800, "x": 60, "type": "straight", "hp": 1, "bulletType": "straight" },
+  { "frame": 5820, "x": 260, "type": "straight", "hp": 1, "bulletType": "straight" },
+  { "frame": 5840, "x": 100, "type": "straight", "hp": 1, "bulletType": "straight" },
+  { "frame": 5860, "x": 220, "type": "straight", "hp": 1, "bulletType": "straight" },
+
+  { "frame": 6000, "x": 128, "type": "boss", "hp": 100, "bulletType": "aim" }
 ]
