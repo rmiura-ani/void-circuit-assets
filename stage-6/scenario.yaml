@@ -1,0 +1,50 @@
+# PROJECT: VOID-CIRCUIT | Stage 6 Scenario
+# BGM Length: 8400F (02:20) | Boss Entrance: 5700F (01:35)
+# --------------------------------------------------
+
+version: 0.2
+
+name: "Burning Orbit"
+bgm: "stage-6/PROJECT_VOID-CIRCUIT STAGE_6 -Burning Orbit-.ogg"
+enemies:
+  # 00:01- 開幕の激しいメタルリフ。超高速の特攻編隊が交互に画面を横切る
+  - { frame: 60,   x: 40,  type: "straight", hp: 2, bulletType: "straight" }
+  - { frame: 70,   x: 80,  type: "straight", hp: 2, bulletType: "straight" }
+  - { frame: 80,   x: 120, type: "straight", hp: 2, bulletType: "straight" }
+  - { frame: 140,  x: 280, type: "straight", hp: 2, bulletType: "straight" }
+  - { frame: 150,  x: 240, type: "straight", hp: 2, bulletType: "straight" }
+  - { frame: 160,  x: 200, type: "straight", hp: 2, bulletType: "straight" }
+
+  # 00:04- ツインギターのハモリに同期した、左右同時出現の超高耐久設置砲台
+  - { frame: 250,  x: 60,  type: "stationary", hp: 10, bulletType: "eight-way", stopY: 90, waitTime: 200 }
+  - { frame: 250,  x: 260, type: "stationary", hp: 10, bulletType: "eight-way", stopY: 90, waitTime: 200 }
+
+  # 00:08- Aメロ：燃える空。大気圏の摩擦を突き破る、激しい3WAYサイン波
+  - { frame: 500,  x: 160, type: "sine", hp: 4, phase: 0.0, amplitude: 120, bulletType: "triple" }
+  - { frame: 530,  x: 160, type: "sine", hp: 4, phase: 3.14, amplitude: 120, bulletType: "triple" }
+
+  # 00:18- Bメロ：大型戦艦の対空防衛網。画面最前線（stopY: 160）まで迫る重戦車配置
+  - { frame: 1100, x: 160, type: "stationary", hp: 15, bulletType: "eight-way", stopY: 160, waitTime: 350 }
+  - { frame: 1300, x: 100, type: "shield", hp: 12 }
+  - { frame: 1330, x: 220, type: "shield", hp: 12 }
+
+  # 00:30- サビ：アドレナリン全開のツインリード。自機を真っ直ぐ引き裂くハンターの雨
+  - { frame: 1800, x: 40,  type: "hunter", hp: 6, bulletType: "aim" }
+  - { frame: 1840, x: 140, type: "hunter", hp: 6, bulletType: "aim" }
+  - { frame: 1880, x: 240, type: "hunter", hp: 6, bulletType: "aim" }
+
+  # 00:45- クライマックス：戦艦の主砲群との激突（圧倒的物量）
+  - { frame: 2700, x: 160, type: "stationary", hp: 20, bulletType: "eight-way", stopY: 80, waitTime: 500 }
+  - { frame: 3200, x: 80,  type: "stationary", hp: 10, bulletType: "triple", stopY: 120, waitTime: 300 }
+  - { frame: 3200, x: 240, type: "stationary", hp: 10, bulletType: "triple", stopY: 120, waitTime: 300 }
+  - { frame: 3800, x: 160, type: "sine", hp: 8, phase: 0.0, amplitude: 150, bulletType: "eight-way" }
+
+  # 01:37- Boss Battle: 超巨大空中戦艦、襲来。サビの終わりと同時に画面を覆い尽くす
+  - { frame: 5850, x: 128, type: "boss_06", hp: 200 }
+
+  # 戦艦の対空機銃群（高速ストレート弾とクロスサイン波の無限地獄）
+  - { frame: 6000, x: 60,  type: "stationary", hp: 6, bulletType: "aim", stopY: 50, waitTime: 100 }
+  - { frame: 6000, x: 260, type: "stationary", hp: 6, bulletType: "aim", stopY: 50, waitTime: 100 }
+  - { frame: 6300, x: 160, type: "sine", hp: 8, phase: 1.5, amplitude: 140, bulletType: "triple" }
+
+  - { frame: 6800, type: "LOOP_END", returnTo: 6000 }

@@ -1,0 +1,74 @@
+# PROJECT: VOID-CIRCUIT | Stage 7 Scenario
+# BGM Length: 12000F (03:20臨時) | Boss Rush Start: 2700F (00:45)
+# --------------------------------------------------
+
+version: 0.2
+
+name: "Absolute Core"
+bgm: "stage-7/PROJECT_VOID-CIRCUIT STAGE_7 -Absolute Core-.ogg"
+enemies:
+  # 00:01- 終焉を告げるダークなFMオルガン。極限密度の12連ストレート編隊
+  - { frame: 60,   x: 40,  type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 70,   x: 80,  type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 80,   x: 120, type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 90,   x: 160, type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 100,  x: 200, type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 110,  x: 240, type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 120,  x: 280, type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 130,  x: 240, type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 140,  x: 200, type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 150,  x: 160, type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 160,  x: 120, type: "straight", hp: 3, bulletType: "straight" }
+  - { frame: 170,  x: 80,  type: "straight", hp: 3, bulletType: "straight" }
+
+  # 00:04- 中枢の洗礼。4方向からの交差設置型（画面の上下左右を制圧）
+  - { frame: 280,  x: 60,  type: "stationary", hp: 10, bulletType: "eight-way", stopY: 60, waitTime: 200 }
+  - { frame: 280,  x: 260, type: "stationary", hp: 10, bulletType: "eight-way", stopY: 60, waitTime: 200 }
+  - { frame: 340,  x: 100, type: "stationary", hp: 10, bulletType: "eight-way", stopY: 130, waitTime: 200 }
+  - { frame: 340,  x: 220, type: "stationary", hp: 10, bulletType: "eight-way", stopY: 130, waitTime: 200 }
+
+# 00:22- Bメロ：絶対防衛壁。前衛を固める鉄壁の盾群と、後方から狙い撃つ高速ハンター
+  - { frame: 1320, x: 80,  type: "shield", hp: 15 }
+  - { frame: 1320, x: 160, type: "shield", hp: 15 }
+  - { frame: 1320, x: 240, type: "shield", hp: 15 }
+  - { frame: 1500, x: 40,  type: "hunter", hp: 8, bulletType: "eight-way" }
+  - { frame: 1540, x: 280, type: "hunter", hp: 8, bulletType: "eight-way" }
+
+# 00:xx- 中サビ：グリッド線の超高速スクロールとともに展開する、死を誘う8方向設置の乱舞
+  - { frame: 2000, x: 160, type: "stationary", hp: 25, bulletType: "eight-way", stopY: 100, waitTime: 500 }
+  - { frame: 2400, x: 40,  type: "stationary", hp: 12, bulletType: "triple", stopY: 140, waitTime: 300 }
+  - { frame: 2400, x: 280, type: "stationary", hp: 12, bulletType: "triple", stopY: 140, waitTime: 300 }
+
+  # ==================================================
+  # 00:45- 【宿命のボスラッシュ（STAGE 1-6 ボス連戦）】
+  # ==================================================
+  
+  # 00:45- 中ボス1: Stage 1 Boss (Iron Vein) 再誕
+  - { frame: 2700, x: 128, type: "boss_01", hp: 100 } # 耐久力はラッシュ用に調整
+  
+  # 01:05- 中ボス2: Stage 2 Boss (Emerald Aqua) 再誕
+  - { frame: 3900, x: 128, type: "boss_02", hp: 120 }
+  
+  # 01:25- 中ボス3: Stage 3 Boss (Cloud Palace) 再誕
+  - { frame: 5100, x: 128, type: "boss_03", hp: 140 }
+  
+  # 01:45- 中ボス4: Stage 4 Boss (Ancient Logic) 再誕
+  - { frame: 6300, x: 128, type: "boss_04", hp: 160 }
+  
+  # 02:05- 中ボス5: Stage 5 Boss (Planetary Pulse) 再誕
+  - { frame: 7500, x: 128, type: "boss_05", hp: 180 }
+  
+  # 02:25- 中ボス6: Stage 6 Boss (Burning Orbit) 再誕
+  - { frame: 8700, x: 128, type: "boss_06", hp: 200 }
+
+  # ==================================================
+  # 02:50- 【FINAL ENCOUNTER: 宿敵との決着】
+  # ==================================================
+  # 要塞中枢機械の心臓部。曲の劇的な変化に合わせて出現 [cite: 10, 19]
+  - { frame: 1020, x: 128, type: "boss_07_final", hp: 600 }
+
+  # 最終ボス戦用無限湧き増援（電子の火花）
+  - { frame: 1080, x: 160, type: "sine", hp: 5, phase: 0, amplitude: 120, bulletType: "eight-way" }
+
+  # 最終防衛線ループ
+  - { frame: 1150, type: "LOOP_END", returnTo: 1025 }

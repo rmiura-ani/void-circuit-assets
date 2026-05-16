@@ -1,0 +1,59 @@
+# PROJECT: VOID-CIRCUIT | Stage 2 Scenario
+# BGM Length: 5000F (01:23) | Boss Entrance: 2330F (00:38)
+# --------------------------------------------------
+
+version: 0.2
+
+name: "Emerald Aqua"
+bgm: "stage-2/PROJECT_VOID-CIRCUIT STAGE_2 -Emerald Aqua-.ogg"
+enemies:
+  # 00:01- 爽やかなイントロ：高速な偵察機がクロスして滑り込む
+  - { frame: 60,   x: 40,  type: "straight", hp: 1, bulletType: "aim" }
+  - { frame: 70,   x: 280, type: "straight", hp: 1, bulletType: "aim" }
+  - { frame: 120,  x: 80,  type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 135,  x: 120, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 150,  x: 200, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 165,  x: 240, type: "straight", hp: 1, bulletType: "straight" }
+
+  # 00:04- 水面の煌めき（FMベル）と同期したサイン波のV字編隊
+  - { frame: 260,  x: 160, type: "sine", hp: 2, phase: 0.0, amplitude: 60, bulletType: "aim" }
+  - { frame: 290,  x: 100, type: "sine", hp: 2, phase: 0.3, amplitude: 60, bulletType: "straight" }
+  - { frame: 290,  x: 220, type: "sine", hp: 2, phase: 0.3, amplitude: 60, bulletType: "straight" }
+
+  # 00:08- Aメロ：明るいリードに合わせた設置型の波状攻撃
+  - { frame: 500,  x: 160, type: "stationary", hp: 4, bulletType: "triple", stopY: 80, waitTime: 180 }
+  - { frame: 650,  x: 60,  type: "stationary", hp: 4, bulletType: "eight-way", stopY: 110, waitTime: 150 }
+  - { frame: 650,  x: 260, type: "stationary", hp: 4, bulletType: "eight-way", stopY: 110, waitTime: 150 }
+
+  # 00:15- Bメロ：弾を撃ち返す「盾（カウンター）」の出現。STRAIGHTへの換装を促す
+  - { frame: 900,  x: 140, type: "shield", hp: 6 }
+  - { frame: 950,  x: 180, type: "shield", hp: 6 }
+  - { frame: 1100, x: 160, type: "stationary", hp: 8, bulletType: "eight-way", stopY: 130, waitTime: 240 }
+
+  # 00:25- サビ：フュージョンベースの解放に合わせたハイスピード大サイン波
+  - { frame: 1500, x: 80,  type: "sine", hp: 3, phase: 0.0, amplitude: 120, bulletType: "triple" }
+  - { frame: 1540, x: 240, type: "sine", hp: 3, phase: 3.14, amplitude: 120, bulletType: "triple" }
+
+  # 00:32- 自機を執拗に追尾する「ハンター」と盾の複合殺意配置
+  - { frame: 1920, x: 60,  type: "hunter", hp: 4, bulletType: "aim" }
+  - { frame: 1940, x: 260, type: "hunter", hp: 4, bulletType: "aim" }
+  - { frame: 1960, x: 160, type: "shield", hp: 8 }
+
+  # 00:40- ボス直前のラッシュ（Bメロのリフレイン）
+  - { frame: 2400, x: 160, type: "stationary", hp: 12, bulletType: "eight-way", stopY: 90, waitTime: 400 }
+  - { frame: 2800, x: 80,  type: "sine", hp: 4, phase: 1.5, amplitude: 90, bulletType: "triple" }
+  - { frame: 2800, x: 240, type: "sine", hp: 4, phase: 4.6, amplitude: 90, bulletType: "triple" }
+
+  # 00:53- 潜航母艦のお出ましを告げる不気味な静寂と最終ライン
+  - { frame: 3200, x: 160, type: "straight", hp: 5, bulletType: "eight-way" }
+  - { frame: 3400, x: 120, type: "straight", hp: 5, bulletType: "triple" }
+
+  # 01:00- Boss Battle: 潜航母艦（ギミックボス）出現、水面を割る重低音
+  - { frame: 3600, x: 128, type: "boss_02", hp: 150 }
+
+  # ボス戦中の無限湧き増援（トリッキーな横移動ハンターと8方向弾）
+  - { frame: 3800, x: 160, type: "sine", hp: 5, phase: 0.0, amplitude: 100, bulletType: "triple" }
+  - { frame: 4000, x: 40,  type: "hunter", hp: 3, bulletType: "aim" }
+  - { frame: 4020, x: 280, type: "hunter", hp: 3, bulletType: "aim" }
+
+  - { frame: 4400, type: "LOOP_END", returnTo: 3800 }

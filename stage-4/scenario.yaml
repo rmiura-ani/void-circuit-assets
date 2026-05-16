@@ -1,0 +1,103 @@
+# PROJECT: VOID-CIRCUIT | Stage 4 Scenario (🔥 HARDCORE HYPER-SYNC EDITION)
+# BGM Length: 10440F (02:54) | Boss Entrance: 7800F (02:10)
+# ----------------------------------------------------------------------
+
+version: 0.2
+
+name: "Ancient Logic"
+bgm: "stage-4/PROJECT_VOID-CIRCUIT STAGE_4 -Ancient Logic-.ogg"
+enemies:
+  # ==========================================
+  # 00:01- 【導入】エスニックなイントロ
+  # ＝開幕3秒で「突撃型」が死角から高速クロス！陽炎を切り裂く奇襲
+  # ==========================================
+  - { frame: 60,   x: 40,  type: "straight", hp: 2, bulletType: "straight" }
+  - { frame: 60,   x: 280, type: "straight", hp: 2, bulletType: "straight" }
+  - { frame: 120,  x: 100, type: "assault" } # 🚨左からロックオン突撃
+  - { frame: 140,  x: 220, type: "assault" } # 🚨右から時間差突撃
+  - { frame: 180,  x: 160, type: "straight", hp: 4, bulletType: "aim" }
+
+  # ==========================================
+  # 00:05- 【展開】地上絵フェーズ
+  # ＝左右からUの字で挟み込むスカウトと、中央のミリタリーサイン波の波状攻撃
+  # ==========================================
+  - { frame: 300,  x: -32, type: "scout", isLeft: true,  bulletType: "aim" } # 🚨左から反転狙撃
+  - { frame: 320,  x: 352, type: "scout", isLeft: false, bulletType: "aim" } # 🚨右から時間差挟み撃ち
+  - { frame: 360,  x: 80,  type: "sine", hp: 3, phase: 0.0, amplitude: 60, bulletType: "aim" }
+  - { frame: 380,  x: 160, type: "sine", hp: 3, phase: 0.5, amplitude: 60, bulletType: "aim" }
+  - { frame: 400,  x: 240, type: "sine", hp: 3, phase: 1.0, amplitude: 60, bulletType: "aim" }
+
+  # ==========================================
+  # 00:12- 【Aメロ】哀愁のメロディ（遺跡のトーテム）
+  # ＝画面中央を塞ぐ要塞。横に逃げようとしたプレイヤーをハンターが隅へ追い詰める！
+  # ==========================================
+  - { frame: 720,  x: 160, type: "stationary", hp: 12, bulletType: "eight-way", stopY: 80, waitTime: 300 }
+  - { frame: 780,  x: 40,  type: "hunter", hp: 4, bulletType: "aim" } # 🚨逃げ道を塞ぐ追尾機
+  - { frame: 800,  x: 280, type: "hunter", hp: 4, bulletType: "aim" } 
+  - { frame: 960,  x: 60,  type: "stationary", hp: 6, bulletType: "straight", stopY: 130, waitTime: 200 }
+  - { frame: 980,  x: 260, type: "stationary", hp: 6, bulletType: "straight", stopY: 130, waitTime: 200 }
+
+  # ==========================================
+  # 00:25- 【Bメロ】カウンター盾の幾何学結界
+  # ＝最悪の初見殺し。中央に「撃ち返し盾」を並べ、その真後ろから突撃特攻機がディレイをかけて降下！
+  # ==========================================
+  - { frame: 1500, x: 80,  type: "shield", hp: 10 } # 🚨脳死連射すると撃ち返し弾で詰む
+  - { frame: 1500, x: 160, type: "shield", hp: 10 }
+  - { frame: 1500, x: 240, type: "shield", hp: 10 }
+  - { frame: 1620, x: 120, type: "assault" } # 🚨盾を避けようとした瞬間突撃！
+  - { frame: 1640, x: 200, type: "assault" }
+  - { frame: 1750, x: 160, type: "hunter", hp: 8, bulletType: "eight-way" }
+
+  # ==========================================
+  # 00:40- 【中サビ】砂塵（ラスタスクロール）の狂気
+  # ＝画面全体を完全に覆い尽くす、3連交差大サイン波の絨毯爆撃
+  # ==========================================
+  - { frame: 2400, x: 160, type: "sine", hp: 5, phase: 0.0,  amplitude: 140, bulletType: "aim" }
+  - { frame: 2430, x: 160, type: "sine", hp: 5, phase: 2.0,  amplitude: 140, bulletType: "aim" }
+  - { frame: 2460, x: 160, type: "sine", hp: 5, phase: 4.14, amplitude: 140, bulletType: "aim" }
+  - { frame: 2500,  x: 40,  type: "scout", isLeft: true,  bulletType: "aim" }
+  - { frame: 2500,  x: 280, type: "scout", isLeft: false, bulletType: "aim" }
+
+  # ==========================================
+  # 01:00- 【2ループ目】殺意の後半戦スタート
+  # ＝8方向弾台座2機＋左右からの高速特攻。完全に「武器換装(Xキー)」を要求する
+  # ==========================================
+  - { frame: 3600, x: 60,  type: "stationary", hp: 15, bulletType: "eight-way", stopY: 70, waitTime: 450 }
+  - { frame: 3600, x: 260, type: "stationary", hp: 15, bulletType: "eight-way", stopY: 70, waitTime: 450 }
+  - { frame: 3750, x: 160, type: "assault" } # 🚨中央突破を阻止する突撃
+  - { frame: 3900, x: 120, type: "hunter", hp: 8, bulletType: "aim" }
+  - { frame: 3920, x: 200, type: "hunter", hp: 8, bulletType: "aim" }
+
+  # ==========================================
+  # 01:25- 【後半サビ】古代の呪術ラッシュ
+  # ＝画面最下部近く（stopY: 180）まで押し込んでくる要塞。チョン避け（微速移動）を強要
+  # ==========================================
+  - { frame: 5100, x: 160, type: "stationary", hp: 20, bulletType: "eight-way", stopY: 180, waitTime: 500 }
+  - { frame: 5200, x: -32, type: "scout", isLeft: true,  bulletType: "aim" }
+  - { frame: 5250, x: 352, type: "scout", isLeft: false, bulletType: "aim" }
+  - { frame: 5500, x: 100, type: "shield", hp: 10 }
+  - { frame: 5520, x: 220, type: "shield", hp: 10 }
+
+  # ==========================================
+  # 01:45- 【最終結界】ボス直前門番
+  # ＝左右に盾、中央から特攻。ここをノーミスで抜けられたら一流のシューター
+  # ==========================================
+  - { frame: 6300, x: 40,  type: "shield", hp: 12 }
+  - { frame: 6300, x: 280, type: "shield", hp: 12 }
+  - { frame: 6400, x: 160, type: "assault" } # 🚨真ん中から超高速体当たり
+  - { frame: 6450, x: 160, type: "assault" }
+  - { frame: 6600, x: 160, type: "straight", hp: 10, bulletType: "eight-way" }
+
+  # ==========================================
+  # 02:10- 【Boss Battle】地上絵守護神（逆算フレーム：7800F）
+  # ＝ボス出現タイミングをBGMイントロ終了時の7800Fにジャスト修正！
+  # ==========================================
+  - { frame: 7800, x: 96,  type: "boss_04", hp: 180 }
+
+  # ボス戦中の古代呪術増援ループ（ボス死亡まで25秒周期で無限湧き）
+  # 弾幕の隙間を縫うように突撃が飛んでくる超発狂仕様
+  - { frame: 7950, x: 40,  type: "stationary", hp: 8, bulletType: "eight-way", stopY: 90, waitTime: 250 }
+  - { frame: 7950, x: 280, type: "stationary", hp: 8, bulletType: "eight-way", stopY: 90, waitTime: 250 }
+  - { frame: 8100, x: 160, type: "assault" } # 🚨ボス戦中に飛んでくる鬼の体当たり
+  - { frame: 8300, x: 160, type: "sine", hp: 10, phase: 0.0, amplitude: 130, bulletType: "aim" }
+  - { frame: 8500, type: "LOOP_END", returnTo: 7930 }

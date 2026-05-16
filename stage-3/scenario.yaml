@@ -1,0 +1,49 @@
+# PROJECT: VOID-CIRCUIT | Stage 3 Scenario
+# BGM Length: 3840F (01:04) | Boss Entrance: 2700F (00:45)
+# --------------------------------------------------
+
+version: 0.2
+
+name: "Cloud Palace"
+bgm: "stage-3/PROJECT_VOID-CIRCUIT STAGE_3 -Cloud Palace-.ogg"
+enemies:
+  # 00:01- 扇情的なブラスファンファーレと同時に、上空から超高速直進編隊が急降下
+  - { frame: 60,   x: 40,  type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 70,   x: 80,  type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 80,   x: 120, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 90,   x: 200, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 100,  x: 240, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 110,  x: 280, type: "straight", hp: 1, bulletType: "straight" }
+
+  # 00:03- スラップベースの疾走に合わせた、画面下部から突き上げるサイン波
+  - { frame: 180,  x: 80,  type: "sine", hp: 2, phase: 0.0, amplitude: 80, bulletType: "aim" }
+  - { frame: 200,  x: 240, type: "sine", hp: 2, phase: 3.14, amplitude: 80, bulletType: "aim" }
+
+  # 00:06- Aメロ：東洋風FMフルートのメロディ。雲を突き抜ける設置型の中型機
+  - { frame: 360,  x: 160, type: "stationary", hp: 6, bulletType: "eight-way", stopY: 60, waitTime: 100 }
+  - { frame: 450,  x: 60,  type: "stationary", hp: 5, bulletType: "triple", stopY: 100, waitTime: 120 }
+  - { frame: 450,  x: 260, type: "stationary", hp: 5, bulletType: "triple", stopY: 100, waitTime: 120 }
+
+  # 00:13- Bメロ：怒涛のブラススタブ。自機を画面隅にハメ殺す高速ハンター隊
+  - { frame: 780,  x: 100, type: "hunter", hp: 4, bulletType: "aim" }
+  - { frame: 810,  x: 220, type: "hunter", hp: 4, bulletType: "aim" }
+  - { frame: 900,  x: 160, type: "shield", hp: 10 }
+
+  # 00:20- 激しいサビ：大気をも引き裂くクロス大サイン波（8方向弾幕）
+  - { frame: 1200, x: 160, type: "sine", hp: 4, phase: 0.0, amplitude: 160, bulletType: "eight-way" }
+  - { frame: 1240, x: 160, type: "sine", hp: 4, phase: 3.14, amplitude: 160, bulletType: "eight-way" }
+
+  # 00:27- クライマックスへのビルドアップ。画面中央を完全に塞ぐ要塞配置
+  - { frame: 1620, x: 160, type: "stationary", hp: 12, bulletType: "eight-way", stopY: 120, waitTime: 300 }
+  - { frame: 1800, x: 80,  type: "stationary", hp: 6, bulletType: "triple", stopY: 80, waitTime: 150 }
+  - { frame: 1800, x: 240, type: "stationary", hp: 6, bulletType: "triple", stopY: 80, waitTime: 150 }
+
+  # 00:36- Boss Battle: 蒼穹龍神、咆哮。サビの極限リプライズで出現
+  - { frame: 2160, x: 128, type: "boss_03", hp: 150 }
+
+  # 龍の周囲を飛び交う雲の暗殺者（高速ストレート無限湧き）
+  - { frame: 2300, x: 60,  type: "straight", hp: 2, bulletType: "aim" }
+  - { frame: 2340, x: 260, type: "straight", hp: 2, bulletType: "aim" }
+  - { frame: 2400, x: 160, type: "sine", hp: 4, phase: 1.0, amplitude: 70, bulletType: "triple" }
+
+  - { frame: 2800, type: "LOOP_END", returnTo: 2300 }

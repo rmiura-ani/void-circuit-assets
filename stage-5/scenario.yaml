@@ -1,0 +1,52 @@
+# PROJECT: VOID-CIRCUIT | Stage 5 Scenario
+# BGM Length: 9540F (02:39) | Boss Entrance: 6600F (01:50)
+# --------------------------------------------------
+
+version: 0.2
+
+name: "Planetary Pulse"
+bgm: "stage-5/PROJECT_VOID-CIRCUIT STAGE_5 -Planetary Pulse-.ogg"
+enemies:
+  # 00:01- 不気味なイントロ。細胞分裂を思わせる、画面左右から這い出るハンター編隊
+  - { frame: 60,   x: 40,  type: "hunter", hp: 3, bulletType: "aim" }
+  - { frame: 90,   x: 80,  type: "hunter", hp: 3, bulletType: "aim" }
+  - { frame: 150,  x: 280, type: "hunter", hp: 3, bulletType: "aim" }
+  - { frame: 180,  x: 240, type: "hunter", hp: 3, bulletType: "aim" }
+
+  # 00:06- 脈動する低音と完全同期した、うねる大振幅のサイン波
+  - { frame: 360,  x: 160, type: "sine", hp: 4, phase: 0.0, amplitude: 160, bulletType: "triple" }
+  - { frame: 400,  x: 160, type: "sine", hp: 4, phase: 1.5, amplitude: 160, bulletType: "triple" }
+
+  # 00:15- Aメロ：有機的なメロディ。粘着質に居座り、自機を狙い続ける設置型
+  - { frame: 900,  x: 100, type: "stationary", hp: 8, bulletType: "aim", stopY: 120, waitTime: 300 }
+  - { frame: 900,  x: 220, type: "stationary", hp: 8, bulletType: "aim", stopY: 120, waitTime: 300 }
+
+  # 00:26- Bメロ：細胞の壁。カウンター盾が斜め配置で襲いかかり、逃げ場を奪う
+  - { frame: 1560, x: 60,  type: "shield", hp: 8 }
+  - { frame: 1600, x: 120, type: "shield", hp: 8 }
+  - { frame: 1640, x: 180, type: "shield", hp: 8 }
+  - { frame: 1680, x: 240, type: "shield", hp: 8 }
+
+  # 00:40- 間奏（グリッチアルペジオ）：画面の四隅から不規則に出現する突撃ハンター
+  - { frame: 2400, x: 40,  type: "hunter", hp: 5, bulletType: "eight-way" }
+  - { frame: 2500, x: 280, type: "hunter", hp: 5, bulletType: "eight-way" }
+  - { frame: 2600, x: 160, type: "stationary", hp: 10, bulletType: "triple", stopY: 80, waitTime: 200 }
+
+  # 01:10- サビ：精神を揺さぶるバイオレットの明滅。全画面制圧型クロス弾幕
+  - { frame: 4200, x: 160, type: "sine", hp: 6, phase: 0.0, amplitude: 180, bulletType: "eight-way" }
+  - { frame: 4230, x: 160, type: "sine", hp: 6, phase: 3.14, amplitude: 180, bulletType: "eight-way" }
+
+  # 01:30- クライマックス前の悪夢（高耐久マルチターゲット）
+  - { frame: 5400, x: 80,  type: "stationary", hp: 12, bulletType: "eight-way", stopY: 100, waitTime: 400 }
+  - { frame: 5400, x: 240, type: "stationary", hp: 12, bulletType: "eight-way", stopY: 100, waitTime: 400 }
+  - { frame: 6000, x: 160, type: "hunter", hp: 10, bulletType: "aim" }
+
+  # 01:51- Boss Battle: 生体DNAコア（生命の歪み）が出現
+  - { frame: 6690, x: 128, type: "boss_05", hp: 150 }
+
+  # ボス戦中の無限湧き増援（プレイヤーを追い詰める粘着質な生物弾幕）
+  - { frame: 6850, x: 160, type: "hunter", hp: 5, bulletType: "aim" }
+  - { frame: 6900, x: 60,  type: "sine", hp: 4, phase: 0.0, amplitude: 80, bulletType: "triple" }
+  - { frame: 6900, x: 260, type: "sine", hp: 4, phase: 3.14, amplitude: 80, bulletType: "triple" }
+
+  - { frame: 7400, type: "LOOP_END", returnTo: 6850 }
