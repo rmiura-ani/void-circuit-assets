@@ -3,8 +3,10 @@
 # --------------------------------------------------
 
 version: 0.2
-name: "STAGE 1"
 
+name: "Iron Vein"
+bgm: "stage-1/PROJECT_VOID-CIRCUIT STAGE_1 -Iron Vein-.ogg"
+bgColor: "#000000"
 enemies:
   # 00:01- 基本操作確認用のストレート敵編隊
   - { frame: 60,  x: 60,  type: "straight", hp: 1, bulletType: "straight" }
