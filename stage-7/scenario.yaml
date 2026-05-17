@@ -1,4 +1,4 @@
-# PROJECT: VOID-CIRCUIT | Stage 7 Scenario
+# PROJECT: VOID-CIRCUIT | Stage 7 Scenario (Ultimate Rush Edition)
 # BGM Length: 12000F (03:20臨時) | Boss Rush Start: 2700F (00:45)
 # --------------------------------------------------
 
@@ -7,7 +7,11 @@ version: 0.2
 name: "Absolute Core"
 bgm: "stage-7/PROJECT_VOID-CIRCUIT STAGE_7 -Absolute Core-.ogg"
 enemies:
-  # 00:01- 終焉を告げるダークなFMオルガン。極限密度の12連ストレート編隊
+  # ==================================================
+  # 【道中フェーズ：絶対防衛中枢への強行突入】
+  # ==================================================
+
+  # 00:01- 終焉を告げるダークなFMオルガン。極限密度の12連ストレート編隊（16bitブロック型）
   - { frame: 60,   x: 40,  type: "straight", hp: 3, bulletType: "straight" }
   - { frame: 70,   x: 80,  type: "straight", hp: 3, bulletType: "straight" }
   - { frame: 80,   x: 120, type: "straight", hp: 3, bulletType: "straight" }
@@ -21,54 +25,109 @@ enemies:
   - { frame: 160,  x: 120, type: "straight", hp: 3, bulletType: "straight" }
   - { frame: 170,  x: 80,  type: "straight", hp: 3, bulletType: "straight" }
 
-  # 00:04- 中枢の洗礼。4方向からの交差設置型（画面の上下左右を制圧）
+  # 00:04- 中枢の洗礼。4方向からの交差設置型（画面の上下左右をスクエアに制圧）
   - { frame: 280,  x: 60,  type: "stationary", hp: 10, bulletType: "eight-way", stopY: 60, waitTime: 200 }
   - { frame: 280,  x: 260, type: "stationary", hp: 10, bulletType: "eight-way", stopY: 60, waitTime: 200 }
   - { frame: 340,  x: 100, type: "stationary", hp: 10, bulletType: "eight-way", stopY: 130, waitTime: 200 }
   - { frame: 340,  x: 220, type: "stationary", hp: 10, bulletType: "eight-way", stopY: 130, waitTime: 200 }
 
-# 00:22- Bメロ：絶対防衛壁。前衛を固める鉄壁の盾群と、後方から狙い撃つ高速ハンター
+  # 00:22- Bメロ：絶対防衛壁。前衛を固める鉄壁の盾群と、後方から狙い撃つ高速ハンター
   - { frame: 1320, x: 80,  type: "shield", hp: 15 }
   - { frame: 1320, x: 160, type: "shield", hp: 15 }
   - { frame: 1320, x: 240, type: "shield", hp: 15 }
   - { frame: 1500, x: 40,  type: "hunter", hp: 8, bulletType: "eight-way" }
   - { frame: 1540, x: 280, type: "hunter", hp: 8, bulletType: "eight-way" }
 
-# 00:xx- 中サビ：グリッド線の超高速スクロールとともに展開する、死を誘う8方向設置の乱舞
+  # 00:33- 中サビ：グリッド線の超高速スクロールとともに展開する、死を誘う8方向設置の乱舞
   - { frame: 2000, x: 160, type: "stationary", hp: 25, bulletType: "eight-way", stopY: 100, waitTime: 500 }
   - { frame: 2400, x: 40,  type: "stationary", hp: 12, bulletType: "triple", stopY: 140, waitTime: 300 }
   - { frame: 2400, x: 280, type: "stationary", hp: 12, bulletType: "triple", stopY: 140, waitTime: 300 }
 
   # ==================================================
-  # 00:45- 【宿命のボスラッシュ（STAGE 1-6 ボス連戦）】
+  # 00:45- 【宿命のボスラッシュ ＆ カオス混成増援】
   # ==================================================
-  
-  # 00:45- 中ボス1: Stage 1 Boss (Iron Vein) 再誕
-  - { frame: 2700, x: 128, type: "boss_01", hp: 100 } # 耐久力はラッシュ用に調整
-  
-  # 01:05- 中ボス2: Stage 2 Boss (Emerald Aqua) 再誕
+
+  # 00:45- 中ボス1: STAGE-1 ボス「アイアン・ヴェイン防衛コア」再誕
+  - { frame: 2200, x: 128, type: "boss_01", hp: 100 }
+  # 【同時湧き】基本を揺さぶる直線＆サイン編隊
+  - { frame: 2800, x: 40,  type: "straight", hp: 2, bulletType: "straight" }
+  - { frame: 2850, x: 280, type: "straight", hp: 2, bulletType: "straight" }
+  - { frame: 3000, x: 160, type: "sine", hp: 3, phase: 0.0, amplitude: 60, bulletType: "aim" }
+  - { frame: 3100, type: "LOOP_END", returnTo: 2800 } 
+
+  # 01:05- 中ボス2: STAGE-2 ボス「碧琥珀の潜航母艦」再誕
   - { frame: 3900, x: 128, type: "boss_02", hp: 120 }
-  
-  # 01:25- 中ボス3: Stage 3 Boss (Cloud Palace) 再誕
+  # 【同時湧き】Uターン偵察機と、四角い盾
+  - { frame: 4000, type: "scout", isLeft: true, bulletType: "aim" }
+  - { frame: 4100, type: "scout", isLeft: false, bulletType: "aim" }
+  - { frame: 4300, x: 80,  type: "shield", hp: 8 }
+  - { frame: 4300, x: 240, type: "shield", hp: 8 }
+  - { frame: 4400, type: "LOOP_END", returnTo: 4000 }
+
+  # 01:25- 中ボス3: STAGE-3 ボス「蒼穹龍神」再誕
   - { frame: 5100, x: 128, type: "boss_03", hp: 140 }
-  
-  # 01:45- 中ボス4: Stage 4 Boss (Ancient Logic) 再誕
+  # 【同時湧き】
+  - { frame: 5200, x: 60,  type: "assault" }
+  - { frame: 5250, x: 260, type: "assault" }
+  - { frame: 5500, x: 160, type: "stationary", hp: 8, bulletType: "triple", stopY: 80, waitTime: 120 }
+  - { frame: 5600, type: "LOOP_END", returnTo: 5200 }
+
+  # 01:45- 中ボス4: STAGE-4 ボス「地上絵守護神」再誕
   - { frame: 6300, x: 128, type: "boss_04", hp: 160 }
-  
-  # 02:05- 中ボス5: Stage 5 Boss (Planetary Pulse) 再誕
+  # 【同時湧き】
+  - { frame: 6400, x: 40,  type: "stationary", hp: 10, bulletType: "eight-way", stopY: 120, waitTime: 200 }
+  - { frame: 6400, x: 280, type: "stationary", hp: 10, bulletType: "eight-way", stopY: 120, waitTime: 200 }
+  - { frame: 6500, type: "LOOP_END", returnTo: 6400 }
+
+  # 02:05- 中ボス5: STAGE-5 ボス「生体DNAコア」再誕
   - { frame: 7500, x: 128, type: "boss_05", hp: 180 }
-  
-  # 02:25- 中ボス6: Stage 6 Boss (Burning Orbit) 再誕
+  # 【同時湧き】
+  - { frame: 7600, x: 80,  type: "hunter", hp: 6, bulletType: "aim" }
+  - { frame: 7640, x: 240, type: "hunter", hp: 6, bulletType: "aim" }
+  - { frame: 7900, x: 160, type: "sine", hp: 4, phase: 1.5, amplitude: 100, bulletType: "triple" }
+  - { frame: 8000, type: "LOOP_END", returnTo: 7600 }
+
+  # 02:25- 中ボス6: STAGE-6 ボス「超巨大空中戦艦」再誕
   - { frame: 8700, x: 128, type: "boss_06", hp: 200 }
+  # 【同時湧き】
+  - { frame: 8750, x: 40,  type: "assault" }
+  - { frame: 8780, x: 120, type: "assault" }
+  - { frame: 8810, x: 200, type: "assault" }
+  - { frame: 8840, x: 280, type: "assault" }
+  - { frame: 8900, type: "LOOP_END", returnTo: 8750 }
 
   # ==================================================
-  # 02:50- 【FINAL ENCOUNTER: 宿敵との決着】
+  # 02:50- 【FINAL ENCOUNTER: 最終要塞機械心臓 ＆ 極限怒涛の増援】
   # ==================================================
-  # 要塞中枢機械の心臓部。曲の劇的な変化に合わせて出現 [cite: 10, 19]
-  - { frame: 1020, x: 128, type: "boss_07_final", hp: 600 }
+  # 楽曲の劇的な大サビ展開（オルガン暴走）に合わせて完全出現
+  - { frame: 9020, x: 128, type: "boss_07", hp: 600 }
 
-  # 最終ボス戦用無限湧き増援（電子の火花）
-  - { frame: 1080, x: 160, type: "sine", hp: 5, phase: 0, amplitude: 120, bulletType: "eight-way" }
+  # 🚨 【極限のラスト防衛線ループ】 息つく暇を一切与えない、全ザコ混成の全画面弾幕地獄
+  # ループ開始直後：前面を覆う3枚の鉄壁カウンター盾（中央突破を拒否）
+  - { frame: 9050, x: 60,  type: "shield", hp: 4 }
+  - { frame: 9050, x: 160, type: "shield", hp:8 } # 中央は特に硬い
+  - { frame: 9050, x: 260, type: "shield", hp: 4 }
 
-  # 最終防衛線ループ
-  - { frame: 1150, type: "LOOP_END", returnTo: 1025 }
+  # ループ5秒後：逃げ場を狭めるために執拗に寄ってくる、弾幕まみれのトリプルハンター
+  - { frame: 9080, x: 40,  type: "hunter", hp: 3, bulletType: "aim" }
+  - { frame: 9080, x: 160, type: "hunter", hp: 3, bulletType: "eight-way" }
+  - { frame: 9080, x: 280, type: "hunter", hp: 3, bulletType: "aim" }
+
+  # ループ7秒後：画面上部から8方向弾をバラ撒きながら居座る、凶悪な固定重砲台
+  - { frame: 9120, x: 100, type: "stationary", hp: 6, bulletType: "eight-way", stopY: 100, waitTime: 150 }
+  - { frame: 9120, x: 220, type: "stationary", hp: 6, bulletType: "eight-way", stopY: 100, waitTime: 150 }
+
+  # ループ10秒後：交差して画面を引き裂く大振幅サイン波弾幕（3WAY）
+  - { frame: 9200, x: 160, type: "sine", hp: 2, phase: 0.0, amplitude: 140, bulletType: "triple" }
+  - { frame: 9230, x: 160, type: "sine", hp: 2, phase: 3.14, amplitude: 140, bulletType: "triple" }
+
+  # ループ13秒後：忘れた頃に最下層から狙いを定めてすっ飛んでくる、悪魔の左右同時特攻
+  - { frame: 9350, x: 60,  type: "assault" }
+  - { frame: 9350, x: 260, type: "assault" }
+
+  # ループ15秒後：トドメの高速偵察機クロス、画面最下部への狙い撃ち
+  - { frame: 9450, type: "scout", isLeft: true, bulletType: "aim" }
+  - { frame: 9450, type: "scout", isLeft: false, bulletType: "aim" }
+
+  # ボス生存時ループ：ボスが沈むまで、この過酷な防衛線（9050F〜）へと巻き戻ってループし続ける
+  - { frame: 9550, type: "LOOP_END", returnTo: 9050 }
