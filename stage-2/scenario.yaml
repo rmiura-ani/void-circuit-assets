@@ -2,11 +2,13 @@
 # BGM Length: 5000F (01:23) | Boss Entrance: 2330F (00:38)
 # --------------------------------------------------
 
-version: 0.2
+version: 0.3
 
 name: "Emerald Aqua"
 bgm: "stage-2/PROJECT_VOID-CIRCUIT STAGE_2 -Emerald Aqua-.ogg"
-enemies:
+kv: { path: "stage-2/kv.png", duration: 180 }
+
+scenario:
   # 00:01- 爽やかなイントロ：高速な偵察機がクロスして滑り込む
   - { frame: 60,   x: 40,  type: "straight", hp: 1, bulletType: "aim" }
   - { frame: 70,   x: 280, type: "straight", hp: 1, bulletType: "aim" }

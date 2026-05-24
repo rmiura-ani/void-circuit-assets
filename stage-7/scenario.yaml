@@ -2,11 +2,17 @@
 # BGM Length: 12000F (03:20臨時) | Boss Rush Start: 2700F (00:45)
 # --------------------------------------------------
 
-version: 0.2
+version: 0.3
 
 name: "Absolute Core"
 bgm: "stage-7/PROJECT_VOID-CIRCUIT STAGE_7 -Absolute Core-.ogg"
-enemies:
+kv: { path: "stage-7/kv.png", duration: 180 }
+
+preloadAssets:
+  - "enemy_boss_07_phase1.webp"
+  - "enemy_boss_07_phase2.webp"
+  
+scenario:
   # ==================================================
   # 【道中フェーズ：絶対防衛中枢への強行突入】
   # ==================================================

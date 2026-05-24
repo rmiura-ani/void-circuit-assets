@@ -2,11 +2,13 @@
 # BGM Length: 9540F (02:39) | Boss Entrance: 6600F (01:50)
 # --------------------------------------------------
 
-version: 0.2
+version: 0.3
 
 name: "Planetary Pulse"
 bgm: "stage-5/PROJECT_VOID-CIRCUIT STAGE_5 -Planetary Pulse-.ogg"
-enemies:
+kv: { path: "stage-5/kv.png", duration: 180 }
+
+scenario:
   # 00:01- 不気味なイントロ。細胞分裂を思わせる、画面左右から這い出るハンター編隊
   - { frame: 60,   x: 40,  type: "hunter", hp: 3, bulletType: "aim" }
   - { frame: 90,   x: 80,  type: "hunter", hp: 3, bulletType: "aim" }

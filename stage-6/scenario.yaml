@@ -2,11 +2,13 @@
 # BGM Length: 8400F (02:20) | Boss Entrance: 5700F (01:35)
 # --------------------------------------------------
 
-version: 0.2
+version: 0.3
 
 name: "Burning Orbit"
 bgm: "stage-6/PROJECT_VOID-CIRCUIT STAGE_6 -Burning Orbit-.ogg"
-enemies:
+kv: { path: "stage-6/kv.png", duration: 180 }
+
+scenario:
   # 00:01- 開幕の激しいメタルリフ。超高速の特攻編隊が交互に画面を横切る
   - { frame: 60,   x: 40,  type: "straight", hp: 2, bulletType: "straight" }
   - { frame: 70,   x: 80,  type: "straight", hp: 2, bulletType: "straight" }

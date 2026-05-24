@@ -2,11 +2,13 @@
 # BGM Length: 10440F (02:54) | Boss Entrance: 7800F (02:10)
 # ----------------------------------------------------------------------
 
-version: 0.2
+version: 0.3
 
 name: "Ancient Logic"
 bgm: "stage-4/PROJECT_VOID-CIRCUIT STAGE_4 -Ancient Logic-.ogg"
-enemies:
+kv: { path: "stage-4/kv.png", duration: 180 }
+
+scenario:
   # ==========================================
   # 00:01- 【導入】エスニックなイントロ
   # ＝開幕3秒で「突撃型」が死角から高速クロス！陽炎を切り裂く奇襲

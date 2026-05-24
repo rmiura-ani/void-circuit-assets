@@ -2,11 +2,13 @@
 # BGM Length: 3840F (01:04) | Boss Entrance: 2700F (00:45)
 # --------------------------------------------------
 
-version: 0.2
+version: 0.3
 
 name: "Cloud Palace"
 bgm: "stage-3/PROJECT_VOID-CIRCUIT STAGE_3 -Cloud Palace-.ogg"
-enemies:
+kv: { path: "stage-3/kv.png", duration: 180 }
+
+scenario:
   # 00:01- 扇情的なブラスファンファーレと同時に、上空から超高速直進編隊が急降下
   - { frame: 60,   x: 40,  type: "straight", hp: 1, bulletType: "straight" }
   - { frame: 70,   x: 80,  type: "straight", hp: 1, bulletType: "straight" }
