@@ -5,7 +5,7 @@
 version: 0.3
 
 name: "Absolute Core"
-bgm: "stage-7/PROJECT_VOID-CIRCUIT STAGE_7 -Absolute Core-.ogg"
+bgm: "stage-7/PROJECT_VOID-CIRCUIT_STAGE_7(Final) -Absolute Core-.ogg"
 kv: { path: "stage-7/kv.png", duration: 180 }
 
 preloadAssets:

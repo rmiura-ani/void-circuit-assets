@@ -1,61 +1,133 @@
 # PROJECT: VOID-CIRCUIT | Stage 2 Scenario
 # BGM Length: 5000F (01:23) | Boss Entrance: 2330F (00:38)
 # --------------------------------------------------
-
-version: 0.3
+version: "0.3"
 
 name: "Emerald Aqua"
 bgm: "stage-2/PROJECT_VOID-CIRCUIT STAGE_2 -Emerald Aqua-.ogg"
 kv: { path: "stage-2/kv.png", duration: 180 }
 
 scenario:
-  # 00:01- 爽やかなイントロ：高速な偵察機がクロスして滑り込む
-  - { frame: 60,   x: 40,  type: "straight", hp: 1, bulletType: "aim" }
-  - { frame: 70,   x: 280, type: "straight", hp: 1, bulletType: "aim" }
-  - { frame: 120,  x: 80,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 135,  x: 120, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 150,  x: 200, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 165,  x: 240, type: "straight", hp: 1, bulletType: "straight" }
+  # ========================================================
+  # 【① 導入フェーズ（碧琥珀の海・滑走）】 0F 〜 750F (0〜12.5秒)
+  # 楽曲同期：イントロ 〜 爽やかなリード（明るく開放的なフュージョン）
+  # 背景演出：海面の煌めきと、白いドットの波紋がFM音源と完全同期して広がる
+  # 目的：新エネミーの顔見せ。水面と空中を広く使った流れるような破壊で稼ぐ
+  # ========================================================
 
-  # 00:04- 水面の煌めき（FMベル）と同期したサイン波のV字編隊
-  - { frame: 260,  x: 160, type: "sine", hp: 2, phase: 0.0, amplitude: 60, bulletType: "aim" }
-  - { frame: 290,  x: 100, type: "sine", hp: 2, phase: 0.3, amplitude: 60, bulletType: "straight" }
-  - { frame: 290,  x: 220, type: "sine", hp: 2, phase: 0.3, amplitude: 60, bulletType: "straight" }
+  # 00:00- KV & STAGEタイトル表示演出（180フレームの間、自機と被らない安全圏を維持）
+  
+  # 00:03- 開幕：海面を滑るように現れる新エネミー「skimmer（水面ホバー型）」の挨拶
+  # 画面中央（stopY: 120）でピタッと止まり、ドラムのキメに合わせて真横に高速スライド往復しながら3WAYを掃射
+  - { frame: 190,   x: 80,  type: "skimmer",  hp: 2, bulletType: "triple", stopY: 120 }
+  - { frame: 200,   x: 240, type: "skimmer",  hp: 2, bulletType: "triple", stopY: 120 }
 
-  # 00:08- Aメロ：明るいリードに合わせた設置型の波状攻撃
-  - { frame: 500,  x: 160, type: "stationary", hp: 4, bulletType: "triple", stopY: 80, waitTime: 180 }
-  - { frame: 650,  x: 60,  type: "stationary", hp: 4, bulletType: "eight-way", stopY: 110, waitTime: 150 }
-  - { frame: 650,  x: 260, type: "stationary", hp: 4, bulletType: "eight-way", stopY: 110, waitTime: 150 }
+  # 00:05- 開放的なメロディの開始：波紋のように広がるWサイン波のダンス
+  # 左右から滑り込む sine 機を、WIDE（拡散弾）で一網打尽にするシューティングの快感
+  - { frame: 300,   x: 60,  type: "sine", hp: 1, phase: 0.0,  amplitude: 60, bulletType: "none" }
+  - { frame: 315,   x: 60,  type: "sine", hp: 1, phase: 0.78, amplitude: 60, bulletType: "none" }
+  - { frame: 300,   x: 260, type: "sine", hp: 1, phase: 3.14, amplitude: 60, bulletType: "none" }
+  - { frame: 315,   x: 260, type: "sine", hp: 1, phase: 3.92, amplitude: 60, bulletType: "none" }
 
-  # 00:15- Bメロ：弾を撃ち返す「盾（カウンター）」の出現。STRAIGHTへの換装を促す
-  - { frame: 900,  x: 140, type: "shield", hp: 6 }
-  - { frame: 950,  x: 180, type: "shield", hp: 6 }
-  - { frame: 1100, x: 160, type: "stationary", hp: 8, bulletType: "eight-way", stopY: 130, waitTime: 240 }
+  # 00:08- クリスタル型エネミー（CrystalEnemy）の初登場！
+  # 水面を跳ね回るようなジグザグ移動（斜め軌道）で、プレイヤーの「狙い」を揺さぶる
+  - { frame: 450,   x: 80,  type: "crystal",  hp: 2, bulletType: "aim" }
+  - { frame: 480,   x: 240, type: "crystal",  hp: 2, bulletType: "aim" }
 
-  # 00:25- サビ：フュージョンベースの解放に合わせたハイスピード大サイン波
-  - { frame: 1500, x: 80,  type: "sine", hp: 3, phase: 0.0, amplitude: 120, bulletType: "triple" }
-  - { frame: 1540, x: 240, type: "sine", hp: 3, phase: 3.14, amplitude: 120, bulletType: "triple" }
+  # 00:10- 導入の締め：海中からの伏兵「diver（潜水急浮上型）」のチュートリアル
+  # 画面下部から不意にジャンプして浮上し、頂点で自機狙い弾を放って海へ消える。画面下部に居座るプレイヤーを警告
+  - { frame: 600,   x: 100, type: "diver",    hp: 1, bulletType: "aim" }
+  - { frame: 620,   x: 220, type: "diver",    hp: 1, bulletType: "aim" }
+  - { frame: 660,   x: 160, type: "assault" } # 上空から突撃してくる特攻機。上下の挟み込み
 
-  # 00:32- 自機を執拗に追尾する「ハンター」と盾の複合殺意配置
-  - { frame: 1920, x: 60,  type: "hunter", hp: 4, bulletType: "aim" }
-  - { frame: 1940, x: 260, type: "hunter", hp: 4, bulletType: "aim" }
-  - { frame: 1960, x: 160, type: "shield", hp: 8 }
+  # ========================================================
+  # 【② 展開・激化フェーズ（立体交差の罠）】 751F 〜 1500F (12.5〜25秒)
+  # 楽曲同期：爽やかなリードの裏で、スラップベースのグルーヴが激しく跳ね回る中盤戦
+  # 目的：「盾（正面防御）」＋「クリスタル（斜め）」＋「スキマー（横スライド）」による多角制限
+  # 脳死の連射を咎め、状況に合わせた的確な武器換装とエイムを要求する
+  # ========================================================
 
-  # 00:40- ボス直前のラッシュ（Bメロのリフレイン）
-  - { frame: 2400, x: 160, type: "stationary", hp: 12, bulletType: "eight-way", stopY: 90, waitTime: 400 }
-  - { frame: 2800, x: 80,  type: "sine", hp: 4, phase: 1.5, amplitude: 90, bulletType: "triple" }
-  - { frame: 2800, x: 240, type: "sine", hp: 4, phase: 4.6, amplitude: 90, bulletType: "triple" }
+  # 00:12- 盾の進軍 ＋ 水面の支配：中央にカウンター盾、両翼にホバーするスキマー
+  # 盾を正面からSTRAIGHTで撃ちまくると撃ち返しで自滅する。
+  # 左右のスキマーが横にスライドしながら弾幕を張るため、立ち回りのセンスが試される
+  - { frame: 750,   x: 160, type: "shield",   hp: 5 }
+  - { frame: 780,   x: 40,  type: "skimmer",  hp: 2, bulletType: "triple", stopY: 100 }
+  - { frame: 780,   x: 280, type: "skimmer",  hp: 2, bulletType: "triple", stopY: 100 }
 
-  # 00:53- 潜航母艦のお出ましを告げる不気味な静寂と最終ライン
-  - { frame: 3200, x: 160, type: "straight", hp: 5, bulletType: "eight-way" }
-  - { frame: 3400, x: 120, type: "straight", hp: 5, bulletType: "triple" }
+  # 00:16- 激しいスラップベースに同期：クリスタル＆ダイバーの「斜め・下」の立体奇襲
+  # ジグザグに迫るクリスタルに気を取られていると、画面下からダイバーが飛び出してきて視線を狂わせる
+  - { frame: 940,   x: 60,  type: "crystal",  hp: 2, bulletType: "aim" }
+  - { frame: 960,   x: 120, type: "diver",    hp: 1, bulletType: "aim" }
+  - { frame: 990,   x: 260, type: "crystal",  hp: 2, bulletType: "aim" }
+  - { frame: 1010,  x: 200, type: "diver",    hp: 1, bulletType: "aim" }
 
-  # 01:00- Boss Battle: 潜航母艦（ギミックボス）出現、水面を割る重低音
-  - { frame: 3600, x: 128, type: "boss_02", hp: 150 }
+  # 00:18- 中盤の山場：大型サイン波のクロス交差 ＋ 海底からのダイバー一斉ポップ
+  # 空中を制圧する3WAY弾幕の隙間を縫うように、海中からダイバーが飛び跳ねる、2面ならではのダイナミックな波
+  - { frame: 1100,  x: 90,  type: "sine",     hp: 2, phase: 0.0,  amplitude: 120, bulletType: "triple" }
+  - { frame: 1100,  x: 230, type: "sine",     hp: 2, phase: 3.14, amplitude: 120, bulletType: "triple" }
+  - { frame: 1140,  x: 80,  type: "diver",    hp: 1, bulletType: "aim" }
+  - { frame: 1160,  x: 160, type: "diver",    hp: 1, bulletType: "aim" }
+  - { frame: 1180,  x: 240, type: "diver",    hp: 1, bulletType: "aim" }
 
-  # ボス戦中の無限湧き増援（トリッキーな横移動ハンターと8方向弾）
-  - { frame: 3800, x: 160, type: "sine", hp: 5, phase: 0.0, amplitude: 100, bulletType: "triple" }
-  - { frame: 4000, x: 40,  type: "hunter", hp: 3, bulletType: "aim" }
-  - { frame: 4020, x: 280, type: "hunter", hp: 3, bulletType: "aim" }
+  # 00:21- プラットフォーム防衛線最終障壁：左右のカウンター盾 ＋ 中央スキマー2号
+  # 1面では固定砲台だった枠にスキマーを配置。横にスライド移動して軸をずらしてくるため、
+  # 盾の撃ち返しを避けつつ、動くスキマーをSTRAIGHTで正確に撃ち抜くエイム力が試される
+  - { frame: 1300,  x: 60,  type: "shield",   hp: 5 }
+  - { frame: 1300,  x: 260, type: "shield",   hp: 5 }
+  - { frame: 1320,  x: 130, type: "skimmer",  hp: 3, bulletType: "triple", stopY: 80 }
+  - { frame: 1350,  x: 190, type: "skimmer",  hp: 3, bulletType: "triple", stopY: 80 }
 
-  - { frame: 4400, type: "LOOP_END", returnTo: 3800 }
+  # ========================================================
+  # 【③ クライマックス・ラッシュ（潜航前プレッシャー）】 1501F 〜 2130F (25〜35.5秒)
+  # 楽曲同期：サビに向けてFMベルの煌めきが激しさを増し、テンポ感が加速（ビルドアップ）
+  # 目的：ボス戦直前の緊張感を最高潮に。逃げ場を狭める超高速かつ高密度なスクラム攻撃
+  # ========================================================
+
+  # 00:26- 追尾ハンター部隊 ＋ 海底からのダイバー奇襲
+  # ハンターに画面端へ追い詰められた瞬間、下からダイバーが突き上げてくる最悪の包囲網
+  - { frame: 1550,  x: 50,  type: "hunter",   hp: 2, bulletType: "aim" }
+  - { frame: 1570,  x: 270, type: "hunter",   hp: 2, bulletType: "aim" }
+  - { frame: 1600,  x: 100, type: "diver",    hp: 1, bulletType: "aim" }
+  - { frame: 1620,  x: 220, type: "diver",    hp: 1, bulletType: "aim" }
+
+  # 00:29- 最後の悪あがき：画面上部を埋め尽くすV字ストレート超高速爆撃
+  # 弾幕を間引くためにWIDEへの瞬間換装が間に合わなければ、面で押し潰される
+  - { frame: 1750,  x: 160, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 1765,  x: 120, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 1765,  x: 200, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 1780,  x: 80,  type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 1780,  x: 240, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 1795,  x: 40,  type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 1795,  x: 280, type: "straight", hp: 1, bulletType: "straight" }
+
+  # 00:31- 決戦前の大波：クリスタル4機によるジグザグ・クロス・体当たり（スクラム）
+  # 画面の左右・斜めから一斉にジグザグに突っ込んでくる。引きつけて一瞬の「軸ずらし」で避ける爽快感
+  - { frame: 1900,  x: 40,  type: "crystal",  hp: 2, bulletType: "none" }
+  - { frame: 1915,  x: 280, type: "crystal",  hp: 2, bulletType: "none" }
+  - { frame: 1930,  x: 100, type: "crystal",  hp: 2, bulletType: "none" }
+  - { frame: 1945,  x: 220, type: "crystal",  hp: 2, bulletType: "none" }
+
+  # 00:33- 警告演出・スクロール停止（FMベルの余韻が響く、静寂と緊迫のタメ）
+  - { frame: 2000, type: "BOSS_TRIGGER" }
+
+  # ========================================================
+  # 【④ 決戦：ボスバトル（潜航と急浮上の死闘）】 2130F 〜 4980F (35.5秒〜最終)
+  # 楽曲同期：サビ（透明感のあるFMフュージョンの最高潮、キメフレーズ）でボス出現
+  # ========================================================
+
+  # 00:35.5- STAGE-2ボス「碧琥珀の潜航母艦」降臨
+  # 潜航（無敵ワープ）ギミックを持つため、回避補正4.5倍を適用した2,130Fでのジャスト同期
+  - { frame: 2130,  x: 160, type: "boss_02",  hp: 150, timeLimit: 2700, timeMultiplier: 100 }
+
+  # ボス戦中の無限湧き増援（水上から随伴する護衛編隊：スキマー、ダイバー、クリスタルの総攻撃）
+  # ボスが「潜航（無敵）」している間もプレイヤーを退屈させず、緊張感を維持させる高密度な2面オールスター増援
+  - { frame: 2200,  x: 60,  type: "skimmer",  hp: 2, bulletType: "triple", stopY: 100 }
+  - { frame: 2200,  x: 260, type: "skimmer",  hp: 2, bulletType: "triple", stopY: 100 }
+  - { frame: 2260,  x: 120, type: "diver",    hp: 1, bulletType: "aim" }
+  - { frame: 2280,  x: 200, type: "diver",    hp: 1, bulletType: "aim" }
+  - { frame: 2340,  x: 160, type: "crystal",  hp: 2, bulletType: "aim" }
+  - { frame: 2380,  x: 100, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 2400,  x: 220, type: "straight", hp: 1, bulletType: "straight" }
+
+  # ボス戦ループ終端（ボスを撃破するまで2200Fへリープし、このトリッキーな増援を湧かせ続ける）
+  - { frame: 2550, type: "LOOP_END", returnTo: 2200 }
