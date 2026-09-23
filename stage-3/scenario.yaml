@@ -1,51 +1,109 @@
-# PROJECT: VOID-CIRCUIT | Stage 3 Scenario
-# BGM Length: 3840F (01:04) | Boss Entrance: 2700F (00:45)
+# PROJECT: VOID-CIRCUIT | Stage 3 Scenario (Cloud Palace)
+# BGM Total Length: 5200F (01:26.6) | Boss Entrance: 3800F (01:03.3)
 # --------------------------------------------------
 
-version: 0.3
+version: "0.3"
 
 name: "Cloud Palace"
-bgm: "stage-3/PROJECT_VOID-CIRCUIT STAGE_3 -Cloud Palace-.ogg"
-kv: { path: "stage-3/kv.png", duration: 180 }
+bgm: "PROJECT_VOID-CIRCUIT STAGE_3 -Cloud Palace-.ogg"
+kv: { path: "kv.png", duration: 180 }
 
 scenario:
-  # 00:01- 扇情的なブラスファンファーレと同時に、上空から超高速直進編隊が急降下
-  - { frame: 60,   x: 40,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 70,   x: 80,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 80,   x: 120, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 90,   x: 200, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 100,  x: 240, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 110,  x: 280, type: "straight", hp: 1, bulletType: "straight" }
+  # ========================================================
+  # 【① 導入フェーズ（疾風の雲海）】 180F 〜 1300F (3〜21.6秒)
+  # 目的：KV演出終了直後。超高速横断機 WindSlicer と雲に隠れる CloudLurker の奇襲
+  # ========================================================
 
-  # 00:03- スラップベースの疾走に合わせた、画面下部から突き上げるサイン波
-  - { frame: 180,  x: 80,  type: "sine", hp: 2, phase: 0.0, amplitude: 80, bulletType: "aim" }
-  - { frame: 200,  x: 240, type: "sine", hp: 2, phase: 3.14, amplitude: 80, bulletType: "aim" }
+  # 00:03- KV演出終了直後：左右の外側から超高速で風を切る WindSlicer の交差交戦
+  - { frame: 190,   x: 0,   type: "wind_slicer", hp: 1, isLeft: true }
+  - { frame: 200,   x: 0,   type: "wind_slicer", hp: 1, isLeft: false }
+  - { frame: 220,   x: 0,   type: "wind_slicer", hp: 1, isLeft: true }
+  - { frame: 230,   x: 0,   type: "wind_slicer", hp: 1, isLeft: false }
 
-  # 00:06- Aメロ：東洋風FMフルートのメロディ。雲を突き抜ける設置型の中型機
-  - { frame: 360,  x: 160, type: "stationary", hp: 6, bulletType: "eight-way", stopY: 60, waitTime: 100 }
-  - { frame: 450,  x: 60,  type: "stationary", hp: 5, bulletType: "triple", stopY: 100, waitTime: 120 }
-  - { frame: 450,  x: 260, type: "stationary", hp: 5, bulletType: "triple", stopY: 100, waitTime: 120 }
+  # 00:05- 雲の切れ間から半透明で近づく CloudLurker ＋ 汎用 Sine のゆらめき
+  - { frame: 320,   x: 100, type: "cloud_lurker", hp: 2, bulletType: "aim" }
+  - { frame: 320,   x: 220, type: "cloud_lurker", hp: 2, bulletType: "aim" }
+  - { frame: 380,   x: 160, type: "sine",         hp: 1, phase: 0.0, amplitude: 80, bulletType: "straight" }
 
-  # 00:13- Bメロ：怒涛のブラススタブ。自機を画面隅にハメ殺す高速ハンター隊
-  - { frame: 780,  x: 100, type: "hunter", hp: 4, bulletType: "aim" }
-  - { frame: 810,  x: 220, type: "hunter", hp: 4, bulletType: "aim" }
-  - { frame: 900,  x: 160, type: "shield", hp: 10 }
+  # 00:08- Aメロ：強風で自機を横へ押し流す GaleArtillery が初登場
+  # 風圧に抗いながら照準を合わせる感覚を提示
+  - { frame: 500,   x: 160, type: "gale_artillery", hp: 4, stopY: 80 }
+  - { frame: 560,   x: 40,  type: "wind_slicer",    hp: 1, isLeft: true }
+  - { frame: 580,   x: 280, type: "wind_slicer",    hp: 1, isLeft: false }
 
-  # 00:20- 激しいサビ：大気をも引き裂くクロス大サイン波（8方向弾幕）
-  - { frame: 1200, x: 160, type: "sine", hp: 4, phase: 0.0, amplitude: 160, bulletType: "eight-way" }
-  - { frame: 1240, x: 160, type: "sine", hp: 4, phase: 3.14, amplitude: 160, bulletType: "eight-way" }
+  # 00:12- 上空に滞留し、真下に入ると垂直急降下ダイブしてくる SkyFalcon の襲来
+  - { frame: 720,   x: 80,  type: "sky_falcon", hp: 2 }
+  - { frame: 720,   x: 240, type: "sky_falcon", hp: 2 }
+  - { frame: 780,   x: 160, type: "cloud_lurker", hp: 2 }
 
-  # 00:27- クライマックスへのビルドアップ。画面中央を完全に塞ぐ要塞配置
-  - { frame: 1620, x: 160, type: "stationary", hp: 12, bulletType: "eight-way", stopY: 120, waitTime: 300 }
-  - { frame: 1800, x: 80,  type: "stationary", hp: 6, bulletType: "triple", stopY: 80, waitTime: 150 }
-  - { frame: 1800, x: 240, type: "stationary", hp: 6, bulletType: "triple", stopY: 80, waitTime: 150 }
+  # 00:16- 雲海を往く護衛機つき大型巡洋機 AegisCruiser の重厚な降下
+  - { frame: 980,   x: 160, type: "aegis_cruiser", hp: 8 }
+  - { frame: 1040,  x: 60,  type: "sky_falcon",    hp: 2 }
+  - { frame: 1040,  x: 260, type: "sky_falcon",    hp: 2 }
 
-  # 00:36- Boss Battle: 蒼穹龍神、咆哮。サビの極限リプライズで出現
-  - { frame: 2160, x: 128, type: "boss_03", hp: 150 }
+  # ========================================================
+  # 【② 展開・激化フェーズ（嵐の空中庭園）】 1301F 〜 2800F (21.6〜46.6秒)
+  # 目的：両脇からの強風圧 ＋ 急降下ドッグファイト ＋ 雲からの不意打ち
+  # ========================================================
 
-  # 龍の周囲を飛び交う雲の暗殺者（高速ストレート無限湧き）
-  - { frame: 2300, x: 60,  type: "straight", hp: 2, bulletType: "aim" }
-  - { frame: 2340, x: 260, type: "straight", hp: 2, bulletType: "aim" }
-  - { frame: 2400, x: 160, type: "sine", hp: 4, phase: 1.0, amplitude: 70, bulletType: "triple" }
+  # 00:23- Bメロ：左右ダブル GaleArtillery（風圧の挟み込み）＋ 中央に CloudLurker
+  - { frame: 1380,  x: 60,  type: "gale_artillery", hp: 4, stopY: 70 }
+  - { frame: 1380,  x: 260, type: "gale_artillery", hp: 4, stopY: 70 }
+  - { frame: 1440,  x: 160, type: "cloud_lurker",   hp: 3 }
 
-  - { frame: 2800, type: "LOOP_END", returnTo: 2300 }
+  # 00:28- メタルリフの加速：WindSlicer 6機連続超高速横断スクラム
+  - { frame: 1700,  x: 0,   type: "wind_slicer", hp: 1, isLeft: true }
+  - { frame: 1715,  x: 0,   type: "wind_slicer", hp: 1, isLeft: false }
+  - { frame: 1730,  x: 0,   type: "wind_slicer", hp: 1, isLeft: true }
+  - { frame: 1745,  x: 0,   type: "wind_slicer", hp: 1, isLeft: false }
+  - { frame: 1760,  x: 0,   type: "wind_slicer", hp: 1, isLeft: true }
+  - { frame: 1775,  x: 0,   type: "wind_slicer", hp: 1, isLeft: false }
+
+  # 00:32- サビ：空を埋める AegisCruiser ツインと SkyFalcon の連携
+  - { frame: 1950,  x: 80,  type: "aegis_cruiser", hp: 8 }
+  - { frame: 1950,  x: 240, type: "aegis_cruiser", hp: 8 }
+  - { frame: 2020,  x: 160, type: "sky_falcon",    hp: 2 }
+
+  # 00:38- サビ中盤：雲に隠れる潜行隊とハンターの粘着追尾
+  - { frame: 2300,  x: 60,  type: "cloud_lurker",  hp: 2 }
+  - { frame: 2320,  x: 160, type: "hunter",        hp: 3, bulletType: "aim" }
+  - { frame: 2340,  x: 260, type: "cloud_lurker",  hp: 2 }
+
+  # ========================================================
+  # 【③ クライマックス・ラッシュ（竜の棲む高空）】 2801F 〜 3800F (46.6〜63.3秒)
+  # 目的：全方向からの風と急降下。龍神降臨へ向けたボルテージ最高潮
+  # ========================================================
+
+  # 00:48- SkyFalcon 4機同時上空ロックオンフォーメーション
+  - { frame: 2900,  x: 40,  type: "sky_falcon", hp: 2 }
+  - { frame: 2900,  x: 120, type: "sky_falcon", hp: 2 }
+  - { frame: 2900,  x: 200, type: "sky_falcon", hp: 2 }
+  - { frame: 2900,  x: 280, type: "sky_falcon", hp: 2 }
+
+  # 00:53- ボス直前の防衛壁：GaleArtillery ＋ AegisCruiser ＋ 高速横断の狂乱
+  - { frame: 3200,  x: 160, type: "gale_artillery", hp: 5, stopY: 90 }
+  - { frame: 3240,  x: 80,  type: "aegis_cruiser",  hp: 8 }
+  - { frame: 3240,  x: 240, type: "aegis_cruiser",  hp: 8 }
+  - { frame: 3300,  x: 0,   type: "wind_slicer",    hp: 1, isLeft: true }
+  - { frame: 3310,  x: 0,   type: "wind_slicer",    hp: 1, isLeft: false }
+
+  # 01:00- スクロール停止＆警告フェーズ（風が止む静寂）
+  - { frame: 3600,  type: "BOSS_TRIGGER" }
+
+  # ========================================================
+  # 【④ 決戦：ボスバトル（蒼穹龍神 Soukyu Ryujin）】 3800F 〜 5200F (63.3秒〜最終)
+  # 目的：ハイスピードメタル（165BPM）と同調するボス03の急降下＆S字蛇行
+  # ========================================================
+
+  # 01:03.3- 蒼穹龍神 降臨
+  - { frame: 3800,  x: 128, type: "boss_03", hp: 200, timeLimit: 1800, timeMultiplier: 100 }
+
+  # ボス戦中の増援（上空を切り裂く WindSlicer と SkyFalcon の急襲）
+  - { frame: 4000,  x: 0,   type: "wind_slicer", hp: 1, isLeft: true }
+  - { frame: 4020,  x: 0,   type: "wind_slicer", hp: 1, isLeft: false }
+  - { frame: 4080,  x: 160, type: "sky_falcon",  hp: 2 }
+  - { frame: 4140,  x: 80,  type: "cloud_lurker", hp: 2 }
+  - { frame: 4140,  x: 240, type: "cloud_lurker", hp: 2 }
+
+  # ボス戦無限ループ終端
+  - { frame: 4300,  type: "LOOP_END", returnTo: 4000 }

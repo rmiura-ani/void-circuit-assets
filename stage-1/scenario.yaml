@@ -6,8 +6,8 @@
 version: "0.3"
 
 name: "Iron Vein"
-bgm: "stage-1/PROJECT_VOID-CIRCUIT STAGE_1 -Iron Vein-.ogg"
-kv: { path: "stage-1/kv.png", duration: 180 }
+bgm: "PROJECT_VOID-CIRCUIT STAGE_1 -Iron Vein-.ogg"
+kv: { path: "kv.png", duration: 180 }
 
 scenario:
   # ========================================================
