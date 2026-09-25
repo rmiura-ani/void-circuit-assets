@@ -11,99 +11,134 @@ kv: { path: "kv.png", duration: 180 }
 scenario:
   # ========================================================
   # 【① 導入フェーズ（流砂と遺跡の目覚め）】 180F 〜 2000F (3〜33.3秒)
-  # 目的：KV演出終了直後。砂塵の底からの逆急襲 DustScout と回転格子 RelicPrism の提示
   # ========================================================
 
   # 00:03- KV演出終了直後：下部砂塵（画面底）から逆噴射で飛び出す DustScout の奇襲
-  - { frame: 190,   x: 60,  type: "dust_scout", hp: 1, bulletType: "aim" }
-  - { frame: 200,   x: 260, type: "dust_scout", hp: 1, bulletType: "aim" }
-  - { frame: 230,   x: 110, type: "dust_scout", hp: 1, bulletType: "aim" }
-  - { frame: 240,   x: 210, type: "dust_scout", hp: 1, bulletType: "aim" }
+  - { frame: 190,   x: 60,   type: "dust_scout", hp: 1, bulletType: "aim" }
+  - { frame: 200,   x: 260,  type: "dust_scout", hp: 1, bulletType: "aim" }
+  - { frame: 230,   x: 110,  type: "dust_scout", hp: 1, bulletType: "aim" }
+  - { frame: 240,   x: 210,  type: "dust_scout", hp: 1, bulletType: "aim" }
 
   # 00:06- 蜃気楼のように揺らぐ MirageCrawler ＋ 幾何学回転パーツ RelicPrism
-  - { frame: 360,   x: 160, type: "relic_prism",    hp: 3, stopY: 100 }
-  - { frame: 420,   x: 80,  type: "mirage_crawler", hp: 2 }
-  - { frame: 420,   x: 240, type: "mirage_crawler", hp: 2 }
+  - { frame: 360,   x: 160,  type: "relic_prism",    hp: 8, stopY: 100 } # [調整] hp: 3 -> 8
+  - { frame: 420,   x: 80,   type: "mirage_crawler", hp: 2 }
+  - { frame: 420,   x: 240,  type: "mirage_crawler", hp: 2 }
 
   # 00:10- Aメロ：正面からのショットを半減させる砂の防壁 SandPillar が降下
-  # STRAIGHT換装でのゴリ押し、または側面からの迂回攻撃を判断させる
-  - { frame: 600,   x: 160, type: "sand_pillar", hp: 5 }
-  - { frame: 650,   x: 40,  type: "dust_scout",  hp: 1 }
-  - { frame: 670,   x: 280, type: "dust_scout",  hp: 1 }
+  - { frame: 600,   x: 160,  type: "sand_pillar", hp: 15 } # [調整] hp: 5 -> 15
+  - { frame: 650,   x: 40,   type: "dust_scout",   hp: 1 }
+  - { frame: 670,   x: 280,  type: "dust_scout",   hp: 1 }
 
-  # 00:15- 格子弾幕のダブル配置（安地の狭い精密回避）＋ 高速ストレート
-  - { frame: 900,   x: 80,  type: "relic_prism", hp: 3, stopY: 120 }
-  - { frame: 900,   x: 240, type: "relic_prism", hp: 3, stopY: 120 }
-  - { frame: 980,   x: 160, type: "straight",    hp: 1, bulletType: "straight" }
+  # 00:15- 格子弾幕のダブル配置 ＋ GaleArtillery（大型風圧砲）登場
+  - { frame: 900,   x: 80,   type: "relic_prism",    hp: 8, stopY: 120 } # [調整] hp: 3 -> 8
+  - { frame: 900,   x: 240,  type: "relic_prism",    hp: 8, stopY: 120 } # [調整] hp: 3 -> 8
+  - { frame: 950,   x: 160,  type: "gale_artillery", hp: 30, stopY: 70 } # [調整] hp: 12 -> 30 (大型砲台)
+  - { frame: 980,   x: 160,  type: "straight",       hp: 1, bulletType: "straight" }
 
-  # 00:20- 高耐久チャージ核 GigaOrb が初登場（ビーム発射前の破壊または退避）
-  - { frame: 1200,  x: 160, type: "giga_orb",    hp: 10 }
-  - { frame: 1280,  x: 60,  type: "dust_scout",  hp: 1 }
-  - { frame: 1280,  x: 260, type: "dust_scout",  hp: 1 }
+  # 00:20- 高耐久チャージ核 GigaOrb が初登場 ＋ 途切れ防止の波状攻撃
+  - { frame: 1200,  x: 160,  type: "giga_orb",       hp: 40 } # [調整] hp: 10 -> 40 (大型核)
+  - { frame: 1280,  x: 60,   type: "dust_scout",      hp: 1 }
+  - { frame: 1280,  x: 260,  type: "dust_scout",      hp: 1 }
+  - { frame: 1450,  x: 100,  type: "mirage_crawler", hp: 2 }
+  - { frame: 1450,  x: 220,  type: "mirage_crawler", hp: 2 }
+  - { frame: 1650,  x: 160,  type: "relic_prism",    hp: 8, stopY: 90 }  # [調整] hp: 3 -> 8
+  - { frame: 1800,  x: 40,   type: "dust_scout",      hp: 1 }
+  - { frame: 1830,  x: 280,  type: "dust_scout",      hp: 1 }
 
   # ========================================================
   # 【② 展開・激化フェーズ（古代メカニズムの暴走）】 2001F 〜 5000F (33.3〜83.3秒)
-  # 目的：蜃気楼の揺らぎ ＋ 防壁の挟み込み ＋ 幾何学移動のコンビネーション
   # ========================================================
 
   # 00:35- Bメロ：左右 SandPillar（防壁の挟み込み）＋ 下から湧き出る DustScout
-  - { frame: 2100,  x: 80,  type: "sand_pillar", hp: 6 }
-  - { frame: 2100,  x: 240, type: "sand_pillar", hp: 6 }
-  - { frame: 2180,  x: 160, type: "dust_scout",  hp: 1 }
+  - { frame: 2100,  x: 80,   type: "sand_pillar", hp: 18 } # [調整] hp: 6 -> 18
+  - { frame: 2100,  x: 240,  type: "sand_pillar", hp: 18 } # [調整] hp: 6 -> 18
+  - { frame: 2180,  x: 160,  type: "dust_scout",   hp: 1 }
+  - { frame: 2320,  x: 160,  type: "straight",     hp: 2, bulletType: "straight" }
 
-  # 00:41- 蜃気楼ウェーブ：MirageCrawler 4機同時ラスタ降下
-  - { frame: 2500,  x: 40,  type: "mirage_crawler", hp: 2 }
-  - { frame: 2520,  x: 120, type: "mirage_crawler", hp: 2 }
-  - { frame: 2540,  x: 200, type: "mirage_crawler", hp: 2 }
-  - { frame: 2560,  x: 280, type: "mirage_crawler", hp: 2 }
+  # 00:41- 蜃気楼ウェーブ：MirageCrawler 4機同時ラスタ降下 ＋ GaleArtillery で揺さぶり
+  - { frame: 2500,  x: 40,   type: "mirage_crawler", hp: 2 }
+  - { frame: 2520,  x: 120,  type: "mirage_crawler", hp: 2 }
+  - { frame: 2540,  x: 200,  type: "mirage_crawler", hp: 2 }
+  - { frame: 2560,  x: 280,  type: "mirage_crawler", hp: 2 }
+  - { frame: 2750,  x: 160,  type: "sand_pillar",    hp: 20 } # [調整] hp: 6 -> 20
 
   # 00:50- サビ：ダブル GigaOrb（極太ビームの二条交射）＋ 中央 RelicPrism
-  - { frame: 3000,  x: 80,  type: "giga_orb",    hp: 10 }
-  - { frame: 3000,  x: 240, type: "giga_orb",    hp: 10 }
-  - { frame: 3080,  x: 160, type: "relic_prism", hp: 4, stopY: 80 }
+  - { frame: 3000,  x: 80,   type: "giga_orb",    hp: 35 } # [調整] hp: 10 -> 35
+  - { frame: 3000,  x: 240,  type: "giga_orb",    hp: 35 } # [調整] hp: 10 -> 35
+  - { frame: 3080,  x: 160,  type: "relic_prism", hp: 10, stopY: 80 } # [調整] hp: 4 -> 10
+  - { frame: 3300,  x: 60,   type: "dust_scout",   hp: 1 }
+  - { frame: 3320,  x: 260,  type: "dust_scout",   hp: 1 }
+  - { frame: 3550,  x: 100,  type: "mirage_crawler", hp: 2 }
+  - { frame: 3550,  x: 220,  type: "mirage_crawler", hp: 2 }
 
-  # 01:03- サビ後半：下部からの逆襲 DustScout 6連撃スクラム
-  - { frame: 3800,  x: 40,  type: "dust_scout", hp: 1 }
-  - { frame: 3820,  x: 90,  type: "dust_scout", hp: 1 }
-  - { frame: 3840,  x: 140, type: "dust_scout", hp: 1 }
-  - { frame: 3860,  x: 190, type: "dust_scout", hp: 1 }
-  - { frame: 3880,  x: 240, type: "dust_scout", hp: 1 }
-  - { frame: 3900,  x: 290, type: "dust_scout", hp: 1 }
+  # 01:03- サビ後半：下部からの逆襲 DustScout 6連撃スクラム ＋ クロス攻撃
+  - { frame: 3800,  x: 40,   type: "dust_scout", hp: 1 }
+  - { frame: 3820,  x: 90,   type: "dust_scout", hp: 1 }
+  - { frame: 3840,  x: 140,  type: "dust_scout", hp: 1 }
+  - { frame: 3860,  x: 190,  type: "dust_scout", hp: 1 }
+  - { frame: 3880,  x: 240,  type: "dust_scout", hp: 1 }
+  - { frame: 3900,  x: 290,  type: "dust_scout", hp: 1 }
+
+  # 01:08- 間奏・ビルドアップ：風圧＋格子弾幕の複合トラップゾーン
+  - { frame: 4100,  x: 60,   type: "gale_artillery", hp: 35, stopY: 80 } # [調整] hp: 14 -> 35
+  - { frame: 4100,  x: 260,  type: "gale_artillery", hp: 35, stopY: 80 } # [調整] hp: 14 -> 35
+  - { frame: 4200,  x: 160,  type: "relic_prism",    hp: 10, stopY: 110 } # [調整] hp: 4 -> 10
+  - { frame: 4450,  x: 160,  type: "giga_orb",       hp: 45 } # [調整] hp: 10 -> 45
+  - { frame: 4650,  x: 60,   type: "sand_pillar",    hp: 20 } # [調整] hp: 6 -> 20
+  - { frame: 4650,  x: 260,  type: "sand_pillar",    hp: 20 } # [調整] hp: 6 -> 20
+  - { frame: 4850,  x: 120,  type: "dust_scout",      hp: 1 }
+  - { frame: 4880,  x: 200,  type: "dust_scout",      hp: 1 }
 
   # ========================================================
   # 【③ クライマックス・ラッシュ（地上絵の真実）】 5001F 〜 7800F (83.3〜130秒)
-  # 目的：古代要塞の総力戦。幾何学弾幕の飽和状態
   # ========================================================
 
   # 01:25- 幾何学パーツの大高密度配置（RelicPrism 3機フォーメーション）
-  - { frame: 5100,  x: 60,  type: "relic_prism", hp: 4, stopY: 60 }
-  - { frame: 5100,  x: 160, type: "relic_prism", hp: 5, stopY: 110 }
-  - { frame: 5100,  x: 260, type: "relic_prism", hp: 4, stopY: 60 }
+  - { frame: 5100,  x: 60,   type: "relic_prism", hp: 10, stopY: 60 } # [調整] hp: 4 -> 10
+  - { frame: 5100,  x: 160,  type: "relic_prism", hp: 12, stopY: 110 } # [調整] hp: 5 -> 12
+  - { frame: 5100,  x: 260,  type: "relic_prism", hp: 10, stopY: 60 } # [調整] hp: 4 -> 10
+  - { frame: 5350,  x: 80,   type: "mirage_crawler", hp: 2 }
+  - { frame: 5350,  x: 240,  type: "mirage_crawler", hp: 2 }
 
-  # 01:38- ボス直前の防衛壁：GigaOrb ＋ SandPillar ＋ 下部強襲の三位一体
-  - { frame: 5900,  x: 160, type: "giga_orb",    hp: 12 }
-  - { frame: 5950,  x: 80,  type: "sand_pillar", hp: 6 }
-  - { frame: 5950,  x: 240, type: "sand_pillar", hp: 6 }
-  - { frame: 6000,  x: 120, type: "dust_scout",  hp: 1 }
-  - { frame: 6000,  x: 200, type: "dust_scout",  hp: 1 }
+  # 01:33- ラッシュ終盤の追い込み
+  - { frame: 5600,  x: 160,  type: "sand_pillar", hp: 25 } # [調整] hp: 8 -> 25
+  - { frame: 5700,  x: 40,   type: "dust_scout",   hp: 1 }
+  - { frame: 5720,  x: 280,  type: "dust_scout",   hp: 1 }
+
+  # 01:38- ボス直前の防衛壁：GaleArtillery ＋ GigaOrb ＋ SandPillar ＋ 下部強襲
+  - { frame: 5900,  x: 160,  type: "gale_artillery", hp: 40, stopY: 80 } # [調整] hp: 16 -> 40
+  - { frame: 5930,  x: 160,  type: "giga_orb",       hp: 50 } # [調整] hp: 12 -> 50
+  - { frame: 5980,  x: 80,   type: "sand_pillar",    hp: 20 } # [調整] hp: 6 -> 20
+  - { frame: 5980,  x: 240,  type: "sand_pillar",    hp: 20 } # [調整] hp: 6 -> 20
+  - { frame: 6030,  x: 120,  type: "dust_scout",      hp: 1 }
+  - { frame: 6030,  x: 200,  type: "dust_scout",      hp: 1 }
+
+  # 01:45- ボス前の緊張感維持ウェーブ（風圧のプレッシャー）
+  - { frame: 6300,  x: 80,   type: "relic_prism", hp: 10, stopY: 80 }  # [調整] hp: 4 -> 10
+  - { frame: 6300,  x: 240,  type: "relic_prism", hp: 10, stopY: 80 }  # [調整] hp: 4 -> 10
+  - { frame: 6600,  x: 160,  type: "giga_orb",    hp: 40 } # [調整] hp: 10 -> 40
+  - { frame: 6850,  x: 60,   type: "dust_scout",   hp: 1 }
+  - { frame: 6870,  x: 160,  type: "dust_scout",   hp: 1 }
+  - { frame: 6890,  x: 260,  type: "dust_scout",   hp: 1 }
+  - { frame: 7100,  x: 100,  type: "mirage_crawler", hp: 2 }
+  - { frame: 7100,  x: 220,  type: "mirage_crawler", hp: 2 }
 
   # 02:03- スクロール停止＆警告フェーズ（砂塵が静まる刻）
   - { frame: 7400,  type: "BOSS_TRIGGER" }
 
   # ========================================================
   # 【④ 決戦：ボスバトル（地上絵守護神 Ancient Golem）】 7800F 〜 10440F (130秒〜最終)
-  # 目的：多角形パターン移動と古代サークル弾幕の地上絵ゴーレム
   # ========================================================
 
   # 02:10- 地上絵守護神 降臨
-  - { frame: 7800,  x: 128, type: "boss_04", hp: 220, timeLimit: 2400, timeMultiplier: 100 }
+  - { frame: 7800,  x: 128, type: "boss_04", hp: 250, timeLimit: 2400, timeMultiplier: 100 } # [調整] hp: 220 -> 250
 
   # ボス戦中の増援（下からの DustScout 急襲と RelicPrism の格子弾幕）
-  - { frame: 8000,  x: 60,  type: "dust_scout",  hp: 1 }
-  - { frame: 8020,  x: 260, type: "dust_scout",  hp: 1 }
-  - { frame: 8100,  x: 160, type: "relic_prism", hp: 3, stopY: 80 }
-  - { frame: 8180,  x: 100, type: "mirage_crawler", hp: 2 }
-  - { frame: 8180,  x: 220, type: "mirage_crawler", hp: 2 }
+  - { frame: 8000,  x: 60,   type: "dust_scout",   hp: 1 }
+  - { frame: 8020,  x: 260,  type: "dust_scout",   hp: 1 }
+  - { frame: 8100,  x: 160,  type: "relic_prism", hp: 8, stopY: 80 } # [調整] hp: 3 -> 8
+  - { frame: 8180,  x: 100,  type: "mirage_crawler", hp: 2 }
+  - { frame: 8180,  x: 220,  type: "mirage_crawler", hp: 2 }
 
   # ボス戦無限ループ終端
   - { frame: 8400,  type: "LOOP_END", returnTo: 8000 }

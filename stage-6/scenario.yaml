@@ -1,5 +1,5 @@
 # PROJECT: VOID-CIRCUIT | Stage 6 Scenario (Burning Orbit)
-# BGM Total Length: 10800F (03:00) | Boss Entrance: 8400F (02:20)
+# BGM Total Length: 3720F (01:02.0) | Boss Entrance: 1770F (00:29.5)
 # --------------------------------------------------
 
 version: "0.3"
@@ -10,93 +10,81 @@ kv: { path: "kv.png", duration: 180 }
 
 scenario:
   # ========================================================
-  # 【① 導入フェーズ（大気圏突入と赤熱の洗礼）】 180F 〜 2100F (3〜35秒)
-  # 目的：KV演出終了直後。赤熱エフェクトを纏う OrbitInterceptor と突起バーナー BurnerDrone の提示
+  # 【① 導入フェーズ（大気圏突入と赤熱の洗礼）】 180F 〜 650F (3.0〜10.8秒)
+  # 目的：KV演出終了直後。赤熱エフェクトを纏う OrbitInterceptor と突起バーナー BurnerDrone
   # ========================================================
 
-  # 00:03- KV演出終了直後：大気圏突入の赤熱を纏い、急ブレーキでミサイルを放つ OrbitInterceptor
+  # 00:03- KV演出終了直後：大気圏突入の赤熱を纏う OrbitInterceptor の先制攻撃
   - { frame: 190,   x: 80,  type: "orbit_interceptor", hp: 2 }
   - { frame: 190,   x: 240, type: "orbit_interceptor", hp: 2 }
-  - { frame: 250,   x: 160, type: "orbit_interceptor", hp: 2 }
+  - { frame: 230,   x: 160, type: "orbit_interceptor", hp: 2 }
 
-  # 00:07- 画面下部（足元）から火炎噴射を突き上げながら浮上する BurnerDrone
-  - { frame: 420,   x: 100, type: "burner_drone", hp: 3 }
-  - { frame: 420,   x: 220, type: "burner_drone", hp: 3 }
+  # 00:05.8- 画面下部（足元）から火炎噴射を突き上げながら浮上する BurnerDrone
+  - { frame: 350,   x: 100, type: "burner_drone", hp: 3 }
+  - { frame: 350,   x: 220, type: "burner_drone", hp: 3 }
 
-  # 00:11- Aメロ：正面からのショットを無効化する HeatArmor が降下
-  # 正面からのゴリ押しが通用しないため、軸ズレ撃ちや広域武器への換装を促す
-  - { frame: 660,   x: 160, type: "heat_armor",        hp: 6 }
-  - { frame: 720,   x: 40,  type: "orbit_interceptor", hp: 2 }
-  - { frame: 720,   x: 280, type: "orbit_interceptor", hp: 2 }
-
-  # 00:16- 誘導ミサイルを連続発射する HomingPod ＋ 画面下部バーナーの上下挟み込み
-  - { frame: 960,   x: 80,  type: "homing_pod",   hp: 2 }
-  - { frame: 960,   x: 240, type: "homing_pod",   hp: 2 }
-  - { frame: 1020,  x: 160, type: "burner_drone", hp: 3 }
-
-  # 00:22- 巨大戦艦パーツ BeamCruiser の重厚なスライド進入（面制圧）
-  - { frame: 1320,  x: 160, type: "beam_cruiser",      hp: 8 }
-  - { frame: 1380,  x: 60,  type: "orbit_interceptor", hp: 2 }
-  - { frame: 1380,  x: 260, type: "orbit_interceptor", hp: 2 }
+  # 00:08.3- Aメロ：正面からのショットを無効化する HeatArmor が降下
+  - { frame: 500,   x: 160, type: "heat_armor",        hp: 5 }
+  - { frame: 540,   x: 40,  type: "orbit_interceptor", hp: 2 }
+  - { frame: 540,   x: 280, type: "orbit_interceptor", hp: 2 }
 
   # ========================================================
-  # 【② 展開・激化フェーズ（要塞主砲群の掃射）】 2101F 〜 5400F (35〜90秒)
+  # 【② 展開・激化フェーズ（要塞主砲群の掃射）】 651F 〜 1250F (10.8〜20.8秒)
   # 目的：正面耐熱装甲の挟み込み ＋ 誘導ミサイル ＋ 下部バーナーの立体弾幕
   # ========================================================
 
-  # 00:40- Bメロ：左右 HeatArmor（正面無効の壁）＋ 中央から誘導 HomingPod
-  - { frame: 2400,  x: 80,  type: "heat_armor", hp: 6 }
-  - { frame: 2400,  x: 240, type: "heat_armor", hp: 6 }
-  - { frame: 2460,  x: 160, type: "homing_pod", hp: 2 }
+  # 00:11.6- 誘導ミサイル HomingPod ＋ 下部バーナーの挟み込み
+  - { frame: 700,   x: 80,  type: "homing_pod",   hp: 2 }
+  - { frame: 700,   x: 240, type: "homing_pod",   hp: 2 }
+  - { frame: 750,   x: 160, type: "burner_drone", hp: 3 }
 
-  # 00:48- 重厚スクラム：BeamCruiser ダブル配置 ＋ 足元からの BurnerDrone 突撃
-  - { frame: 2880,  x: 80,  type: "beam_cruiser", hp: 8 }
-  - { frame: 2880,  x: 240, type: "beam_cruiser", hp: 8 }
-  - { frame: 2940,  x: 40,  type: "burner_drone", hp: 3 }
-  - { frame: 2940,  x: 280, type: "burner_drone", hp: 3 }
+  # 00:14.1- Bメロ：左右 HeatArmor（正面無効の壁）＋ BeamCruiser の進入
+  - { frame: 850,   x: 60,  type: "heat_armor",   hp: 5 }
+  - { frame: 850,   x: 260, type: "heat_armor",   hp: 5 }
+  - { frame: 920,   x: 160, type: "beam_cruiser", hp: 7 }
 
-  # 01:00- サビ：大気圏突入機 OrbitInterceptor 6連撃怒涛のラッシュ
-  - { frame: 3600,  x: 40,  type: "orbit_interceptor", hp: 2 }
-  - { frame: 3620,  x: 90,  type: "orbit_interceptor", hp: 2 }
-  - { frame: 3640,  x: 140, type: "orbit_interceptor", hp: 2 }
-  - { frame: 3660,  x: 190, type: "orbit_interceptor", hp: 2 }
-  - { frame: 3680,  x: 240, type: "orbit_interceptor", hp: 2 }
-  - { frame: 3700,  x: 290, type: "orbit_interceptor", hp: 2 }
+  # 00:17.5- サビ：大気圏突入機 OrbitInterceptor 6連撃怒涛のラッシュ
+  - { frame: 1050,  x: 40,  type: "orbit_interceptor", hp: 2 }
+  - { frame: 1070,  x: 90,  type: "orbit_interceptor", hp: 2 }
+  - { frame: 1090,  x: 140, type: "orbit_interceptor", hp: 2 }
+  - { frame: 1110,  x: 190, type: "orbit_interceptor", hp: 2 }
+  - { frame: 1130,  x: 240, type: "orbit_interceptor", hp: 2 }
+  - { frame: 1150,  x: 290, type: "orbit_interceptor", hp: 2 }
 
   # ========================================================
-  # 【③ クライマックス・ラッシュ（要塞中枢の防衛線）】 5401F 〜 8400F (90〜140秒)
+  # 【③ クライマックス・ラッシュ（要塞中枢の防衛線）】 1251F 〜 1770F (20.8〜29.5秒)
   # 目的：全兵装投入。赤熱する画面と高密度重装甲群の総力戦
   # ========================================================
 
-  # 01:30- 超巨大空中戦艦の前面防衛網（HeatArmor ＋ BeamCruiser ＋ HomingPod）
-  - { frame: 5400,  x: 60,  type: "heat_armor",   hp: 7 }
-  - { frame: 5400,  x: 160, type: "beam_cruiser", hp: 10 }
-  - { frame: 5400,  x: 260, type: "heat_armor",   hp: 7 }
-  - { frame: 5460,  x: 120, type: "homing_pod",   hp: 2 }
-  - { frame: 5460,  x: 200, type: "homing_pod",   hp: 2 }
+  # 00:21.6- 超巨大空中戦艦の前面防衛網（HeatArmor ＋ BeamCruiser ＋ HomingPod）
+  - { frame: 1300,  x: 60,  type: "heat_armor",   hp: 5 }
+  - { frame: 1300,  x: 160, type: "beam_cruiser", hp: 8 }
+  - { frame: 1300,  x: 260, type: "heat_armor",   hp: 5 }
+  - { frame: 1360,  x: 120, type: "homing_pod",   hp: 2 }
+  - { frame: 1360,  x: 200, type: "homing_pod",   hp: 2 }
 
-  # 01:50- ボス直前の防衛壁：足元からのバーナーと上空突入機の挟み込み
-  - { frame: 6600,  x: 60,  type: "burner_drone",      hp: 4 }
-  - { frame: 6600,  x: 160, type: "orbit_interceptor", hp: 2 }
-  - { frame: 6600,  x: 260, type: "burner_drone",      hp: 4 }
+  # 00:24.1- ボス直前の防衛壁：足元からのバーナーと上空突入機の挟み込み
+  - { frame: 1450,  x: 60,  type: "burner_drone",      hp: 3 }
+  - { frame: 1450,  x: 160, type: "orbit_interceptor", hp: 2 }
+  - { frame: 1450,  x: 260, type: "burner_drone",      hp: 3 }
 
-  # 02:13- スクロール停止＆警告フェーズ（大気圏の摩擦音が激しく鳴り響く）
-  - { frame: 8000,  type: "BOSS_TRIGGER" }
+  # 00:26.6- スクロール停止＆警告フェーズ（大気圏の摩擦音が激しく鳴り響く）
+  - { frame: 1600,  type: "BOSS_TRIGGER" }
 
   # ========================================================
-  # 【④ 決戦：ボスバトル（超巨大空中戦艦 Burning Dread）】 8400F 〜 10800F (140秒〜最終)
-  # 目的：boss_06（画面占拠巨体・反動砲撃・HP30%以下での過熱発狂）降臨
+  # 【④ 決戦：ボスバトル（超巨大空中戦艦 Burning Dread）】 1770F 〜 3720F (29.5〜62.0秒)
+  # 目的：boss_06（画面占拠巨体・反動砲撃・過熱発狂）降臨
   # ========================================================
 
-  # 02:20- 超巨大空中戦艦 降臨
-  - { frame: 8400,  x: 128, type: "boss_06", hp: 300, timeLimit: 2400, timeMultiplier: 100 }
+  # 00:29.5- 超巨大空中戦艦 降臨（時間制限：1800F / HP: 150 に調整し撃破テンポを最適化）
+  - { frame: 1770,  x: 128, type: "boss_06", hp: 150, timeLimit: 1800, timeMultiplier: 100 }
 
   # ボス戦中の増援（赤熱突入機 OrbitInterceptor と下部 BurnerDrone）
-  - { frame: 8600,  x: 40,  type: "orbit_interceptor", hp: 2 }
-  - { frame: 8620,  x: 280, type: "orbit_interceptor", hp: 2 }
-  - { frame: 8700,  x: 160, type: "burner_drone",      hp: 3 }
-  - { frame: 8760,  x: 100, type: "homing_pod",        hp: 2 }
-  - { frame: 8760,  x: 220, type: "homing_pod",        hp: 2 }
+  - { frame: 1950,  x: 40,  type: "orbit_interceptor", hp: 2 }
+  - { frame: 1970,  x: 280, type: "orbit_interceptor", hp: 2 }
+  - { frame: 2030,  x: 160, type: "burner_drone",      hp: 3 }
+  - { frame: 2090,  x: 100, type: "homing_pod",        hp: 2 }
+  - { frame: 2090,  x: 220, type: "homing_pod",        hp: 2 }
 
-  # ボス戦無限ループ終端
-  - { frame: 9000,  type: "LOOP_END", returnTo: 8600 }
+  # ボス戦無限ループ終端（1950F〜2200F間をループ）
+  - { frame: 2200,  type: "LOOP_END", returnTo: 1950 }
