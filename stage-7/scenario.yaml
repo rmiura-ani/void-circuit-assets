@@ -35,7 +35,7 @@ scenario:
   # 【③ ボスラッシュ 2：碧琥珀の潜航母艦 (Stage 2)】 1100F 〜 1600F
   # ==========================================================
   - { frame: 1000,  type: "BOSS_TRIGGER" }
-  - { frame: 1100,  x: 160, type: "boss_02", hp: 120, timeLimit: 500, timeMultiplier: 100 }
+  - { frame: 1100,  x: 160, type: "boss_02", hp: 100, timeLimit: 500, timeMultiplier: 100 }
 
   - { frame: 1200,  x: 80,  type: "sine",     hp: 2, phase: 0.0, amplitude: 90, bulletType: "triple" }
   - { frame: 1200,  x: 240, type: "sine",     hp: 2, phase: 3.14, amplitude: 90, bulletType: "triple" }

@@ -94,7 +94,7 @@ scenario:
   - { frame: 1700, y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: true }
   - { frame: 1720, y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: false }
   - { frame: 1740, y: 60, type: "scout", hp: 1, bulletType: "aim", isLeft: true  }
-  - { frame: 1760, y: 60, type: "scout", hp: 1, bulletType: "aim", isLEft: false }
+  - { frame: 1760, y: 60, type: "scout", hp: 1, bulletType: "aim", isLeft: false }
 
   # 00:31- サビ展開：大サイン波の激しい交差（3WAY弾で面を制圧）
   - { frame: 1900, x: 100, type: "sine", hp: 2, phase: 0.0,  amplitude: 140, bulletType: "triple" }
@@ -145,7 +145,7 @@ scenario:
   - { frame: 3800, x: 80,  type: "sine",   hp: 2, phase: 0.0,  amplitude: 100, bulletType: "straight" }
   - { frame: 3800, x: 240, type: "sine",   hp: 2, phase: 3.14, amplitude: 100, bulletType: "straight" }
   - { frame: 3840,  y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: true }
-  - { frame: 3840,  y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: true }
+  - { frame: 3840,  y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: false }
 
   # 01:06- 容赦ないアサルト（特攻）6連続スクラム攻撃（軸ずらし回避の連続）
   - { frame: 4000, x: 40,  type: "assault" }
@@ -174,7 +174,7 @@ scenario:
   # ========================================================
 
   # 01:21.5- STAGE-1ボス「アイアン・ヴェイン防衛コア」降臨 [cite: 4, 7]
-  - { frame: 4890, x: 160, type: "boss_01", hp: 150, timeLimit: 1800, timeMultiplier: 100 }
+  - { frame: 190, x: 160, type: "boss_01", hp: 150, timeLimit: 1800, timeMultiplier: 100 }
 
   # 01:23- ボス戦中の無限湧き増援（高密度化：挟み込みストレートとハンターの猛攻）
   - { frame: 5000, x: 30,  type: "straight", hp: 1, bulletType: "straight" }

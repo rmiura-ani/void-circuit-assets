@@ -1,5 +1,5 @@
 # PROJECT: VOID-CIRCUIT | Stage 2 Scenario
-# BGM Total Length: 5000F (01:23.3) | Boss Entrance: 3600F (01:00)
+# BGM Total Length: 5000F (01:23.3) | Boss Entrance: 3300F (00:55.0)
 # --------------------------------------------------
 version: "0.3"
 
@@ -9,104 +9,138 @@ kv: { path: "kv.png", duration: 180 }
 
 scenario:
   # ========================================================
-  # 【① 導入フェーズ（水面の閃光）】 180F 〜 1200F (3〜20秒)
-  # 目的：KV演出終了後からスタート。高速機 AquaJet の水流カーブと BubbleMine の泡トラップ
+  # 【① 導入フェーズ（共通機ロングラッシュ）】 180F 〜 1200F (3〜20秒)
+  # 目的：800Fまで隙間なく共通敵(common)を配備し、爽快なスコア稼ぎ。800Fから固有敵解禁
   # ========================================================
 
-  # 00:03- KV演出終了直後：水面を滑るように横切る AquaJet の高速クロス強襲
-  - { frame: 190,   x: 60,  type: "aqua_jet", hp: 1, bulletType: "aim" }
-  - { frame: 200,   x: 260, type: "aqua_jet", hp: 1, bulletType: "aim" }
-  - { frame: 220,   x: 100, type: "aqua_jet", hp: 1, bulletType: "aim" }
-  - { frame: 230,   x: 220, type: "aqua_jet", hp: 1, bulletType: "aim" }
+  # --- 00:03- KV明け：汎用ストレートV字編隊（3WAYで全滅させる爽快感） ---
+  - { frame: 190,   x: 160, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 200,   x: 120, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 200,   x: 200, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 210,   x: 80,  type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 210,   x: 240, type: "straight", hp: 1, bulletType: "straight" }
 
-  # 00:05- 水中に漂う BubbleMine（泡トラップ） ＋ 隙間を縫う汎用ストレート編隊
-  - { frame: 320,   x: 80,  type: "bubble_mine", hp: 1 }
-  - { frame: 320,   x: 240, type: "bubble_mine", hp: 1 }
-  - { frame: 360,   x: 160, type: "straight",    hp: 1, bulletType: "straight" }
-  - { frame: 380,   x: 120, type: "straight",    hp: 1, bulletType: "straight" }
-  - { frame: 380,   x: 200, type: "straight",    hp: 1, bulletType: "straight" }
+  # --- 00:05- 左右スカウト ＋ 交差サイン波（隙間なく配置） ---
+  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: true }
+  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: false }
+  - { frame: 330,   x: 160, type: "sine",     hp: 1, phase: 0.0,  amplitude: 60, bulletType: "none" }
+  - { frame: 350,   x: 160, type: "sine",     hp: 1, phase: 3.14, amplitude: 60, bulletType: "none" }
 
-  # 00:08- Aメロ：波紋を広げる WaveSpreader と渦巻く VortexDiver のコンビネーション
-  - { frame: 500,   x: 160, type: "wave_spreader", hp: 3, stopY: 90 }
-  - { frame: 560,   x: 60,  type: "vortex_diver",  hp: 2, bulletType: "aim" }
-  - { frame: 580,   x: 260, type: "vortex_diver",  hp: 2, bulletType: "aim" }
-
-  # 00:12- 高耐久サンゴ要塞 CoralShield が中央を塞ぎ、両脇から AquaJet が疾走
-  - { frame: 720,   x: 160, type: "coral_shield",  hp: 16 }
-  - { frame: 760,   x: 40,  type: "aqua_jet",      hp: 1, bulletType: "aim" }
-  - { frame: 780,   x: 280, type: "aqua_jet",      hp: 1, bulletType: "aim" }
-
-  # 00:16- Aメロ後半：水面波紋散弾のダブル設置 ＋ 浮遊泡トラップの網（安地を狭める）
-  - { frame: 960,   x: 80,  type: "wave_spreader", hp: 3, stopY: 100 }
-  - { frame: 960,   x: 240, type: "wave_spreader", hp: 3, stopY: 100 }
-  - { frame: 1020,  x: 160, type: "bubble_mine",   hp: 1 }
-  - { frame: 1050,  x: 100, type: "bubble_mine",   hp: 1 }
-  - { frame: 1050,  x: 220, type: "bubble_mine",   hp: 1 }
+  # --- 00:07.5- 共通敵ラッシュ後半：固定砲台 ＋ 左右ハンター ＋ 追撃ストレート ---
+  - { frame: 450,   x: 100, type: "stationary", hp: 3, bulletType: "straight", stopY: 90, waitTime: 120 }
+  - { frame: 450,   x: 220, type: "stationary", hp: 3, bulletType: "straight", stopY: 90, waitTime: 120 }
+  - { frame: 520,   x: 40,  type: "hunter",     hp: 2, bulletType: "aim" }
+  - { frame: 520,   x: 280, type: "hunter",     hp: 2, bulletType: "aim" }
+  - { frame: 600,   x: 60,  type: "straight",   hp: 1, bulletType: "straight" }
+  - { frame: 610,   x: 110, type: "straight",   hp: 1, bulletType: "straight" }
+  - { frame: 620,   x: 210, type: "straight",   hp: 1, bulletType: "straight" }
+  - { frame: 630,   x: 260, type: "straight",   hp: 1, bulletType: "straight" }
+  - { frame: 700,   y: 100, type: "scout",      hp: 1, bulletType: "aim", isLeft: true }
+  - { frame: 700,   y: 100, type: "scout",      hp: 1, bulletType: "aim", isLeft: false }
 
   # ========================================================
-  # 【② 展開・激化フェーズ（水流の猛威）】 1201F 〜 2700F (20〜45秒)
-  # 目的：旋回・ダイブする VortexDiver と、盾・ハンターによる複合弾幕戦
+  # ⚡ 800F (00:13.3)- STAGE-2 固有敵（水没ユニット）解禁 ⚡
   # ========================================================
 
-  # 00:21- Bメロ：左右から交差ダイブする VortexDiver ＋ 中央にカウンター盾
-  - { frame: 1280,  x: 40,  type: "vortex_diver",  hp: 2, bulletType: "aim" }
-  - { frame: 1280,  x: 280, type: "vortex_diver",  hp: 2, bulletType: "aim" }
-  - { frame: 1320,  x: 160, type: "shield",        hp: 5 }
+  # --- 00:13.3- 800F解禁：WaveSpreader 登場 ＋ AquaJet 4連続クロス突入 ---
+  - { frame: 800,   x: 160, type: "wave_spreader", hp: 3, stopY: 90 }
+  - { frame: 830,   x: 50,  type: "aqua_jet",      hp: 1, bulletType: "aim" }
+  - { frame: 845,   x: 270, type: "aqua_jet",      hp: 1, bulletType: "aim" }
+  - { frame: 860,   x: 90,  type: "aqua_jet",      hp: 1, bulletType: "aim" }
+  - { frame: 875,   x: 230, type: "aqua_jet",      hp: 1, bulletType: "aim" }
 
-  # 00:26- サビ：大波紋を描くサイン波と CoralShield（レーザー照射）の二重壁
-  - { frame: 1560,  x: 160, type: "coral_shield",  hp: 16 }
-  - { frame: 1600,  x: 80,  type: "sine",          hp: 2, phase: 0.0,  amplitude: 120, bulletType: "triple" }
-  - { frame: 1620,  x: 240, type: "sine",          hp: 2, phase: 3.14, amplitude: 120, bulletType: "triple" }
+  # --- 00:15- BubbleMine 泡トラップ ＋ VortexDiver 旋回ダイブ（詰めた配置） ---
+  - { frame: 930,   x: 80,  type: "bubble_mine",   hp: 1 }
+  - { frame: 930,   x: 240, type: "bubble_mine",   hp: 1 }
+  - { frame: 960,   x: 60,  type: "vortex_diver",  hp: 2, bulletType: "aim" }
+  - { frame: 980,   x: 260, type: "vortex_diver",  hp: 2, bulletType: "aim" }
 
-  # 00:32- 水流ラッシュ：AquaJet 6連撃スクラム ＋ 執拗に迫るハンター
-  - { frame: 1920,  x: 40,  type: "aqua_jet",      hp: 1 }
-  - { frame: 1940,  x: 100, type: "aqua_jet",      hp: 1 }
-  - { frame: 1960,  x: 160, type: "aqua_jet",      hp: 1 }
-  - { frame: 1980,  x: 220, type: "aqua_jet",      hp: 1 }
-  - { frame: 2000,  x: 280, type: "aqua_jet",      hp: 1 }
-  - { frame: 2020,  x: 60,  type: "hunter",        hp: 3, bulletType: "aim" }
-  - { frame: 2020,  x: 260, type: "hunter",        hp: 3, bulletType: "aim" }
-
-  # 00:38- サビクライマックス：WaveSpreader トリプル設置による水面弾幕飽和
-  - { frame: 2300,  x: 60,  type: "wave_spreader", hp: 4, stopY: 80 }
-  - { frame: 2300,  x: 160, type: "wave_spreader", hp: 4, stopY: 60 }
-  - { frame: 2300,  x: 260, type: "wave_spreader", hp: 4, stopY: 80 }
+  # --- 00:17- Aメロ終盤：CoralShield ＋ 水平牽制ストレート（間延び防止） ---
+  - { frame: 1060,  x: 160, type: "coral_shield",  hp: 16 }
+  - { frame: 1100,  x: 60,  type: "straight",      hp: 1, bulletType: "straight" }
+  - { frame: 1100,  x: 260, type: "straight",      hp: 1, bulletType: "straight" }
+  - { frame: 1140,  x: 120, type: "bubble_mine",   hp: 1 }
+  - { frame: 1140,  x: 200, type: "bubble_mine",   hp: 1 }
 
   # ========================================================
-  # 【③ クライマックス・ラッシュ（水没への前照）】 2701F 〜 3600F (45〜60秒)
-  # 目的：ボス出現前の緊張感。高耐久サンゴと超高速ダイバーの怒涛のラッシュ
+  # 【② 展開・激化フェーズ（弾幕の連鎖）】 1201F 〜 2500F (20〜41.6秒)
+  # 目的：旋回敵・カウンター盾・サイン波を絶え間なく送り込み密度を大幅向上
   # ========================================================
 
-  # 00:46- 超高速 VortexDiver 4機同時突入
-  - { frame: 2780,  x: 30,  type: "vortex_diver",  hp: 2 }
-  - { frame: 2780,  x: 110, type: "vortex_diver",  hp: 2 }
-  - { frame: 2780,  x: 210, type: "vortex_diver",  hp: 2 }
-  - { frame: 2780,  x: 290, type: "vortex_diver",  hp: 2 }
+  # --- 00:20.6- Bメロ：左右ダイブ ＋ 中央カウンター盾 ＋ 追撃ハンター ---
+  - { frame: 1240,  x: 40,  type: "vortex_diver",  hp: 2, bulletType: "aim" }
+  - { frame: 1240,  x: 280, type: "vortex_diver",  hp: 2, bulletType: "aim" }
+  - { frame: 1280,  x: 160, type: "shield",        hp: 4 }
+  - { frame: 1330,  x: 100, type: "hunter",        hp: 2, bulletType: "aim" }
+  - { frame: 1330,  x: 220, type: "hunter",        hp: 2, bulletType: "aim" }
 
-  # 00:51- ボス前の壁：ダブル CoralShield ＋ 散乱する泡トラップ
-  - { frame: 3060,  x: 100, type: "coral_shield",  hp: 16 }
-  - { frame: 3060,  x: 220, type: "coral_shield",  hp: 16 }
-  - { frame: 3120,  x: 60,  type: "bubble_mine",   hp: 1 }
-  - { frame: 3120,  x: 160, type: "bubble_mine",   hp: 1 }
-  - { frame: 3120,  x: 260, type: "bubble_mine",   hp: 1 }
+  # --- 00:24.6- サビ：サイン波クロス ＋ CoralShield ＋ 水流クロス強襲 ---
+  - { frame: 1480,  x: 160, type: "coral_shield",  hp: 16 }
+  - { frame: 1510,  x: 80,  type: "sine",          hp: 2, phase: 0.0,  amplitude: 120, bulletType: "triple" }
+  - { frame: 1530,  x: 240, type: "sine",          hp: 2, phase: 3.14, amplitude: 120, bulletType: "triple" }
+  - { frame: 1600,  x: 50,  type: "aqua_jet",      hp: 1 }
+  - { frame: 1620,  x: 270, type: "aqua_jet",      hp: 1 }
 
-  # 00:56- スクロール停止＆警告フェーズ
-  - { frame: 3400,  type: "BOSS_TRIGGER" }
+  # --- 00:28- 水流高密度ラッシュ：AquaJet 6連襲撃 ＋ ハンター波状攻撃 ---
+  - { frame: 1720,  x: 40,  type: "aqua_jet",      hp: 1 }
+  - { frame: 1735,  x: 100, type: "aqua_jet",      hp: 1 }
+  - { frame: 1750,  x: 160, type: "aqua_jet",      hp: 1 }
+  - { frame: 1765,  x: 220, type: "aqua_jet",      hp: 1 }
+  - { frame: 1780,  x: 280, type: "aqua_jet",      hp: 1 }
+  - { frame: 1820,  x: 60,  type: "hunter",        hp: 2, bulletType: "aim" }
+  - { frame: 1820,  x: 260, type: "hunter",        hp: 2, bulletType: "aim" }
+
+  # --- 00:32- サビクライマックス：WaveSpreader トリプル ＋ 泡バリア配置 ---
+  - { frame: 1950,  x: 60,  type: "wave_spreader", hp: 3, stopY: 80 }
+  - { frame: 1950,  x: 160, type: "wave_spreader", hp: 4, stopY: 60 }
+  - { frame: 1950,  x: 260, type: "wave_spreader", hp: 3, stopY: 80 }
+  - { frame: 2020,  x: 110, type: "bubble_mine",   hp: 1 }
+  - { frame: 2020,  x: 210, type: "bubble_mine",   hp: 1 }
+  - { frame: 2080,  x: 160, type: "straight",      hp: 1, bulletType: "straight" }
 
   # ========================================================
-  # 【④ 決戦：ボスバトル（碧琥珀の潜航母艦）】 3600F 〜 5000F (60秒〜最終)
-  # 目的：boss_02（潜航・無敵ギミック）降臨。増援に水流敵を配置
+  # 【③ クライマックス・ラッシュ（潜航母艦急襲）】 2501F 〜 3300F (41.6〜55秒)
+  # 目的：55秒（3300F）のボス早出しに向け、怒涛の連続ダイブとラスト防衛線を展開
   # ========================================================
 
-  # 01:00- ボス降臨
-  - { frame: 3600,  x: 160, type: "boss_02", hp: 180, timeLimit: 1800, timeMultiplier: 100 }
+  # --- 00:37.5- VortexDiver 4機同時突入 ＋ 追撃 AquaJet ---
+  - { frame: 2250,  x: 30,  type: "vortex_diver",  hp: 2 }
+  - { frame: 2250,  x: 110, type: "vortex_diver",  hp: 2 }
+  - { frame: 2250,  x: 210, type: "vortex_diver",  hp: 2 }
+  - { frame: 2250,  x: 290, type: "vortex_diver",  hp: 2 }
+  - { frame: 2320,  x: 80,  type: "aqua_jet",      hp: 1, bulletType: "aim" }
+  - { frame: 2340,  x: 240, type: "aqua_jet",      hp: 1, bulletType: "aim" }
 
-  # ボス潜航中に周囲から襲いかかる増援（AquaJet & VortexDiver & BubbleMine）
-  - { frame: 3800,  x: 40,  type: "aqua_jet",      hp: 1 }
-  - { frame: 3820,  x: 280, type: "aqua_jet",      hp: 1 }
-  - { frame: 3880,  x: 160, type: "vortex_diver",  hp: 2 }
-  - { frame: 3940,  x: 80,  type: "bubble_mine",   hp: 1 }
-  - { frame: 3940,  x: 240, type: "bubble_mine",   hp: 1 }
+  # --- 00:41.6- 最終防衛壁：CoralShield（中央） ＋ 網状泡トラップ ＋ スカイダイバー ---
+  - { frame: 2500,  x: 160, type: "coral_shield",  hp: 16 }
+  - { frame: 2550,  x: 60,  type: "bubble_mine",   hp: 1 }
+  - { frame: 2550,  x: 160, type: "bubble_mine",   hp: 1 }
+  - { frame: 2550,  x: 260, type: "bubble_mine",   hp: 1 }
+  - { frame: 2620,  x: 40,  type: "vortex_diver",  hp: 2 }
+  - { frame: 2620,  x: 280, type: "vortex_diver",  hp: 2 }
 
-  # ボス戦無限ループ終端
-  - { frame: 4100,  type: "LOOP_END", returnTo: 3800 }
+  # --- 00:48- ラストスパート：高速 AquaJet スクラム隊列 ---
+  - { frame: 2880,  x: 80,  type: "aqua_jet",      hp: 1 }
+  - { frame: 2900,  x: 160, type: "aqua_jet",      hp: 1 }
+  - { frame: 2920,  x: 240, type: "aqua_jet",      hp: 1 }
+
+  # --- 00:52- スクロール停止＆警告フェーズ（タメ時間をコンパクト化） ---
+  - { frame: 3120,  type: "BOSS_TRIGGER" }
+
+  # ========================================================
+  # 【④ 決戦：ボスバトル（碧琥珀の潜航母艦）】 3300F 〜 5000F (55秒〜最終)
+  # 目的：55秒時点で早出し降臨！潜伏時間を十分に加味した撃破猶予を確保
+  # ========================================================
+
+  # --- 00:55.0- 碧琥珀の潜航母艦（boss_02）降臨 ---
+  - { frame: 3300,  x: 160, type: "boss_02", hp: 150, timeLimit: 2100, timeMultiplier: 100 }
+
+  # --- ボス潜航（無敵）中に周囲から襲う増援 ---
+  - { frame: 3500,  x: 40,  type: "aqua_jet",      hp: 1 }
+  - { frame: 3520,  x: 280, type: "aqua_jet",      hp: 1 }
+  - { frame: 3580,  x: 160, type: "vortex_diver",  hp: 2 }
+  - { frame: 3640,  x: 80,  type: "bubble_mine",   hp: 1 }
+  - { frame: 3640,  x: 240, type: "bubble_mine",   hp: 1 }
+
+  # --- ボス戦無限ループ終端 ---
+  - { frame: 3800,  type: "LOOP_END", returnTo: 3500 }

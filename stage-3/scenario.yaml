@@ -10,99 +10,115 @@ kv: { path: "kv.png", duration: 180 }
 
 scenario:
   # ========================================================
-  # 【① 導入フェーズ（疾風の雲海）】 180F 〜 800F (3.0〜13.3秒)
-  # 目的：KV演出終了直後。超高速横断機 WindSlicer と雲に隠れる CloudLurker の奇襲
+  # 【① 導入フェーズ（汎用機ハイスピードラッシュ）】 180F 〜 1150F (3.0〜19.1秒)
+  # 目的：480Fまで共通敵(common)の快速隊列。480Fから固有敵を解禁
   # ========================================================
 
-  # 00:03- KV演出終了直後：左右の外側から超高速で風を切る WindSlicer の交差交戦
-  - { frame: 190,   y: 100,   type: "wind_slicer", hp: 1, isLeft: true }
-  - { frame: 200,   y: 100,   type: "wind_slicer", hp: 1, isLeft: false }
-  - { frame: 215,   y: 150,   type: "wind_slicer", hp: 1, isLeft: true }
-  - { frame: 225,   y: 150,   type: "wind_slicer", hp: 1, isLeft: false }
+  # --- 00:03- KV明け：高速度ストレートV字編隊（3WAYで一撃破砕＆スコア稼ぎ） ---
+  - { frame: 190,   x: 160, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 200,   x: 110, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 200,   x: 210, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 210,   x: 60,  type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 210,   x: 260, type: "straight", hp: 1, bulletType: "straight" }
 
-  # 00:04.8- 雲の切れ間から半透明で近づく CloudLurker ＋ 汎用 Sine のゆらめき
-  - { frame: 290,   x: 100, type: "cloud_lurker", hp: 2, bulletType: "aim" }
-  - { frame: 290,   x: 220, type: "cloud_lurker", hp: 2, bulletType: "aim" }
-  - { frame: 335,   x: 160, type: "sine",         hp: 1, phase: 0.0, amplitude: 80, bulletType: "straight" }
-
-  # 00:07.5- Aメロ：強風で自機を横へ押し流す GaleArtillery が初登場（※frame: 150から450へ修正）
-  - { frame: 450,   x: 160, type: "gale_artillery", hp: 16, stopY: 80 }
-  - { frame: 490,   y: 100, type: "wind_slicer",    hp: 1, isLeft: true }
-  - { frame: 505,   y: 120, type: "wind_slicer",    hp: 1, isLeft: false }
-
-  # 00:10.0- 上空に滞留し、真下に入ると垂直急降下ダイブしてくる SkyFalcon の襲来
-  - { frame: 600,   x: 80,  type: "sky_falcon", hp: 2 }
-  - { frame: 600,   x: 240, type: "sky_falcon", hp: 2 }
-  - { frame: 640,   x: 160, type: "cloud_lurker", hp: 2 }
-
-  # 00:12.5- 雲海を往く護衛機つき大型巡洋機 AegisCruiser の重厚な降下
-  - { frame: 750,   x: 160, type: "aegis_cruiser", hp: 8 }
-  - { frame: 790,   x: 60,  type: "sky_falcon",    hp: 2 }
-  - { frame: 790,   x: 260, type: "sky_falcon",    hp: 2 }
+  # --- 00:04.8- 左右スカウト ＋ 中央Sine交差 ＋ 高速特攻アサルトの急襲 ---
+  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: true }
+  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: false }
+  - { frame: 320,   x: 160, type: "sine",     hp: 1, phase: 0.0,  amplitude: 80, bulletType: "none" }
+  - { frame: 340,   x: 160, type: "sine",     hp: 1, phase: 3.14, amplitude: 80, bulletType: "none" }
+  - { frame: 380,   x: 100, type: "assault" }
+  - { frame: 380,   x: 220, type: "assault" }
 
   # ========================================================
-  # 【② 展開・激化フェーズ（嵐の空中庭園）】 801F 〜 1700F (13.3〜28.3秒)
-  # 目的：両脇からの強風圧 ＋ 急降下ドッグファイト ＋ 雲からの不意打ち
+  # ⚡ 480F (00:08.0)- STAGE-3 固有敵（嵐の空中ユニット）解禁 ⚡
   # ========================================================
 
-  # 00:15.0- Bメロ：左右ダブル GaleArtillery（風圧の挟み込み）＋ 中央に CloudLurker
-  - { frame: 900,   x: 60,  type: "gale_artillery", hp: 16, stopY: 70 }
-  - { frame: 900,   x: 260, type: "gale_artillery", hp: 16, stopY: 70 }
-  - { frame: 940,   x: 160, type: "cloud_lurker",   hp: 3 }
+  # --- 00:08.0- 480F解禁：WindSlicer 超高速横断 ＋ GaleArtillery（風圧砲台・中央1台） ---
+  - { frame: 480,   y: 100, type: "wind_slicer",   hp: 1, isLeft: true }
+  - { frame: 490,   y: 100, type: "wind_slicer",   hp: 1, isLeft: false }
+  - { frame: 505,   y: 150, type: "wind_slicer",   hp: 1, isLeft: true }
+  - { frame: 515,   y: 150, type: "wind_slicer",   hp: 1, isLeft: false }
+  - { frame: 550,   x: 160, type: "gale_artillery", hp: 16, stopY: 80 }
 
-  # 00:18.3- メタルリフの加速：WindSlicer 6機連続超高速横断スクラム（y指定に変更）
-  - { frame: 1100,  y: 80,  type: "wind_slicer", hp: 1, isLeft: true }
-  - { frame: 1110,  y: 100, type: "wind_slicer", hp: 1, isLeft: false }
-  - { frame: 1120,  y: 120, type: "wind_slicer", hp: 1, isLeft: true }
-  - { frame: 1130,  y: 140, type: "wind_slicer", hp: 1, isLeft: false }
-  - { frame: 1140,  y: 160, type: "wind_slicer", hp: 1, isLeft: true }
-  - { frame: 1150,  y: 180, type: "wind_slicer", hp: 1, isLeft: false }
+  # --- 00:11.0- CloudLurker 潜行奇襲 ＋ SkyFalcon 急降下ダイブ ---
+  - { frame: 660,   x: 80,  type: "cloud_lurker",  hp: 2, bulletType: "aim" }
+  - { frame: 660,   x: 240, type: "cloud_lurker",  hp: 2, bulletType: "aim" }
+  - { frame: 720,   x: 160, type: "sky_falcon",    hp: 2 }
 
-  # 00:21.6- サビ：空を埋める AegisCruiser ツインと SkyFalcon の連携
-  - { frame: 1300,  x: 80,  type: "aegis_cruiser", hp: 8 }
-  - { frame: 1300,  x: 240, type: "aegis_cruiser", hp: 8 }
-  - { frame: 1350,  x: 160, type: "sky_falcon",    hp: 2 }
+  # --- 00:13.3- 大型 AegisCruiser 降下 ＋ 護衛 SkyFalcon ---
+  - { frame: 800,   x: 160, type: "aegis_cruiser", hp: 8 }
+  - { frame: 840,   x: 60,  type: "sky_falcon",    hp: 2 }
+  - { frame: 840,   x: 260, type: "sky_falcon",    hp: 2 }
 
-  # 00:25.0- サビ中盤：雲に隠れる潜行隊とハンターの粘着追尾
+  # --- 00:16.0- 共通敵の挟み込み：3WAY固定砲台 ＋ 両翼ハンター ---
+  - { frame: 960,   x: 160, type: "stationary", hp: 4, bulletType: "triple", stopY: 80, waitTime: 120 }
+  - { frame: 1000,  x: 40,  type: "hunter",     hp: 2, bulletType: "aim" }
+  - { frame: 1000,  x: 280, type: "hunter",     hp: 2, bulletType: "aim" }
+
+  # ========================================================
+  # 【② 展開・激化フェーズ（嵐の空中庭園）】 1150F 〜 1750F (19.1〜29.1秒)
+  # 目的：中央風圧砲台 ＋ 雲からの不意打ち・急降下によるドッグファイト
+  # ========================================================
+
+  # --- 00:19.1- Bメロ：中央 GaleArtillery（1台固定） ＋ 左右 CloudLurker ＋ 特攻突入 ---
+  - { frame: 1150,  x: 160, type: "gale_artillery", hp: 16, stopY: 70 }
+  - { frame: 1190,  x: 60,  type: "cloud_lurker",   hp: 2 }
+  - { frame: 1190,  x: 260, type: "cloud_lurker",   hp: 2 }
+  - { frame: 1230,  x: 100, type: "assault" }
+  - { frame: 1230,  x: 220, type: "assault" }
+
+  # --- 00:21.3- メタルリフ加速：WindSlicer 6機連続超高速スクラム ---
+  - { frame: 1280,  y: 80,  type: "wind_slicer",   hp: 1, isLeft: true }
+  - { frame: 1290,  y: 100, type: "wind_slicer",   hp: 1, isLeft: false }
+  - { frame: 1300,  y: 120, type: "wind_slicer",   hp: 1, isLeft: true }
+  - { frame: 1310,  y: 140, type: "wind_slicer",   hp: 1, isLeft: false }
+  - { frame: 1320,  y: 160, type: "wind_slicer",   hp: 1, isLeft: true }
+  - { frame: 1330,  y: 180, type: "wind_slicer",   hp: 1, isLeft: false }
+
+  # --- 00:23.3- サビ：AegisCruiser ツイン ＋ 追尾ハンター ＋ 雲潜行隊 ---
+  - { frame: 1400,  x: 80,  type: "aegis_cruiser", hp: 8 }
+  - { frame: 1400,  x: 240, type: "aegis_cruiser", hp: 8 }
+  - { frame: 1450,  x: 160, type: "hunter",        hp: 3, bulletType: "aim" }
   - { frame: 1500,  x: 60,  type: "cloud_lurker",  hp: 2 }
-  - { frame: 1515,  x: 160, type: "hunter",        hp: 3, bulletType: "aim" }
-  - { frame: 1530,  x: 260, type: "cloud_lurker",  hp: 2 }
+  - { frame: 1500,  x: 260, type: "cloud_lurker",  hp: 2 }
 
   # ========================================================
-  # 【③ クライマックス・ラッシュ（竜の棲む高空）】 1701F 〜 2400F (28.3〜40.0秒)
-  # 目的：全方向からの風と急降下。龍神降臨へ向けたボルテージ最高潮
+  # 【③ クライマックス・ラッシュ（竜の棲む高空）】 1751F 〜 2400F (29.1〜40.0秒)
+  # 目的：全方向からの風圧と急降下。蒼穹龍神降臨へ向けたボルテージ最高潮
   # ========================================================
 
-  # 00:29.1- SkyFalcon 4機同時上空ロックオンフォーメーション
-  - { frame: 1750,  x: 40,  type: "sky_falcon", hp: 2 }
-  - { frame: 1750,  x: 120, type: "sky_falcon", hp: 2 }
-  - { frame: 1750,  x: 200, type: "sky_falcon", hp: 2 }
-  - { frame: 1750,  x: 280, type: "sky_falcon", hp: 2 }
+  # --- 00:29.1- SkyFalcon 4機同時ロックオンフォーメーション ---
+  - { frame: 1750,  x: 40,  type: "sky_falcon",    hp: 2 }
+  - { frame: 1750,  x: 120, type: "sky_falcon",    hp: 2 }
+  - { frame: 1750,  x: 200, type: "sky_falcon",    hp: 2 }
+  - { frame: 1750,  x: 280, type: "sky_falcon",    hp: 2 }
 
-  # 00:32.5- ボス直前の防衛壁：GaleArtillery ＋ AegisCruiser ＋ 高速横断の狂乱（y指定に変更）
-  - { frame: 1950,  x: 160, type: "gale_artillery", hp: 5, stopY: 90 }
+  # --- 00:32.5- ボス直前の要塞壁：中央 GaleArtillery（1台固定） ＋ AegisCruiser ＋ 高速横断の怒涛 ---
+  - { frame: 1950,  x: 160, type: "gale_artillery", hp: 12, stopY: 90 }
   - { frame: 1980,  x: 80,  type: "aegis_cruiser",  hp: 8 }
   - { frame: 1980,  x: 240, type: "aegis_cruiser",  hp: 8 }
   - { frame: 2020,  y: 110, type: "wind_slicer",    hp: 1, isLeft: true }
   - { frame: 2030,  y: 130, type: "wind_slicer",    hp: 1, isLeft: false }
+  - { frame: 2080,  x: 120, type: "straight",       hp: 1, bulletType: "straight" }
+  - { frame: 2080,  x: 200, type: "straight",       hp: 1, bulletType: "straight" }
 
-  # 00:36.6- スクロール停止＆警告フェーズ（風が止む静寂）
+  # --- 00:36.6- スクロール停止＆警告フェーズ（風が止む静寂） ---
   - { frame: 2200,  type: "BOSS_TRIGGER" }
 
   # ========================================================
   # 【④ 決戦：ボスバトル（蒼穹龍神 Soukyu Ryujin）】 2400F 〜 3840F (40.0秒〜64.0秒)
-  # 目的：ハイスピードメタル（165BPM）と同調するボス03の急降下＆S字蛇行
+  # 目的：ハイスピードメタルと同調する boss_03 の急降下＆S字蛇行戦
   # ========================================================
 
-  # 00:40.0- 蒼穹龍神 降臨（時間制限：1440F / 残り時間換算：100点）
+  # --- 00:40.0- 蒼穹龍神 降臨 ---
   - { frame: 2400,  x: 160, type: "boss_03", hp: 200, timeLimit: 1440, timeMultiplier: 100 }
 
-  # ボス戦中の増援（y指定に変更）
-  - { frame: 2600,  y: 90,  type: "wind_slicer", hp: 1, isLeft: true }
-  - { frame: 2620,  y: 150, type: "wind_slicer", hp: 1, isLeft: false }
-  - { frame: 2680,  x: 160, type: "sky_falcon",   hp: 2 }
-  - { frame: 2740,  x: 80,  type: "cloud_lurker", hp: 2 }
-  - { frame: 2740,  x: 240, type: "cloud_lurker", hp: 2 }
+  # --- ボス戦中の増援（急降下・横断・潜行の混戦） ---
+  - { frame: 2600,  y: 90,  type: "wind_slicer",   hp: 1, isLeft: true }
+  - { frame: 2620,  y: 150, type: "wind_slicer",   hp: 1, isLeft: false }
+  - { frame: 2680,  x: 160, type: "sky_falcon",    hp: 2 }
+  - { frame: 2740,  x: 80,  type: "cloud_lurker",  hp: 2 }
+  - { frame: 2740,  x: 240, type: "cloud_lurker",  hp: 2 }
 
-  # ボス戦無限ループ終端（2600F〜2900F間をループ）
+  # --- ボス戦無限ループ終端 ---
   - { frame: 2900,  type: "LOOP_END", returnTo: 2600 }
