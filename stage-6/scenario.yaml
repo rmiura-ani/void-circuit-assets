@@ -77,7 +77,7 @@ scenario:
   # ========================================================
 
   # 00:29.5- 超巨大空中戦艦 降臨（時間制限：1800F / HP: 150 に調整し撃破テンポを最適化）
-  - { frame: 1770,  x: 128, type: "boss_06", hp: 150, timeLimit: 1800, timeMultiplier: 100 }
+  - { frame: 1750,  x: 160, type: "boss_06", hp: 150, timeLimit: 1800, timeMultiplier: 100 }
 
   # ボス戦中の増援（赤熱突入機 OrbitInterceptor と下部 BurnerDrone）
   - { frame: 1950,  x: 40,  type: "orbit_interceptor", hp: 2 }

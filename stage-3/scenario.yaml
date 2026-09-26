@@ -95,7 +95,7 @@ scenario:
   # ========================================================
 
   # 00:40.0- 蒼穹龍神 降臨（時間制限：1440F / 残り時間換算：100点）
-  - { frame: 2400,  x: 128, type: "boss_03", hp: 200, timeLimit: 1440, timeMultiplier: 100 }
+  - { frame: 2400,  x: 160, type: "boss_03", hp: 200, timeLimit: 1440, timeMultiplier: 100 }
 
   # ボス戦中の増援（y指定に変更）
   - { frame: 2600,  y: 90,  type: "wind_slicer", hp: 1, isLeft: true }

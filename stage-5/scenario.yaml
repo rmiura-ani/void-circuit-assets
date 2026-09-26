@@ -36,7 +36,7 @@ scenario:
   - { frame: 840,   x: 160, type: "cell_mitosis",    hp: 2 }
 
   # 00:18- 自己回復（DPSチェック）を行う中型核 HeartNucleus 初登場
-  - { frame: 1080,  x: 160, type: "heart_nucleus",  hp: 7 }
+  - { frame: 1080,  x: 160, type: "heart_nucleus",  hp: 30 }
   - { frame: 1140,  x: 60,  type: "pulse_spore",    hp: 1 }
   - { frame: 1140,  x: 260, type: "pulse_spore",    hp: 1 }
 
@@ -60,8 +60,8 @@ scenario:
   - { frame: 2340,  x: 160, type: "pulse_spore",    hp: 1 }
 
   # 00:46- サビ：HeartNucleus ダブル配置（回復する前に火力を集中せよ）
-  - { frame: 2760,  x: 100, type: "heart_nucleus",  hp: 8 }
-  - { frame: 2760,  x: 220, type: "heart_nucleus",  hp: 8 }
+  - { frame: 2760,  x: 100, type: "heart_nucleus",  hp: 20 }
+  - { frame: 2760,  x: 220, type: "heart_nucleus",  hp: 20 }
   - { frame: 2820,  x: 40,  type: "cell_mitosis",   hp: 2 }
   - { frame: 2820,  x: 280, type: "cell_mitosis",   hp: 2 }
 
@@ -79,7 +79,7 @@ scenario:
 
   # 01:20- 触手とうねる大型生体群の総力戦
   - { frame: 4800,  x: 60,  type: "bio_tentacle",  hp: 5 }
-  - { frame: 4800,  x: 160, type: "heart_nucleus", hp: 10 }
+  - { frame: 4800,  x: 160, type: "heart_nucleus", hp: 30 }
   - { frame: 4800,  x: 260, type: "bio_tentacle",  hp: 5 }
 
   # 01:35- ボス直前の防衛壁：画面を覆う CellMitosis 大群 ＋ 寄生体
@@ -100,7 +100,7 @@ scenario:
   # ========================================================
 
   # 02:00- 生体DNAコア 降臨
-  - { frame: 7200,  x: 128, type: "boss_05", hp: 240, timeLimit: 2400, timeMultiplier: 100 }
+  - { frame: 7200,  x: 160, type: "boss_05", hp: 240, timeLimit: 2400, timeMultiplier: 100 }
 
   # ボス戦中の増援（分裂細胞 CellMitosis とビート同期 PulseSpore）
   - { frame: 7400,  x: 60,  type: "cell_mitosis", hp: 2 }

@@ -36,8 +36,8 @@ scenario:
   - { frame: 260,  x: 160, type: "straight", hp: 1, bulletType: "straight" }
 
   # 00:05- 左右同時スカウト ＋ 中央ストレート（視線を散らすコンビネーション）
-  - { frame: 300,  x: 30,  type: "scout",    hp: 1, bulletType: "aim" }
-  - { frame: 300,  x: 290, type: "scout",    hp: 1, bulletType: "aim" }
+  - { frame: 300,  y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: true }
+  - { frame: 300,  y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: false }
   - { frame: 320,  x: 160, type: "straight", hp: 1, bulletType: "straight" }
   - { frame: 340,  x: 100, type: "straight", hp: 1, bulletType: "straight" }
   - { frame: 340,  x: 220, type: "straight", hp: 1, bulletType: "straight" }
@@ -91,10 +91,10 @@ scenario:
   - { frame: 1520, x: 160, type: "hunter", hp: 3, bulletType: "aim" }
 
   # 00:28- メロディのビルドアップ：一撃離脱スカウト4機による波状トリッキー攻撃
-  - { frame: 1700, x: 20,  type: "scout", hp: 1, bulletType: "aim" }
-  - { frame: 1720, x: 300, type: "scout", hp: 1, bulletType: "aim" }
-  - { frame: 1740, x: 40,  type: "scout", hp: 1, bulletType: "aim" }
-  - { frame: 1760, x: 280, type: "scout", hp: 1, bulletType: "aim" }
+  - { frame: 1700, y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: true }
+  - { frame: 1720, y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: false }
+  - { frame: 1740, y: 60, type: "scout", hp: 1, bulletType: "aim", isLeft: true  }
+  - { frame: 1760, y: 60, type: "scout", hp: 1, bulletType: "aim", isLEft: false }
 
   # 00:31- サビ展開：大サイン波の激しい交差（3WAY弾で面を制圧）
   - { frame: 1900, x: 100, type: "sine", hp: 2, phase: 0.0,  amplitude: 140, bulletType: "triple" }
@@ -144,8 +144,8 @@ scenario:
   # 01:03- クライマックス突入：Wサイン波の高速交差 ＋ 偵察機が左右から同時強襲
   - { frame: 3800, x: 80,  type: "sine",   hp: 2, phase: 0.0,  amplitude: 100, bulletType: "straight" }
   - { frame: 3800, x: 240, type: "sine",   hp: 2, phase: 3.14, amplitude: 100, bulletType: "straight" }
-  - { frame: 3840, x: 30,  type: "scout",  hp: 1, bulletType: "aim" }
-  - { frame: 3840, x: 290, type: "scout",  hp: 1, bulletType: "aim" }
+  - { frame: 3840,  y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: true }
+  - { frame: 3840,  y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: true }
 
   # 01:06- 容赦ないアサルト（特攻）6連続スクラム攻撃（軸ずらし回避の連続）
   - { frame: 4000, x: 40,  type: "assault" }
@@ -174,7 +174,7 @@ scenario:
   # ========================================================
 
   # 01:21.5- STAGE-1ボス「アイアン・ヴェイン防衛コア」降臨 [cite: 4, 7]
-  - { frame: 4890, x: 128, type: "boss_01", hp: 150, timeLimit: 1800, timeMultiplier: 100 }
+  - { frame: 4890, x: 160, type: "boss_01", hp: 150, timeLimit: 1800, timeMultiplier: 100 }
 
   # 01:23- ボス戦中の無限湧き増援（高密度化：挟み込みストレートとハンターの猛攻）
   - { frame: 5000, x: 30,  type: "straight", hp: 1, bulletType: "straight" }

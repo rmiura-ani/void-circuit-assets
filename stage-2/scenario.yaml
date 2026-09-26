@@ -99,7 +99,7 @@ scenario:
   # ========================================================
 
   # 01:00- ボス降臨
-  - { frame: 3600,  x: 128, type: "boss_02", hp: 180, timeLimit: 1800, timeMultiplier: 100 }
+  - { frame: 3600,  x: 160, type: "boss_02", hp: 180, timeLimit: 1800, timeMultiplier: 100 }
 
   # ボス潜航中に周囲から襲いかかる増援（AquaJet & VortexDiver & BubbleMine）
   - { frame: 3800,  x: 40,  type: "aqua_jet",      hp: 1 }

@@ -131,7 +131,7 @@ scenario:
   # ========================================================
 
   # 02:10- 地上絵守護神 降臨
-  - { frame: 7800,  x: 128, type: "boss_04", hp: 250, timeLimit: 2400, timeMultiplier: 100 } # [調整] hp: 220 -> 250
+  - { frame: 7800,  x: 160, type: "boss_04", hp: 250, timeLimit: 2400, timeMultiplier: 100 } # [調整] hp: 220 -> 250
 
   # ボス戦中の増援（下からの DustScout 急襲と RelicPrism の格子弾幕）
   - { frame: 8000,  x: 60,   type: "dust_scout",   hp: 1 }
