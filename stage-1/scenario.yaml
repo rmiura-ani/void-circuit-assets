@@ -2,7 +2,7 @@
 # BGM Total Length: 6840F (01:54) | Boss Entrance: 4890F (01:21.5)
 # --------------------------------------------------
 
-version: "0.3"
+version: "0.4"
 
 name: "Iron Vein"
 bgm: "PROJECT_VOID-CIRCUIT STAGE_1 -Iron Vein-.ogg"
@@ -15,46 +15,46 @@ scenario:
   # 目的：インターバルなし。WIDE換装で画面中をマゼンタの得点アイテムで埋め尽くす
   # ========================================================
 
-  # 00:00- KV & STAGAE表示なのでなにもしない。（180フレーム）
+  # 00:00- KV & STAGE表示（180フレーム経過後に道中スタート）
 
-  # 00:01- 開幕：間髪入れずに襲いかかる「トリプルV字ストレート大編隊」
-  - { frame: 160,   x: 160, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 170,   x: 120, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 170,   x: 200, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 180,   x: 80,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 180,   x: 240, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 190,   x: 40,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 190,   x: 280, type: "straight", hp: 1, bulletType: "straight" }
+  # 00:03- 開幕：間髪入れずに襲いかかる「トリプルV字ストレート大編隊」
+  - { frame: 180,   x: 160, type: "straight",  bulletType: "straight" }
+  - { frame: 190,   x: 120, type: "straight",  bulletType: "straight" }
+  - { frame: 190,   x: 200, type: "straight",  bulletType: "straight" }
+  - { frame: 200,   x: 80,  type: "straight",  bulletType: "straight" }
+  - { frame: 200,   x: 240, type: "straight",  bulletType: "straight" }
+  - { frame: 210,   x: 40,  type: "straight",  bulletType: "straight" }
+  - { frame: 210,   x: 280, type: "straight",  bulletType: "straight" }
 
   # 息をつかせず第2波（逆V字）が即座にスクロールイン
-  - { frame: 230,  x: 40,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 230,  x: 280, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 240,  x: 80,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 240,  x: 240, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 250,  x: 120, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 250,  x: 200, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 260,  x: 160, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 230,  x: 40,  type: "straight",  bulletType: "straight" }
+  - { frame: 230,  x: 280, type: "straight",  bulletType: "straight" }
+  - { frame: 240,  x: 80,  type: "straight",  bulletType: "straight" }
+  - { frame: 240,  x: 240, type: "straight",  bulletType: "straight" }
+  - { frame: 250,  x: 120, type: "straight",  bulletType: "straight" }
+  - { frame: 250,  x: 200, type: "straight",  bulletType: "straight" }
+  - { frame: 260,  x: 160, type: "straight",  bulletType: "straight" }
 
   # 00:05- 左右同時スカウト ＋ 中央ストレート（視線を散らすコンビネーション）
-  - { frame: 300,  y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: true }
-  - { frame: 300,  y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: false }
-  - { frame: 320,  x: 160, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 340,  x: 100, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 340,  x: 220, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 300,  y: 80,  type: "scout",     bulletType: "aim", from: "left" }
+  - { frame: 300,  y: 80,  type: "scout",     bulletType: "aim", from: "right" }
+  - { frame: 320,  x: 160, type: "straight",  bulletType: "straight" }
+  - { frame: 340,  x: 100, type: "straight",  bulletType: "straight" }
+  - { frame: 340,  x: 220, type: "straight",  bulletType: "straight" }
 
   # 00:06- Aメロ開始：左右同時設置のクロス攻撃 ＋ 背後からサイン波が追い撃ち
   - { frame: 380,  x: 60,  type: "stationary", hp: 2, bulletType: "aim", stopY: 80, waitTime: 100 }
   - { frame: 380,  x: 260, type: "stationary", hp: 2, bulletType: "aim", stopY: 80, waitTime: 100 }
-  - { frame: 440,  x: 100, type: "sine",       hp: 1, phase: 0.0,  amplitude: 50, bulletType: "none" }
-  - { frame: 460,  x: 220, type: "sine",       hp: 1, phase: 3.14, amplitude: 50, bulletType: "none" }
+  - { frame: 440,  x: 100, type: "sine",        phase: 0.0,  amplitude: 50, bulletType: "none" }
+  - { frame: 460,  x: 220, type: "sine",        phase: 3.14, amplitude: 50, bulletType: "none" }
 
   # 00:09- Aメロ中盤：高速縦列ストレートの壁（左右交互に出現）
-  - { frame: 560,  x: 40,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 580,  x: 40,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 600,  x: 40,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 570,  x: 280, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 590,  x: 280, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 610,  x: 280, type: "straight", hp: 1, bulletType: "straight" }
+  - { frame: 560,  x: 40,  type: "straight",  bulletType: "straight" }
+  - { frame: 580,  x: 40,  type: "straight",  bulletType: "straight" }
+  - { frame: 600,  x: 40,  type: "straight",  bulletType: "straight" }
+  - { frame: 570,  x: 280, type: "straight",  bulletType: "straight" }
+  - { frame: 590,  x: 280, type: "straight",  bulletType: "straight" }
+  - { frame: 610,  x: 280, type: "straight",  bulletType: "straight" }
 
   # 00:11- 絶え間ない連撃：中央ツイン固定砲台 ＋ 両翼からハンターが包囲
   # ここでプレイヤーにSTRAIGHT換装を急がせる
@@ -64,11 +64,11 @@ scenario:
   - { frame: 740,  x: 300, type: "hunter",     hp: 2, bulletType: "aim" }
 
   # 00:15- Aメロ後半：怒涛のサイン波5機クロス交差（画面全域のスクロール制限）
-  - { frame: 920,  x: 60,  type: "sine", hp: 1, phase: 0.0,  amplitude: 40, bulletType: "straight" }
-  - { frame: 940,  x: 110, type: "sine", hp: 1, phase: 0.78, amplitude: 40, bulletType: "straight" }
-  - { frame: 960,  x: 160, type: "sine", hp: 1, phase: 1.57, amplitude: 40, bulletType: "straight" }
-  - { frame: 980,  x: 210, type: "sine", hp: 1, phase: 2.35, amplitude: 40, bulletType: "straight" }
-  - { frame: 1000, x: 260, type: "sine", hp: 1, phase: 3.14, amplitude: 40, bulletType: "straight" }
+  - { frame: 920,  x: 60,  type: "sine",  phase: 0.0,  amplitude: 40, bulletType: "straight" }
+  - { frame: 940,  x: 110, type: "sine",  phase: 0.78, amplitude: 40, bulletType: "straight" }
+  - { frame: 960,  x: 160, type: "sine",  phase: 1.57, amplitude: 40, bulletType: "straight" }
+  - { frame: 980,  x: 210, type: "sine",  phase: 2.35, amplitude: 40, bulletType: "straight" }
+  - { frame: 1000, x: 260, type: "sine",  phase: 3.14, amplitude: 40, bulletType: "straight" }
 
   # 00:19- 前半戦の締め：中央トリプル設置と高速特攻機のコンビネーション
   - { frame: 1150, x: 80,  type: "stationary", hp: 3, bulletType: "aim", stopY: 90, waitTime: 150 }
@@ -84,22 +84,20 @@ scenario:
   # ========================================================
 
   # 00:24- Bメロ：左右にカウンター盾の壁 ＋ 中央からハンターが執拗に追尾
-  # 盾をSTRAIGHTで撃ちまくると自滅するため、丁寧な立ち回りか、中央突破が必要
   - { frame: 1450, x: 80,  type: "shield", hp: 5 }
   - { frame: 1450, x: 240, type: "shield", hp: 5 }
   - { frame: 1480, x: 160, type: "hunter", hp: 3, bulletType: "aim" }
   - { frame: 1520, x: 160, type: "hunter", hp: 3, bulletType: "aim" }
 
   # 00:28- メロディのビルドアップ：一撃離脱スカウト4機による波状トリッキー攻撃
-  - { frame: 1700, y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: true }
-  - { frame: 1720, y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: false }
-  - { frame: 1740, y: 60, type: "scout", hp: 1, bulletType: "aim", isLeft: true  }
-  - { frame: 1760, y: 60, type: "scout", hp: 1, bulletType: "aim", isLeft: false }
+  - { frame: 1700, y: 80, type: "scout",  bulletType: "aim", from: "left" }
+  - { frame: 1720, y: 80, type: "scout",  bulletType: "aim", from: "right" }
+  - { frame: 1740, y: 60, type: "scout",  bulletType: "aim", from: "left" }
+  - { frame: 1760, y: 60, type: "scout",  bulletType: "aim", from: "right" }
 
   # 00:31- サビ展開：大サイン波の激しい交差（3WAY弾で面を制圧）
   - { frame: 1900, x: 100, type: "sine", hp: 2, phase: 0.0,  amplitude: 140, bulletType: "triple" }
   - { frame: 1920, x: 220, type: "sine", hp: 2, phase: 3.14, amplitude: 140, bulletType: "triple" }
-  # サイン波の隙間を縫うように、突撃特攻型3機が時間差でロックオン
   - { frame: 1980, x: 60,  type: "assault" }
   - { frame: 2000, x: 160, type: "assault" }
   - { frame: 2020, x: 260, type: "assault" }
@@ -110,26 +108,25 @@ scenario:
   - { frame: 2240, x: 110, type: "stationary", hp: 4, bulletType: "aim", stopY: 110, waitTime: 140 }
   - { frame: 2240, x: 210, type: "stationary", hp: 4, bulletType: "aim", stopY: 110, waitTime: 140 }
 
-  # 00:41- サビ後半：画面上部を埋め尽くす高速ストレート10連打（弾幕間引き用の低HP）
-  - { frame: 2500, x: 20,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 2515, x: 50,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 2530, x: 80,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 2545, x: 110, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 2560, x: 140, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 2500, x: 300, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 2515, x: 270, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 2530, x: 240, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 2545, x: 210, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 2560, x: 170, type: "straight", hp: 1, bulletType: "straight" }
+  # 00:41- サビ後半：画面上部を埋め尽くす高速ストレート10連打
+  - { frame: 2500, x: 20,  type: "straight",  bulletType: "straight" }
+  - { frame: 2515, x: 50,  type: "straight",  bulletType: "straight" }
+  - { frame: 2530, x: 80,  type: "straight",  bulletType: "straight" }
+  - { frame: 2545, x: 110, type: "straight",  bulletType: "straight" }
+  - { frame: 2560, x: 140, type: "straight",  bulletType: "straight" }
+  - { frame: 2500, x: 300, type: "straight",  bulletType: "straight" }
+  - { frame: 2515, x: 270, type: "straight",  bulletType: "straight" }
+  - { frame: 2530, x: 240, type: "straight",  bulletType: "straight" }
+  - { frame: 2545, x: 210, type: "straight",  bulletType: "straight" }
+  - { frame: 2560, x: 170, type: "straight",  bulletType: "straight" }
 
-  # 00:46- 間奏（クランチスタブ）：硬質なリズムに同期した「盾の三重奏 ＋ 砲台」
-  # 1面道中最大の壁。左右の盾の撃ち返しを避けつつ、中央の砲台をSTRAIGHTで瞬殺せよ！
+  # 00:46- 間奏（クランチスタブ）：「盾の三重奏 ＋ 砲台」
   - { frame: 2800, x: 70,  type: "shield",     hp: 5 }
   - { frame: 2800, x: 250, type: "shield",     hp: 5 }
   - { frame: 2820, x: 160, type: "stationary", hp: 5, bulletType: "triple", stopY: 80, waitTime: 250 }
-  - { frame: 2840, x: 160, type: "shield",     hp: 3 } # 中央砲台の前に滑り込む追加の盾
+  - { frame: 2840, x: 160, type: "shield",     hp: 3 }
 
-  # 00:53- 間奏後半：息つく間もなくハンター4機が十字状にプレッシャーを展開
+  # 00:53- 間奏後半：ハンター4機による圧迫
   - { frame: 3200, x: 40,  type: "hunter", hp: 2, bulletType: "aim" }
   - { frame: 3220, x: 100, type: "hunter", hp: 2, bulletType: "aim" }
   - { frame: 3240, x: 220, type: "hunter", hp: 2, bulletType: "aim" }
@@ -137,17 +134,16 @@ scenario:
 
   # ========================================================
   # 【③ クライマックス・ラッシュ（ボス前最終防衛線）】 3801F 〜 4890F (63〜81.5秒)
-  # 楽曲同期：メロディのリプライズ（最高潮の盛り上がり） 〜 スクロール停止
-  # 目的：怒涛の弾幕と特攻。これを抜ければボスという興奮のピーク
+  # 楽曲同期：メロディのリプライズ 〜 スクロール停止
   # ========================================================
 
-  # 01:03- クライマックス突入：Wサイン波の高速交差 ＋ 偵察機が左右から同時強襲
+  # 01:03- クライマックス突入：Wサイン波 ＋ 左右同時偵察機
   - { frame: 3800, x: 80,  type: "sine",   hp: 2, phase: 0.0,  amplitude: 100, bulletType: "straight" }
   - { frame: 3800, x: 240, type: "sine",   hp: 2, phase: 3.14, amplitude: 100, bulletType: "straight" }
-  - { frame: 3840,  y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: true }
-  - { frame: 3840,  y: 80, type: "scout", hp: 1, bulletType: "aim", isLeft: false }
+  - { frame: 3840, y: 80,  type: "scout",  bulletType: "aim", from: "left" }
+  - { frame: 3840, y: 80,  type: "scout",  bulletType: "aim", from: "right" }
 
-  # 01:06- 容赦ないアサルト（特攻）6連続スクラム攻撃（軸ずらし回避の連続）
+  # 01:06- アサルト（特攻）6連続スクラム攻撃
   - { frame: 4000, x: 40,  type: "assault" }
   - { frame: 4000, x: 280, type: "assault" }
   - { frame: 4030, x: 100, type: "assault" }
@@ -155,34 +151,34 @@ scenario:
   - { frame: 4060, x: 140, type: "assault" }
   - { frame: 4060, x: 180, type: "assault" }
 
-  # 01:10- スクロール停止直前：最後の巨大要塞配置（高耐久トリプル固定砲台）
+  # 01:10- 最後の要塞配置（高耐久トリプル固定砲台）
   - { frame: 4200, x: 60,  type: "stationary", hp: 4, bulletType: "triple", stopY: 100, waitTime: 200 }
   - { frame: 4200, x: 160, type: "stationary", hp: 5, bulletType: "triple", stopY: 70,  waitTime: 200 }
   - { frame: 4200, x: 260, type: "stationary", hp: 4, bulletType: "triple", stopY: 100, waitTime: 200 }
 
-  # 01:15- 警告前の最後の悪あがき：超高速ストレート編隊が中央を切り裂く
-  - { frame: 4400, x: 140, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 4410, x: 160, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 4420, x: 180, type: "straight", hp: 1, bulletType: "straight" }
+  # 01:15- 超高速ストレート編隊
+  - { frame: 4400, x: 140, type: "straight",  bulletType: "straight" }
+  - { frame: 4410, x: 160, type: "straight",  bulletType: "straight" }
+  - { frame: 4420, x: 180, type: "straight",  bulletType: "straight" }
 
-  # 01:16- 警告演出・静寂のタメ（ボスを迎え撃つ緊張の空間）
+  # 01:16- 警告演出発動
   - { frame: 4500, type: "BOSS_TRIGGER" }
 
   # ========================================================
   # 【④ 決戦：ボスバトル（Sound Sync）】 4890F 〜 6840F (81.5秒〜最終)
-  # 楽曲同期：サビ（ボルテージ最高潮）でボス出現 [cite: 1]
+  # 楽曲同期：サビでボス出現 ＋ ボス戦ループ処理
   # ========================================================
 
-  # 01:21.5- STAGE-1ボス「アイアン・ヴェイン防衛コア」降臨 [cite: 4, 7]
-  - { frame: 190, x: 160, type: "boss_01", hp: 150, timeLimit: 1800, timeMultiplier: 100 }
+  # 01:21.5- STAGE-1ボス「アイアン・ヴェイン防衛コア」降臨
+  - { frame: 4890, x: 160, type: "boss_01", hp: 150, timeLimit: 1800, timeMultiplier: 100 }
 
-  # 01:23- ボス戦中の無限湧き増援（高密度化：挟み込みストレートとハンターの猛攻）
-  - { frame: 5000, x: 30,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 5020, x: 60,  type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 5080, x: 290, type: "straight", hp: 1, bulletType: "straight" }
-  - { frame: 5100, x: 260, type: "straight", hp: 1, bulletType: "straight" }
+  # ボス戦中の無限湧き増援（ループ区間：5000F 〜 5350F）
+  - { frame: 5000, x: 30,  type: "straight",  bulletType: "straight" }
+  - { frame: 5020, x: 60,  type: "straight",  bulletType: "straight" }
+  - { frame: 5080, x: 290, type: "straight",  bulletType: "straight" }
+  - { frame: 5100, x: 260, type: "straight",  bulletType: "straight" }
   - { frame: 5150, x: 160, type: "hunter",   hp: 2, bulletType: "aim" }
-  - { frame: 5200, x: 100, type: "sine",     hp: 1, phase: 0.0, amplitude: 50, bulletType: "none" }
+  - { frame: 5200, x: 100, type: "sine",      phase: 0.0, amplitude: 50, bulletType: "none" }
 
-  # ボス戦ループ終端（ボス撃破まで5000Fへリープし、周囲に雑魚を湧かせ続ける） [cite: 9]
+  # ボス撃破まで 5000F へループ（巻き戻し）し続ける
   - { frame: 5350, type: "LOOP_END", returnTo: 5000 }

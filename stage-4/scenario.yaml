@@ -2,7 +2,7 @@
 # BGM Total Length: 10440F (02:54) | Boss Entrance: 7800F (02:10)
 # --------------------------------------------------
 
-version: "0.3"
+version: "0.4"
 
 name: "Ancient Logic"
 bgm: "PROJECT_VOID-CIRCUIT STAGE_4 -Ancient Logic-.ogg"
@@ -20,20 +20,20 @@ scenario:
   - { frame: 210,   x: 60,  type: "straight", hp: 1, bulletType: "straight" }
   - { frame: 210,   x: 260, type: "straight", hp: 1, bulletType: "straight" }
 
-  # --- 00:04.8- 左右スカウト ＋ Sine波状交差 ＋ 🪨 Rock初お披露目（右側連続落石） ---
-  - { frame: 290,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: true }
-  - { frame: 290,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: false }
+  # --- 00:04.8- 左右スカウト ＋ Sine波状交差 ＋ Rock初お披露目（右側連続落石） ---
+  - { frame: 290,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", from: "left" }
+  - { frame: 290,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", from: "right" }
   - { frame: 360,   x: 160, type: "sine",     hp: 1, phase: 0.0, amplitude: 80, bulletType: "none" }
   - { frame: 380,   x: 160, type: "sine",     hp: 1, phase: 3.14, amplitude: 80, bulletType: "none" }
-  # 🪨 Rock連打①（高速垂直落下注意）
-  - { frame: 380,   x: 220, y: -20, type: "rock" }
-  - { frame: 395,   x: 240, y: -20, type: "rock" }
-  - { frame: 410,   x: 260, y: -20, type: "rock" }
+  # Rock連打①（高速垂直落下注意）
+  - { frame: 380,   x: 220, type: "rock" }
+  - { frame: 395,   x: 240, type: "rock" }
+  - { frame: 410,   x: 260, type: "rock" }
   - { frame: 430,   x: 100, type: "straight", hp: 1, bulletType: "straight" }
   - { frame: 430,   x: 220, type: "straight", hp: 1, bulletType: "straight" }
 
   # ========================================================
-  # 🏜️ 500F (00:08.3)- DustScout（下部砂塵からの奇襲）解禁 🏜️
+  # 500F (00:08.3)- DustScout（下部砂塵からの奇襲）解禁
   # ========================================================
 
   # --- 00:08.3- 500F解禁：下部砂塵からの DustScout 急襲 ＋ 汎用アサルト交差 ---
@@ -51,7 +51,7 @@ scenario:
   - { frame: 740,   x: 280, type: "hunter",     hp: 2, bulletType: "aim" }
 
   # ========================================================
-  # ⚡ 800F (00:13.3)- STAGE-4 固有敵（古代メカニズム）解禁 ⚡
+  # 800F (00:13.3)- STAGE-4 固有敵（古代メカニズム）解禁
   # ========================================================
 
   # --- 00:13.3- 800F解禁：砂の防壁 SandPillar 降下 ＋ RelicPrism（幾何学格子弾） ---
@@ -61,15 +61,15 @@ scenario:
   - { frame: 920,   x: 40,  type: "dust_scout",  hp: 1 }
   - { frame: 940,   x: 280, type: "dust_scout",  hp: 1 }
 
-  # --- 00:16.6- GaleArtillery 初登場 ＋ 🪨 要塞足止め中の Rock スライド4連打 ---
-  - { frame: 1020,  x: 160, type: "gale_artillery", hp: 120, stopY: 70 }
+  # --- 00:16.6- GaleArtillery 初登場 ＋ 要塞足止め中の Rock スライド4連打 ---
+  - { frame: 1020,  x: 160, type: "gale_artillery", hp: 120 }
   - { frame: 1080,  x: 80,  type: "mirage_crawler", hp: 2 }
   - { frame: 1080,  x: 240, type: "mirage_crawler", hp: 2 }
-  # 🪨 Rock連打②（左から右へのスライド崩落）
-  - { frame: 1100,  x: 60,  y: -20, type: "rock" }
-  - { frame: 1115,  x: 120, y: -20, type: "rock" }
-  - { frame: 1130,  x: 200, y: -20, type: "rock" }
-  - { frame: 1145,  x: 260, y: -20, type: "rock" }
+  # Rock連打②（左から右へのスライド崩落）
+  - { frame: 1100,  x: 60,  type: "rock" }
+  - { frame: 1115,  x: 120, type: "rock" }
+  - { frame: 1130,  x: 200, type: "rock" }
+  - { frame: 1145,  x: 260, type: "rock" }
   - { frame: 1160,  x: 160, type: "straight",       hp: 1, bulletType: "straight" }
 
   # --- 00:20- 高耐久チャージ核 GigaOrb 初登場 ＋ 連続波状強襲 ---
@@ -110,23 +110,23 @@ scenario:
   - { frame: 2430,  x: 120, type: "mirage_crawler", hp: 2 }
   - { frame: 2460,  x: 200, type: "mirage_crawler", hp: 2 }
   - { frame: 2490,  x: 280, type: "mirage_crawler", hp: 2 }
-  - { frame: 2580,  x: 160, type: "gale_artillery", hp: 120, stopY: 80 }
+  - { frame: 2580,  x: 160, type: "gale_artillery", hp: 120 }
   - { frame: 2660,  x: 80,  type: "dust_scout",  hp: 1 }
   - { frame: 2680,  x: 240, type: "dust_scout",  hp: 1 }
 
   # --------------------------------------------------------
-  # 🐍【第1の巨躯：中ボス級 Worm（3000F前後）】 2850F 〜 3300F
+  # 【第1の巨躯：中ボス級 Worm（3000F前後）】 2850F 〜 3300F
   # --------------------------------------------------------
-  # --- 00:47.5- 流砂の主 Worm 降臨 ＋ 🪨 Worm退場直後の崩落超高速5連打 ---
-  - { frame: 2850,  x: 160, y: -50, type: "worm", hp: 6, length: 10, bulletType: "aim" }
+  # --- 00:47.5- 流砂の主 Worm 降臨 ＋ Worm退場直後の崩落超高速5連打 ---
+  - { frame: 2850,  x: 160, type: "worm", hp: 6, length: 10, bulletType: "aim" }
   - { frame: 2920,  x: 60,  type: "dust_scout", hp: 1 }
   - { frame: 2940,  x: 260, type: "dust_scout", hp: 1 }
-  # 🪨 Rock連打③（Wormの通過に伴う地鳴り落石・10F間隔の超高速連射）
-  - { frame: 2980,  x: 100, y: -20, type: "rock" }
-  - { frame: 2990,  x: 140, y: -20, type: "rock" }
-  - { frame: 3000,  x: 180, y: -20, type: "rock" }
-  - { frame: 3010,  x: 220, y: -20, type: "rock" }
-  - { frame: 3020,  x: 160, y: -20, type: "rock" }
+  # Rock連打③（Wormの通過に伴う地鳴り落石・10F間隔の超高速連射）
+  - { frame: 2980,  x: 100, type: "rock" }
+  - { frame: 2990,  x: 140, type: "rock" }
+  - { frame: 3000,  x: 180, type: "rock" }
+  - { frame: 3010,  x: 220, type: "rock" }
+  - { frame: 3020,  x: 160, type: "rock" }
   - { frame: 3030,  x: 80,  type: "mirage_crawler", hp: 2 }
   - { frame: 3030,  x: 240, type: "mirage_crawler", hp: 2 }
   - { frame: 3120,  x: 160, type: "relic_prism", hp: 10, stopY: 90 }
@@ -141,14 +141,14 @@ scenario:
   - { frame: 3520,  x: 100, type: "assault" }
   - { frame: 3520,  x: 220, type: "assault" }
 
-  # --- 01:08- 間奏：GaleArtillery ＋ 左右 RelicPrism ＋ 🪨 中央ピンポイントRock連打 ---
-  - { frame: 3650,  x: 160, type: "gale_artillery", hp: 120, stopY: 80 }
+  # --- 01:08- 間奏：GaleArtillery ＋ 左右 RelicPrism ＋ 中央ピンポイントRock連打 ---
+  - { frame: 3650,  x: 160, type: "gale_artillery", hp: 120 }
   - { frame: 3720,  x: 60,  type: "relic_prism", hp: 8, stopY: 110 }
   - { frame: 3720,  x: 260, type: "relic_prism", hp: 8, stopY: 110 }
-  # 🪨 Rock連打④（格子弾幕の隙間を狙う中央落石）
-  - { frame: 3760,  x: 150, y: -20, type: "rock" }
-  - { frame: 3775,  x: 170, y: -20, type: "rock" }
-  - { frame: 3790,  x: 160, y: -20, type: "rock" }
+  # Rock連打④（格子弾幕の隙間を狙う中央落石）
+  - { frame: 3760,  x: 150, type: "rock" }
+  - { frame: 3775,  x: 170, type: "rock" }
+  - { frame: 3790,  x: 160, type: "rock" }
   - { frame: 3820,  x: 160, type: "giga_orb",    hp: 45 }
   - { frame: 3900,  x: 80,  type: "sand_pillar", hp: 20 }
   - { frame: 3900,  x: 240, type: "sand_pillar", hp: 20 }
@@ -170,11 +170,11 @@ scenario:
   - { frame: 4620,  x: 220, type: "relic_prism", hp: 10, stopY: 80 }
 
   # --------------------------------------------------------
-  # 🐍【第2の巨躯：左右連撃 Worm（5000F前後）】 4900F 〜 5300F
+  # 【第2の巨躯：左右連撃 Worm（5000F前後）】 4900F 〜 5300F
   # --------------------------------------------------------
   # --- 01:21.6- クライマックス前衛：左右差時間差 Worm 侵攻（HP: 6 / 8関節 ×2） ---
-  - { frame: 4900,  x: 80,  y: -50, type: "worm", hp: 6, length: 8, bulletType: "aim" }
-  - { frame: 4950,  x: 240, y: -50, type: "worm", hp: 6, length: 8, bulletType: "aim" }
+  - { frame: 4900,  x: 80,  type: "worm", hp: 6, length: 8, bulletType: "aim" }
+  - { frame: 4950,  x: 240, type: "worm", hp: 6, length: 8, bulletType: "aim" }
 
   # ========================================================
   # 【③ クライマックス・ラッシュ（地上絵の真実）】 5001F 〜 7800F (83.3〜130秒)
@@ -188,22 +188,22 @@ scenario:
   - { frame: 5150,  x: 240, type: "mirage_crawler", hp: 2 }
   - { frame: 5220,  x: 160, type: "giga_orb",    hp: 40 }
 
-  # --- 01:30- 砂塵砦：中央 SandPillar ＋ 🪨 通路狭め崩落6連打 ＋ 左右アサルト ---
+  # --- 01:30- 砂塵砦：中央 SandPillar ＋ 通路狭め崩落6連打 ＋ 左右アサルト ---
   - { frame: 5320,  x: 160, type: "sand_pillar", hp: 25 }
   - { frame: 5400,  x: 40,  type: "dust_scout",  hp: 1 }
   - { frame: 5420,  x: 280, type: "dust_scout",  hp: 1 }
   - { frame: 5500,  x: 100, type: "assault" }
   - { frame: 5500,  x: 220, type: "assault" }
-  # 🪨 Rock連打⑤（クライマックス前の猛烈な落石雨）
-  - { frame: 5550,  x: 60,  y: -20, type: "rock" }
-  - { frame: 5565,  x: 260, y: -20, type: "rock" }
-  - { frame: 5580,  x: 100, y: -20, type: "rock" }
-  - { frame: 5595,  x: 220, y: -20, type: "rock" }
-  - { frame: 5610,  x: 140, y: -20, type: "rock" }
-  - { frame: 5625,  x: 180, y: -20, type: "rock" }
+  # Rock連打⑤（クライマックス前の猛烈な落石雨）
+  - { frame: 5550,  x: 60,  type: "rock" }
+  - { frame: 5565,  x: 260, type: "rock" }
+  - { frame: 5580,  x: 100, type: "rock" }
+  - { frame: 5595,  x: 220, type: "rock" }
+  - { frame: 5610,  x: 140, type: "rock" }
+  - { frame: 5625,  x: 180, type: "rock" }
 
   # --- 01:38- ボス直前の総力要塞：GaleArtillery ＋ GigaOrb ---
-  - { frame: 5650,  x: 160, type: "gale_artillery", hp: 150, stopY: 80 }
+  - { frame: 5650,  x: 160, type: "gale_artillery", hp: 150 }
   - { frame: 5750,  x: 160, type: "giga_orb",    hp: 50 }
   - { frame: 5850,  x: 80,  type: "sand_pillar", hp: 20 }
   - { frame: 5850,  x: 240, type: "sand_pillar", hp: 20 }
@@ -220,7 +220,7 @@ scenario:
   - { frame: 6420,  x: 100, type: "mirage_crawler", hp: 2 }
   - { frame: 6420,  x: 220, type: "mirage_crawler", hp: 2 }
 
-  # --- 01:52- ラストスパート：要塞防衛部隊の猛攻 ＋ 🪨 締めくくりの全開落石 ---
+  # --- 01:52- ラストスパート：要塞防衛部隊の猛攻 ＋ 締めくくりの全開落石 ---
   - { frame: 6550,  x: 160, type: "sand_pillar", hp: 20 }
   - { frame: 6620,  x: 80,  type: "relic_prism", hp: 8, stopY: 90 }
   - { frame: 6620,  x: 240, type: "relic_prism", hp: 8, stopY: 90 }
@@ -228,10 +228,10 @@ scenario:
   - { frame: 6740,  x: 120, type: "dust_scout",  hp: 1 }
   - { frame: 6760,  x: 200, type: "dust_scout",  hp: 1 }
   - { frame: 6780,  x: 280, type: "dust_scout",  hp: 1 }
-  # 🪨 ボス前最後の落石ラッシュ
-  - { frame: 6820,  x: 80,  y: -20, type: "rock" }
-  - { frame: 6835,  x: 240, y: -20, type: "rock" }
-  - { frame: 6850,  x: 160, y: -20, type: "rock" }
+  # ボス前最後の落石ラッシュ
+  - { frame: 6820,  x: 80,  type: "rock" }
+  - { frame: 6835,  x: 240, type: "rock" }
+  - { frame: 6850,  x: 160, type: "rock" }
   - { frame: 6900,  x: 160, type: "giga_orb",    hp: 45 }
   - { frame: 7020,  x: 100, type: "mirage_crawler", hp: 2 }
   - { frame: 7020,  x: 220, type: "mirage_crawler", hp: 2 }

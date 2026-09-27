@@ -67,7 +67,7 @@ scenario:
   # 【⑥ ボスラッシュ 5：生体DNAコア (Stage 5)】 2600F 〜 3100F
   # ==========================================================
   - { frame: 2500,  type: "BOSS_TRIGGER" }
-  - { frame: 2600,  x: 160, type: "boss_05", hp: 170, timeLimit: 500, timeMultiplier: 100 }
+  - { frame: 2600,  x: 160, type: "boss_05", hp: 180, timeLimit: 500, timeMultiplier: 100 }
 
   - { frame: 2700,  x: 40,  type: "hunter",         hp: 2, bulletType: "aim" }
   - { frame: 2700,  x: 280, type: "hunter",         hp: 2, bulletType: "aim" }
@@ -77,7 +77,7 @@ scenario:
   # 【⑦ ボスラッシュ 6：超巨大空中戦艦 (Stage 6)】 3100F 〜 3700F
   # ==========================================================
   - { frame: 3000,  type: "BOSS_TRIGGER" }
-  - { frame: 3100,  x: 160, type: "boss_06", hp: 180, timeLimit: 600, timeMultiplier: 100 }
+  - { frame: 3100,  x: 160, type: "boss_06", hp: 200, timeLimit: 600, timeMultiplier: 100 }
 
   - { frame: 3200,  x: 80,  type: "shield",   hp: 5 }
   - { frame: 3200,  x: 240, type: "shield",   hp: 5 }

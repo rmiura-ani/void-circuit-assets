@@ -2,7 +2,7 @@
 # BGM Total Length: 9600F (02:40) | Boss Entrance: 7200F (02:00)
 # --------------------------------------------------
 
-version: "0.3"
+version: "0.4"
 
 name: "Planetary Pulse"
 bgm: "PROJECT_VOID-CIRCUIT STAGE_5 -Planetary Pulse-.ogg"
@@ -11,103 +11,178 @@ kv: { path: "kv.png", duration: 180 }
 scenario:
   # ========================================================
   # 【① 導入フェーズ（生命体内部への潜入）】 180F 〜 1800F (3〜30秒)
-  # 目的：KV演出終了直後。被弾で2体に分裂する CellMitosis とビート同期 PulsSpore の提示
+  # 目的：KV演出終了直後から怒涛の分裂細胞ラッシュと生体デバフの洗礼
   # ========================================================
 
-  # 00:03- KV演出終了直後：撃破すると2体に分裂する CellMitosis の先行群
-  # むやみに撃つと小型細胞が画面上に散らばるため、位置取りを意識させる
-  - { frame: 190,   x: 100, type: "cell_mitosis", hp: 2 }
-  - { frame: 190,   x: 220, type: "cell_mitosis", hp: 2 }
-  - { frame: 240,   x: 160, type: "cell_mitosis", hp: 2 }
+  # --- 00:03- KV直後：大量の CellMitosis 分裂細胞スクラム（導入から即画面飽和） ---
+  - { frame: 190,   x: 60,  type: "cell_mitosis", hp: 2 }
+  - { frame: 190,   x: 110, type: "cell_mitosis", hp: 2 }
+  - { frame: 190,   x: 160, type: "cell_mitosis", hp: 2 }
+  - { frame: 190,   x: 210, type: "cell_mitosis", hp: 2 }
+  - { frame: 190,   x: 260, type: "cell_mitosis", hp: 2 }
 
-  # 00:06- BGMの拍に合わせて「膨張・全方位弾解放」を行う PulseSpore 初登場
+  - { frame: 230,   x: 80,  type: "cell_mitosis", hp: 2 }
+  - { frame: 230,   x: 140, type: "cell_mitosis", hp: 2 }
+  - { frame: 230,   x: 180, type: "cell_mitosis", hp: 2 }
+  - { frame: 230,   x: 240, type: "cell_mitosis", hp: 2 }
+
+  - { frame: 280,   x: 40,  type: "cell_mitosis", hp: 2 }
+  - { frame: 280,   x: 100, type: "cell_mitosis", hp: 2 }
+  - { frame: 280,   x: 160, type: "cell_mitosis", hp: 2 }
+  - { frame: 280,   x: 220, type: "cell_mitosis", hp: 2 }
+  - { frame: 280,   x: 280, type: "cell_mitosis", hp: 2 }
+
+  # --- 00:06- PulseSpore（全方位弾） ＋ 分裂細胞の縦3連突撃 ---
   - { frame: 360,   x: 80,  type: "pulse_spore", hp: 1 }
   - { frame: 360,   x: 240, type: "pulse_spore", hp: 1 }
-  - { frame: 420,   x: 160, type: "pulse_spore", hp: 1 }
+  - { frame: 390,   x: 100, type: "cell_mitosis", hp: 2 }
+  - { frame: 400,   x: 100, type: "cell_mitosis", hp: 2 }
+  - { frame: 410,   x: 100, type: "cell_mitosis", hp: 2 }
+  - { frame: 390,   x: 220, type: "cell_mitosis", hp: 2 }
+  - { frame: 400,   x: 220, type: "cell_mitosis", hp: 2 }
+  - { frame: 410,   x: 220, type: "cell_mitosis", hp: 2 }
+  - { frame: 430,   x: 160, type: "pulse_spore", hp: 1 }
 
-  # 00:09- Aメロ：ベジェ曲線で画面端からうねる BioTentacle が出現
-  - { frame: 540,   x: 60,  type: "bio_tentacle", hp: 4 }
-  - { frame: 540,   x: 260, type: "bio_tentacle", hp: 4 }
+  # --- 00:09- BioTentacle（うねる触手）両脇配置 ＋ 中央分裂細胞雨 ---
+  - { frame: 540,   x: 60,  type: "bio_tentacle", hp: 5 }
+  - { frame: 540,   x: 260, type: "bio_tentacle", hp: 5 }
+  - { frame: 580,   x: 120, type: "cell_mitosis", hp: 2 }
+  - { frame: 595,   x: 160, type: "cell_mitosis", hp: 2 }
+  - { frame: 610,   x: 200, type: "cell_mitosis", hp: 2 }
+  - { frame: 625,   x: 140, type: "cell_mitosis", hp: 2 }
+  - { frame: 640,   x: 180, type: "cell_mitosis", hp: 2 }
 
-  # 00:13- 画面下部から自機へ向かって超低速で迫るデバフ寄生体 LeechParasite
-  # 優先して破壊しないと自機の連射性能が落ちるため、早めの処理を誘導
-  - { frame: 780,   x: 120, type: "leech_parasite", hp: 1 }
-  - { frame: 780,   x: 200, type: "leech_parasite", hp: 1 }
-  - { frame: 840,   x: 160, type: "cell_mitosis",    hp: 2 }
+  # --- 00:13- LeechParasite（デバフ寄生体）挟み込み ＋ 分裂細胞の大群波状 ---
+  - { frame: 780,   x: 100, type: "leech_parasite", hp: 1 }
+  - { frame: 780,   x: 220, type: "leech_parasite", hp: 1 }
+  - { frame: 820,   x: 50,  type: "cell_mitosis", hp: 2 }
+  - { frame: 835,   x: 110, type: "cell_mitosis", hp: 2 }
+  - { frame: 850,   x: 170, type: "cell_mitosis", hp: 2 }
+  - { frame: 865,   x: 230, type: "cell_mitosis", hp: 2 }
+  - { frame: 880,   x: 270, type: "cell_mitosis", hp: 2 }
 
-  # 00:18- 自己回復（DPSチェック）を行う中型核 HeartNucleus 初登場
-  - { frame: 1080,  x: 160, type: "heart_nucleus",  hp: 30 }
-  - { frame: 1140,  x: 60,  type: "pulse_spore",    hp: 1 }
-  - { frame: 1140,  x: 260, type: "pulse_spore",    hp: 1 }
+  # --- 00:18- 自己回復核 HeartNucleus 初登場 ＋ 左右からの細胞包囲 ---
+  - { frame: 1080,  x: 160, type: "heart_nucleus", hp: 40 }
+  - { frame: 1120,  x: 40,  type: "cell_mitosis", hp: 2 }
+  - { frame: 1135,  x: 80,  type: "cell_mitosis", hp: 2 }
+  - { frame: 1150,  x: 240, type: "cell_mitosis", hp: 2 }
+  - { frame: 1165,  x: 280, type: "cell_mitosis", hp: 2 }
+  - { frame: 1220,  x: 60,  type: "pulse_spore",  hp: 1 }
+  - { frame: 1220,  x: 260, type: "pulse_spore",  hp: 1 }
 
   # ========================================================
   # 【② 展開・激化フェーズ（増殖と脈動の暴走）】 1801F 〜 4800F (30〜80秒)
-  # 目的：分裂（画面飽和）＋ デバフ寄生 ＋ 触手の画面狭小化
+  # 目的：高密度分裂細胞 ＋ 移動制限触手 ＋ 複合デバフ弾幕
   # ========================================================
 
-  # 00:30- Bメロ：触手ダブル配置 ＋ 画面を埋める CellMitosis の高密度降下
-  - { frame: 1800,  x: 80,  type: "bio_tentacle", hp: 4 }
-  - { frame: 1800,  x: 240, type: "bio_tentacle", hp: 4 }
-  - { frame: 1860,  x: 120, type: "cell_mitosis", hp: 2 }
-  - { frame: 1880,  x: 160, type: "cell_mitosis", hp: 2 }
-  - { frame: 1900,  x: 200, type: "cell_mitosis", hp: 2 }
+  # --- 00:30- Bメロ開幕：触手壁 ＋ 超・高密度 CellMitosis 絨毯爆撃 ---
+  - { frame: 1800,  x: 80,  type: "bio_tentacle", hp: 6 }
+  - { frame: 1800,  x: 240, type: "bio_tentacle", hp: 6 }
+  # 分裂細胞10連奏ラッシュ
+  - { frame: 1850,  x: 120, type: "cell_mitosis", hp: 2 }
+  - { frame: 1860,  x: 160, type: "cell_mitosis", hp: 2 }
+  - { frame: 1870,  x: 200, type: "cell_mitosis", hp: 2 }
+  - { frame: 1880,  x: 140, type: "cell_mitosis", hp: 2 }
+  - { frame: 1890,  x: 180, type: "cell_mitosis", hp: 2 }
+  - { frame: 1900,  x: 100, type: "cell_mitosis", hp: 2 }
+  - { frame: 1910,  x: 220, type: "cell_mitosis", hp: 2 }
+  - { frame: 1920,  x: 60,  type: "cell_mitosis", hp: 2 }
+  - { frame: 1930,  x: 260, type: "cell_mitosis", hp: 2 }
+  - { frame: 1940,  x: 160, type: "cell_mitosis", hp: 2 }
 
-  # 00:38- デバフ寄生体 LeechParasite 4機同時誘導 ＋ ビート同期 PulseSpore
+  # --- 00:38- LeechParasite 6機編隊 ＋ PulseSpore ＋ 細胞追尾 ---
   - { frame: 2280,  x: 40,  type: "leech_parasite", hp: 1 }
-  - { frame: 2280,  x: 100, type: "leech_parasite", hp: 1 }
-  - { frame: 2280,  x: 220, type: "leech_parasite", hp: 1 }
+  - { frame: 2280,  x: 90,  type: "leech_parasite", hp: 1 }
+  - { frame: 2280,  x: 140, type: "leech_parasite", hp: 1 }
+  - { frame: 2280,  x: 180, type: "leech_parasite", hp: 1 }
+  - { frame: 2280,  x: 230, type: "leech_parasite", hp: 1 }
   - { frame: 2280,  x: 280, type: "leech_parasite", hp: 1 }
   - { frame: 2340,  x: 160, type: "pulse_spore",    hp: 1 }
+  - { frame: 2380,  x: 110, type: "cell_mitosis",   hp: 2 }
+  - { frame: 2395,  x: 210, type: "cell_mitosis",   hp: 2 }
 
-  # 00:46- サビ：HeartNucleus ダブル配置（回復する前に火力を集中せよ）
-  - { frame: 2760,  x: 100, type: "heart_nucleus",  hp: 20 }
-  - { frame: 2760,  x: 220, type: "heart_nucleus",  hp: 20 }
-  - { frame: 2820,  x: 40,  type: "cell_mitosis",   hp: 2 }
-  - { frame: 2820,  x: 280, type: "cell_mitosis",   hp: 2 }
+  # --- 00:46- サビ：ダブル HeartNucleus ＋ 広域細胞格子撒き ---
+  - { frame: 2760,  x: 100, type: "heart_nucleus", hp: 30 }
+  - { frame: 2760,  x: 220, type: "heart_nucleus", hp: 30 }
+  - { frame: 2800,  x: 40,  type: "cell_mitosis",  hp: 2 }
+  - { frame: 2810,  x: 80,  type: "cell_mitosis",  hp: 2 }
+  - { frame: 2820,  x: 160, type: "cell_mitosis",  hp: 2 }
+  - { frame: 2830,  x: 240, type: "cell_mitosis",  hp: 2 }
+  - { frame: 2840,  x: 280, type: "cell_mitosis",  hp: 2 }
+  - { frame: 2900,  x: 120, type: "cell_mitosis",  hp: 2 }
+  - { frame: 2915,  x: 200, type: "cell_mitosis",  hp: 2 }
 
-  # 01:00- 脈動ラッシュ：PulseSpore 5機連続ビート解放フォーメーション
+  # --- 01:00- 脈動高速ラッシュ：PulseSpore 5連続 ＋ 分裂細胞交互連射 ---
   - { frame: 3600,  x: 40,  type: "pulse_spore", hp: 1 }
+  - { frame: 3610,  x: 100, type: "cell_mitosis", hp: 2 }
   - { frame: 3620,  x: 100, type: "pulse_spore", hp: 1 }
+  - { frame: 3630,  x: 160, type: "cell_mitosis", hp: 2 }
   - { frame: 3640,  x: 160, type: "pulse_spore", hp: 1 }
+  - { frame: 3650,  x: 220, type: "cell_mitosis", hp: 2 }
   - { frame: 3660,  x: 220, type: "pulse_spore", hp: 1 }
+  - { frame: 3670,  x: 280, type: "cell_mitosis", hp: 2 }
   - { frame: 3680,  x: 280, type: "pulse_spore", hp: 1 }
 
   # ========================================================
   # 【③ クライマックス・ラッシュ（生命中枢の狂乱）】 4801F 〜 7200F (80〜120秒)
-  # 目的：分裂細胞と触手、パルス弾幕が入り乱れる最高潮の生体ラッシュ
+  # 目的：画面全体を細胞と触手、デバフで埋め尽くす弾幕地獄
   # ========================================================
 
-  # 01:20- 触手とうねる大型生体群の総力戦
-  - { frame: 4800,  x: 60,  type: "bio_tentacle",  hp: 5 }
-  - { frame: 4800,  x: 160, type: "heart_nucleus", hp: 30 }
-  - { frame: 4800,  x: 260, type: "bio_tentacle",  hp: 5 }
+  # --- 01:20- 触手三重奏 ＋ 大型核 ＋ 分裂細胞の押し寄せ ---
+  - { frame: 4800,  x: 50,  type: "bio_tentacle",  hp: 6 }
+  - { frame: 4800,  x: 160, type: "heart_nucleus", hp: 40 }
+  - { frame: 4800,  x: 270, type: "bio_tentacle",  hp: 6 }
+  - { frame: 4860,  x: 100, type: "cell_mitosis",  hp: 2 }
+  - { frame: 4875,  x: 140, type: "cell_mitosis",  hp: 2 }
+  - { frame: 4890,  x: 180, type: "cell_mitosis",  hp: 2 }
+  - { frame: 4905,  x: 220, type: "cell_mitosis",  hp: 2 }
 
-  # 01:35- ボス直前の防衛壁：画面を覆う CellMitosis 大群 ＋ 寄生体
-  - { frame: 5700,  x: 60,  type: "cell_mitosis",   hp: 2 }
-  - { frame: 5720,  x: 110, type: "cell_mitosis",   hp: 2 }
-  - { frame: 5740,  x: 160, type: "cell_mitosis",   hp: 2 }
-  - { frame: 5760,  x: 210, type: "cell_mitosis",   hp: 2 }
-  - { frame: 5780,  x: 260, type: "cell_mitosis",   hp: 2 }
-  - { frame: 5840,  x: 120, type: "leech_parasite", hp: 1 }
-  - { frame: 5840,  x: 200, type: "leech_parasite", hp: 1 }
+  # --- 01:30- 寄生体群 ＆ 散開パルス ＆ 細胞のV字大量湧き ---
+  - { frame: 5200,  x: 80,  type: "leech_parasite", hp: 1 }
+  - { frame: 5200,  x: 240, type: "leech_parasite", hp: 1 }
+  - { frame: 5250,  x: 160, type: "pulse_spore",    hp: 1 }
+  - { frame: 5280,  x: 160, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5295,  x: 120, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5295,  x: 200, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5310,  x: 80,  type: "cell_mitosis",   hp: 2 }
+  - { frame: 5310,  x: 240, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5325,  x: 40,  type: "cell_mitosis",   hp: 2 }
+  - { frame: 5325,  x: 280, type: "cell_mitosis",   hp: 2 }
 
-  # 01:53- スクロール停止＆警告フェーズ（有機的な鼓動のみが響く）
+  # --- 01:35- ボス直前の壁：画面全域を覆う CellMitosis 超猛攻 ＋ 寄生体 ---
+  - { frame: 5700,  x: 50,  type: "cell_mitosis",   hp: 2 }
+  - { frame: 5710,  x: 100, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5720,  x: 150, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5730,  x: 200, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5740,  x: 250, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5750,  x: 80,  type: "cell_mitosis",   hp: 2 }
+  - { frame: 5760,  x: 130, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5770,  x: 180, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5780,  x: 230, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5790,  x: 270, type: "cell_mitosis",   hp: 2 }
+  - { frame: 5840,  x: 100, type: "leech_parasite", hp: 1 }
+  - { frame: 5840,  x: 220, type: "leech_parasite", hp: 1 }
+  - { frame: 5900,  x: 160, type: "heart_nucleus",  hp: 35 }
+
+  # --- 01:53- スクロール停止＆警告フェーズ（有機的な鼓動のみが響く） ---
   - { frame: 6800,  type: "BOSS_TRIGGER" }
 
   # ========================================================
   # 【④ 決戦：ボスバトル（生体DNAコア Planetary Pulse）】 7200F 〜 9600F (120秒〜最終)
-  # 目的：boss_05（HP33%未満での細胞分裂・暴走・スケール脈動）降臨
+  # 目的：boss_05 降臨 ＆ 戦闘中も過激な分裂細胞とデバフの増援
   # ========================================================
 
-  # 02:00- 生体DNAコア 降臨
-  - { frame: 7200,  x: 160, type: "boss_05", hp: 240, timeLimit: 2400, timeMultiplier: 100 }
+  # --- 02:00- 生体DNAコア 降臨 ---
+  - { frame: 7200,  x: 160, type: "boss_05", hp: 300, timeLimit: 2400, timeMultiplier: 100 }
 
-  # ボス戦中の増援（分裂細胞 CellMitosis とビート同期 PulseSpore）
-  - { frame: 7400,  x: 60,  type: "cell_mitosis", hp: 2 }
-  - { frame: 7420,  x: 260, type: "cell_mitosis", hp: 2 }
-  - { frame: 7500,  x: 160, type: "pulse_spore",  hp: 1 }
-  - { frame: 7560,  x: 100, type: "leech_parasite", hp: 1 }
-  - { frame: 7560,  x: 220, type: "leech_parasite", hp: 1 }
+  # --- ボス戦中の増援（高密度な CellMitosis 増殖 ＋ デバフ・パルス弾幕） ---
+  - { frame: 7400,  x: 60,  type: "cell_mitosis",   hp: 2 }
+  - { frame: 7410,  x: 110, type: "cell_mitosis",   hp: 2 }
+  - { frame: 7420,  x: 210, type: "cell_mitosis",   hp: 2 }
+  - { frame: 7430,  x: 260, type: "cell_mitosis",   hp: 2 }
+  - { frame: 7500,  x: 160, type: "pulse_spore",    hp: 1 }
+  - { frame: 7560,  x: 80,  type: "leech_parasite", hp: 1 }
+  - { frame: 7560,  x: 240, type: "leech_parasite", hp: 1 }
 
-  # ボス戦無限ループ終端
+  # --- ボス戦無限ループ終端 ---
   - { frame: 7800,  type: "LOOP_END", returnTo: 7400 }

@@ -1,7 +1,7 @@
 # PROJECT: VOID-CIRCUIT | Stage 2 Scenario
 # BGM Total Length: 5000F (01:23.3) | Boss Entrance: 3300F (00:55.0)
 # --------------------------------------------------
-version: "0.3"
+version: "0.4"
 
 name: "Emerald Aqua"
 bgm: "PROJECT_VOID-CIRCUIT STAGE_2 -Emerald Aqua-.ogg"
@@ -21,8 +21,8 @@ scenario:
   - { frame: 210,   x: 240, type: "straight", hp: 1, bulletType: "straight" }
 
   # --- 00:05- 左右スカウト ＋ 交差サイン波（隙間なく配置） ---
-  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: true }
-  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: false }
+  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", from: "left" }
+  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", from: "right" }
   - { frame: 330,   x: 160, type: "sine",     hp: 1, phase: 0.0,  amplitude: 60, bulletType: "none" }
   - { frame: 350,   x: 160, type: "sine",     hp: 1, phase: 3.14, amplitude: 60, bulletType: "none" }
 
@@ -35,8 +35,8 @@ scenario:
   - { frame: 610,   x: 110, type: "straight",   hp: 1, bulletType: "straight" }
   - { frame: 620,   x: 210, type: "straight",   hp: 1, bulletType: "straight" }
   - { frame: 630,   x: 260, type: "straight",   hp: 1, bulletType: "straight" }
-  - { frame: 700,   y: 100, type: "scout",      hp: 1, bulletType: "aim", isLeft: true }
-  - { frame: 700,   y: 100, type: "scout",      hp: 1, bulletType: "aim", isLeft: false }
+  - { frame: 700,   y: 100, type: "scout",      hp: 1, bulletType: "aim", from: "left" }
+  - { frame: 700,   y: 100, type: "scout",      hp: 1, bulletType: "aim", from: "right" }
 
   # ========================================================
   # ⚡ 800F (00:13.3)- STAGE-2 固有敵（水没ユニット）解禁 ⚡

@@ -2,7 +2,7 @@
 # BGM Total Length: 3840F (01:04.0) | Boss Entrance: 2400F (00:40.0)
 # --------------------------------------------------
 
-version: "0.3"
+version: "0.4"
 
 name: "Cloud Palace"
 bgm: "PROJECT_VOID-CIRCUIT STAGE_3 -Cloud Palace-.ogg"
@@ -22,8 +22,8 @@ scenario:
   - { frame: 210,   x: 260, type: "straight", hp: 1, bulletType: "straight" }
 
   # --- 00:04.8- 左右スカウト ＋ 中央Sine交差 ＋ 高速特攻アサルトの急襲 ---
-  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: true }
-  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", isLeft: false }
+  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", from: "left" }
+  - { frame: 280,   y: 80,  type: "scout",    hp: 1, bulletType: "aim", from: "right" }
   - { frame: 320,   x: 160, type: "sine",     hp: 1, phase: 0.0,  amplitude: 80, bulletType: "none" }
   - { frame: 340,   x: 160, type: "sine",     hp: 1, phase: 3.14, amplitude: 80, bulletType: "none" }
   - { frame: 380,   x: 100, type: "assault" }
@@ -34,11 +34,11 @@ scenario:
   # ========================================================
 
   # --- 00:08.0- 480F解禁：WindSlicer 超高速横断 ＋ GaleArtillery（風圧砲台・中央1台） ---
-  - { frame: 480,   y: 100, type: "wind_slicer",   hp: 1, isLeft: true }
-  - { frame: 490,   y: 100, type: "wind_slicer",   hp: 1, isLeft: false }
-  - { frame: 505,   y: 150, type: "wind_slicer",   hp: 1, isLeft: true }
-  - { frame: 515,   y: 150, type: "wind_slicer",   hp: 1, isLeft: false }
-  - { frame: 550,   x: 160, type: "gale_artillery", hp: 16, stopY: 80 }
+  - { frame: 480,   y: 100, type: "wind_slicer",   hp: 1, from: "left" }
+  - { frame: 490,   y: 100, type: "wind_slicer",   hp: 1, from: "right" }
+  - { frame: 505,   y: 150, type: "wind_slicer",   hp: 1, from: "left" }
+  - { frame: 515,   y: 150, type: "wind_slicer",   hp: 1, from: "right" }
+  - { frame: 550,   x: 160, type: "gale_artillery", hp: 16 }
 
   # --- 00:11.0- CloudLurker 潜行奇襲 ＋ SkyFalcon 急降下ダイブ ---
   - { frame: 660,   x: 80,  type: "cloud_lurker",  hp: 2, bulletType: "aim" }
@@ -61,26 +61,26 @@ scenario:
   # ========================================================
 
   # --- 00:19.1- Bメロ：中央 GaleArtillery（1台固定） ＋ 左右 CloudLurker ＋ 特攻突入 ---
-  - { frame: 1150,  x: 160, type: "gale_artillery", hp: 16, stopY: 70 }
+  - { frame: 1150,  x: 160, type: "gale_artillery", hp: 16 }
   - { frame: 1190,  x: 60,  type: "cloud_lurker",   hp: 2 }
   - { frame: 1190,  x: 260, type: "cloud_lurker",   hp: 2 }
   - { frame: 1230,  x: 100, type: "assault" }
   - { frame: 1230,  x: 220, type: "assault" }
 
   # --- 00:21.3- メタルリフ加速：WindSlicer 6機連続超高速スクラム ---
-  - { frame: 1280,  y: 80,  type: "wind_slicer",   hp: 1, isLeft: true }
-  - { frame: 1290,  y: 100, type: "wind_slicer",   hp: 1, isLeft: false }
-  - { frame: 1300,  y: 120, type: "wind_slicer",   hp: 1, isLeft: true }
-  - { frame: 1310,  y: 140, type: "wind_slicer",   hp: 1, isLeft: false }
-  - { frame: 1320,  y: 160, type: "wind_slicer",   hp: 1, isLeft: true }
-  - { frame: 1330,  y: 180, type: "wind_slicer",   hp: 1, isLeft: false }
+  - { frame: 1280,  y: 80,  type: "wind_slicer",   hp: 1, from: "left" }
+  - { frame: 1290,  y: 100, type: "wind_slicer",   hp: 1, from: "right" }
+  - { frame: 1300,  y: 120, type: "wind_slicer",   hp: 1, from: "left" }
+  - { frame: 1310,  y: 140, type: "wind_slicer",   hp: 1, from: "right" }
+  - { frame: 1320,  y: 160, type: "wind_slicer",   hp: 1, from: "left" }
+  - { frame: 1330,  y: 180, type: "wind_slicer",   hp: 1, from: "right" }
 
   # --- 00:23.3- サビ：AegisCruiser ツイン ＋ 追尾ハンター ＋ 雲潜行隊 ---
   - { frame: 1400,  x: 80,  type: "aegis_cruiser", hp: 8 }
   - { frame: 1400,  x: 240, type: "aegis_cruiser", hp: 8 }
   - { frame: 1450,  x: 160, type: "hunter",        hp: 3, bulletType: "aim" }
-  - { frame: 1500,  x: 60,  type: "cloud_lurker",  hp: 2 }
-  - { frame: 1500,  x: 260, type: "cloud_lurker",  hp: 2 }
+  - { frame: 1500,  x: 60,  type: "cloud_lurker",   hp: 2 }
+  - { frame: 1500,  x: 260, type: "cloud_lurker",   hp: 2 }
 
   # ========================================================
   # 【③ クライマックス・ラッシュ（竜の棲む高空）】 1751F 〜 2400F (29.1〜40.0秒)
@@ -94,11 +94,11 @@ scenario:
   - { frame: 1750,  x: 280, type: "sky_falcon",    hp: 2 }
 
   # --- 00:32.5- ボス直前の要塞壁：中央 GaleArtillery（1台固定） ＋ AegisCruiser ＋ 高速横断の怒涛 ---
-  - { frame: 1950,  x: 160, type: "gale_artillery", hp: 12, stopY: 90 }
+  - { frame: 1950,  x: 160, type: "gale_artillery", hp: 12 }
   - { frame: 1980,  x: 80,  type: "aegis_cruiser",  hp: 8 }
   - { frame: 1980,  x: 240, type: "aegis_cruiser",  hp: 8 }
-  - { frame: 2020,  y: 110, type: "wind_slicer",    hp: 1, isLeft: true }
-  - { frame: 2030,  y: 130, type: "wind_slicer",    hp: 1, isLeft: false }
+  - { frame: 2020,  y: 110, type: "wind_slicer",    hp: 1, from: "left" }
+  - { frame: 2030,  y: 130, type: "wind_slicer",    hp: 1, from: "right" }
   - { frame: 2080,  x: 120, type: "straight",       hp: 1, bulletType: "straight" }
   - { frame: 2080,  x: 200, type: "straight",       hp: 1, bulletType: "straight" }
 
@@ -114,11 +114,11 @@ scenario:
   - { frame: 2400,  x: 160, type: "boss_03", hp: 200, timeLimit: 1440, timeMultiplier: 100 }
 
   # --- ボス戦中の増援（急降下・横断・潜行の混戦） ---
-  - { frame: 2600,  y: 90,  type: "wind_slicer",   hp: 1, isLeft: true }
-  - { frame: 2620,  y: 150, type: "wind_slicer",   hp: 1, isLeft: false }
+  - { frame: 2600,  y: 90,  type: "wind_slicer",   hp: 1, from: "left" }
+  - { frame: 2620,  y: 150, type: "wind_slicer",   hp: 1, from: "right" }
   - { frame: 2680,  x: 160, type: "sky_falcon",    hp: 2 }
-  - { frame: 2740,  x: 80,  type: "cloud_lurker",  hp: 2 }
-  - { frame: 2740,  x: 240, type: "cloud_lurker",  hp: 2 }
+  - { frame: 2740,  x: 80,  type: "cloud_lurker",   hp: 2 }
+  - { frame: 2740,  x: 240, type: "cloud_lurker",   hp: 2 }
 
   # --- ボス戦無限ループ終端 ---
   - { frame: 2900,  type: "LOOP_END", returnTo: 2600 }
